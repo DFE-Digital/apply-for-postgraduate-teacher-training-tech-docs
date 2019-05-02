@@ -1,5 +1,5 @@
 # Host to use for canonical URL generation (without trailing slash)
-host: docs.apply-for-postgraduate-teacher-training-tech-docs.education.gov.uk
+host: apply-for-postgraduate-teacher-training-tech-docs.cloudapps.digital
 
 # Header-related options
 show_govuk_logo: true
@@ -35,4 +35,4 @@ max_toc_heading_level: 6
 prevent_indexing: false
 
 show_contribution_banner: true
-github_repo: alphagov/apply-for-postgraduate-teacher-training
+github_repo: DFE-Digital/apply-for-postgraduate-teacher-training
