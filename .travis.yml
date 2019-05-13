@@ -1,0 +1,16 @@
+language: ruby
+cache: bundler
+before_install:
+  - gem install bundler
+script:
+  - bundle exec middleman build --verbose
+deploy:
+  provider: cloudfoundry
+  api: https://api.cloud.service.gov.uk
+  username: paul.lloyd@digital.education.gov.uk
+  password:
+    secure: Z+wKc/N3vDk+O8/diR2wIdJBGK1OdP8rzUI0qDDqWd1h5wfjbU3UVOfiUzmKlx+OixjTAdc8j8Z6aFjARhenW63a9v43dXSURVboVLQZVcgKu8u+eGjyfJRap1nCTw1ElbcjDFXlt/CHN0cf18TUl0AGw7RrA4BYJRUt6WPW4xrC15BZdtLmlTlr/6RpaivPDKb1BpFBqq7rXValqCsxCAzVIh4uQVAqB7yi6KIghFNwkSYU49XwiYdz1A2GC965lgE//AHQUYfk0eMAaA6ENspMp+qcsHaHZB8pkIyFZkF1nO3LlEHfXOUY/A0Eot3rovpFZuVF712d7mFAmHax9uI1R+1mMTLVjad86U6+zgYCYoQ5vNTzRA2rtGeuuZDsRi9gVYSTb20+c3tg/ZzEOuLvaEMf4I2HzCSmVzHDm/vy5oUZMm6lF4wodNWi8xFxc9mUYTpLpARTSNeyz2Of+Rx0uF7923gB9eq34hb3UqRJsSgsUQ70E7IBdowTFbC7LJiufBHgpvTHnI7cCl8VSj3r7lViTcSHmX/N7CWQbIa9Q2eoBN74bv/dyxkon5Fy7SGMdtzMaXrkoDqMwxk4QxHY97/tAYizYP+IwviatR83im0TLT13DyF6y8rJgnHdKmSXp2hPY6ksyTpreAguNfXftEYH8PUIHKudg2ZDsqA=
+  organization: dfe-becoming-teacher
+  space: sandbox
+  on:
+    repo: DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs
