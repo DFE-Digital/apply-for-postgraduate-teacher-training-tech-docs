@@ -1,13 +1,22 @@
-# Hello, World!
+# Introduction
 
-## Edit Me!
+This is the documentation for using APIs associated with the "apply to postgraduate teacher training" service, commonly known as _Apply_.
 
-Open `source/documentation/index.md` in your favourite text editor and start editing!
+_Apply_ is for potential teachers looking to train, and providers of that teacher training.
 
-You can write content in [Markdown](https://daringfireball.net/projects/markdown/) using **all** of the _usual_ syntax that you're used to!
+## Who this API is for
 
-To change the title of the page or include additional files you'll need to edit `source/index.html.md.erb`.
+It isn't for public use. If you're looking to use them, we expect you are either:
 
-If you want slightly more control, you can always use <strong>HTML</strong>.
+* a provider of teacher training
+* a vendor supporting a provider
 
-For more detail and troubleshooting, take a look at the `README.md` file in the root of this project.
+If you believe you need access, [contact us]().
+
+## What this API is for
+
+## What form the API takes
+
+## How you might use it
+
+## Versioning
