@@ -1,0 +1,86 @@
+{
+  "id": "aa546741-b54a-403c-a67a-7f5aec1939d1",
+  "candidate": {
+    "id": "a0afe017-ea18-491d-9bda-16037102e1dd",
+    "email": "boris.brown@racingdemon.net",
+    "first_name": "Boris",
+    "last_name": "Brown",
+    "date_of_birth": "1980-09-13",
+    "nationality": "British",
+    "residency_status": "UK Citizen",
+    "disability": "partially sighted",
+    "disability_hesa_code": "???"
+  },
+  "contact_details": {
+    "phone_number": "07944386555",
+    "address": "45 Dialstone Lane, Stockport, England SK2 6AA"
+  },
+  "course": {
+    "description": "Acorns Teaching School Alliance, Primary (salaried, full-time)",
+    "provider_ucas_code": "2FR",
+    "course_ucas_code": "3CVK",
+    "location_ucas_code": "K"
+  },
+  "qualifications": [{
+    "type": "BA",
+    "subject": "History and Politics",
+    "grade": "2:1",
+    "award_date": "1992-01-20",
+    "institution_name": "University of Huddersfield",
+    "international": false
+  },
+  {
+    "type": "O Level",
+    "subject": "Maths",
+    "grade": "A",
+    "award_date": "1986-01-20",
+    "institution_name": "",
+    "international": false
+  }
+  ],
+  "work_experiences": [{
+    "employer_name": "Cheadle Hulme High School",
+    "start_date": "2018-05-01",
+    "end_date": "2019-04-01",
+    "job_title": "Whole School Literacy Specialist",
+    "job_description": "I lead, develop and enhance the literacy teaching practice of others..."
+  }],
+  "status": "open",
+  "status_ucas_code": "C",
+  "personal_statement": "Since retiring from the Police Service in 2007...",
+  "withdrawal": {
+    "reason": "Candidate is unwell",
+    "date": "2019-01-30"
+  },
+  "rejection": {
+    "reason": "Does not meet minimum GCSE requirements",
+    "date": "2019-01-30"
+  },
+  "offer": {
+    "course": {
+      "description": "Acorns Teaching School Alliance, Primary (salaried, full-time)",
+      "provider_ucas_code": "2FR",
+      "course_ucas_code": "3CVK",
+      "location_ucas_code": "K"
+    },
+    "date": "2019-01-25",
+    "conditions": [
+      "Completion of subject knowledge enhancement",
+      "Completion of professional skills test"
+    ]
+  },
+  "interviews": [{
+    "booked_at": "2019-01-16T14:00:00Z",
+    "date": "2019-01-18T10:30:00Z",
+    "instructions": "Come to Room 4 in Building 6",
+    "address": "Acorns Teaching School Alliance HQ, 1 Romney Way, Doncaster, DN1 8TQ"
+  },
+  {
+    "booked_at": "2019-01-19T09:00:00Z",
+    "date": "2019-01-21T10:30:00Z",
+    "instructions": "Come to Room 4 in Building 6",
+    "address": "Acorns Teaching School Alliance HQ, 1 Romney Way, Doncaster, DN1 8TQ"
+  }],
+  "created_at": "2019-06-13T10:44:31Z",
+  "updated_at": "2019-06-13T10:44:31Z"
+}
