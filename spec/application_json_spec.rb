@@ -2,7 +2,7 @@ require 'json'
 require 'application_json'
 
 RSpec.describe ApplicationJson do
-  subject do
+  let(:including_class) do
     Class.new do
       include ApplicationJson
     end.new
@@ -15,11 +15,23 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   describe '.single_application_json' do
-    it 'returns the JSON for an application with all fields present' do
-      parsed_json = JSON.parse(subject.single_application_json)
+    subject(:parsed_json) do
+      JSON.parse(including_class.single_application_json)
+    end
 
+    it 'returns the JSON for an application with all fields present' do
       expect(parsed_json).to be_a Hash
       expect(parsed_json.keys).to match_array(ALL_APPLICATION_FIELDS)
+    end
+
+    it 'has two interviews and an offer' do
+      expect(parsed_json['interviews'].count).to eq 2
+      expect(parsed_json['offer']).not_to be_nil
+    end
+
+    it 'does not have a withdrawal or rejection' do
+      expect(parsed_json['withdrawal']).to be_nil
+      expect(parsed_json['rejection']).to be_nil
     end
   end
 end
