@@ -12,3 +12,6 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 gem 'govuk_tech_docs'
 
 gem "rspec", "~> 3.8"
+
+gem "rubocop", "~> 0.71.0"
+gem "rubocop-rspec", "~> 1.33"
