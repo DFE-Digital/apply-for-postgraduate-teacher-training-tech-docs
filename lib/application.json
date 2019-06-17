@@ -1,5 +1,8 @@
 {
   "id": "aa546741-b54a-403c-a67a-7f5aec1939d1",
+  "status": "open",
+  "status_ucas_code": "C",
+  "personal_statement": "Since retiring from the Police Service in 2007...",
   "candidate": {
     "id": "a0afe017-ea18-491d-9bda-16037102e1dd",
     "email": "boris.brown@racingdemon.net",
@@ -45,17 +48,18 @@
     "job_title": "Whole School Literacy Specialist",
     "job_description": "I lead, develop and enhance the literacy teaching practice of others..."
   }],
-  "status": "open",
-  "status_ucas_code": "C",
-  "personal_statement": "Since retiring from the Police Service in 2007...",
-  "withdrawal": {
-    "reason": "Candidate is unwell",
-    "date": "2019-01-30"
+  "interviews": [{
+    "booked_at": "2019-01-16T14:00:00Z",
+    "date": "2019-01-18T10:30:00Z",
+    "instructions": "Come to Room 4 in Building 6",
+    "address": "Acorns Teaching School Alliance HQ, 1 Romney Way, Doncaster, DN1 8TQ"
   },
-  "rejection": {
-    "reason": "Does not meet minimum GCSE requirements",
-    "date": "2019-01-30"
-  },
+  {
+    "booked_at": "2019-01-19T09:00:00Z",
+    "date": "2019-01-21T10:30:00Z",
+    "instructions": "Come to Room 4 in Building 6",
+    "address": "Acorns Teaching School Alliance HQ, 1 Romney Way, Doncaster, DN1 8TQ"
+  }],
   "offer": {
     "course": {
       "description": "Acorns Teaching School Alliance, Primary (salaried, full-time)",
@@ -69,18 +73,14 @@
       "Completion of professional skills test"
     ]
   },
-  "interviews": [{
-    "booked_at": "2019-01-16T14:00:00Z",
-    "date": "2019-01-18T10:30:00Z",
-    "instructions": "Come to Room 4 in Building 6",
-    "address": "Acorns Teaching School Alliance HQ, 1 Romney Way, Doncaster, DN1 8TQ"
+  "withdrawal": {
+    "reason": "Candidate is unwell",
+    "date": "2019-01-30"
   },
-  {
-    "booked_at": "2019-01-19T09:00:00Z",
-    "date": "2019-01-21T10:30:00Z",
-    "instructions": "Come to Room 4 in Building 6",
-    "address": "Acorns Teaching School Alliance HQ, 1 Romney Way, Doncaster, DN1 8TQ"
-  }],
+  "rejection": {
+    "reason": "Does not meet minimum GCSE requirements",
+    "date": "2019-01-30"
+  },
   "created_at": "2019-06-13T10:44:31Z",
   "updated_at": "2019-06-13T10:44:31Z"
 }
