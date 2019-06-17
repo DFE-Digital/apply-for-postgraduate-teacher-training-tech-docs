@@ -15,3 +15,5 @@ gem "rspec", "~> 3.8"
 
 gem "rubocop", "~> 0.71.0"
 gem "rubocop-rspec", "~> 1.33"
+
+gem "capybara", "~> 3.24"
