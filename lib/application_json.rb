@@ -29,6 +29,21 @@ module ApplicationJson
         name: 'created_at',
         type: 'string',
         description: 'ISO8601 date with time'
+      },
+      {
+        name: 'candidate',
+        type: '<a href="/resources_and_their_attributes.html#candidate">Candidate</a>',
+        description: 'Candidate details'
+      }
+    ]
+  end
+
+  def candidate_attributes
+    [
+      {
+        name: 'id',
+        type: 'uuid',
+        description: 'The unique ID of this candidate'
       }
     ]
   end
