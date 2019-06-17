@@ -1,0 +1,13 @@
+<table>
+  <% attributes.each do |attribute| %>
+    <tr>
+      <td>
+        <%= attribute[:name] %>
+      </td>
+      <td>
+        <strong><%= attribute[:type] %></strong>
+      </td>
+      <td><%= attribute[:description] %></td>
+    </tr>
+  <% end %>
+</table>
