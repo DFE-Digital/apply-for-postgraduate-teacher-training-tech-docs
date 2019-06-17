@@ -14,6 +14,11 @@ RSpec.describe ApplicationJson do
     withdrawal rejection offer interviews created_at updated_at
   ].freeze
 
+  APPLICATION_SUBRESOURCES = %w[
+    candidate contact_details course qualifications
+    work_experiences withdrawal rejection offer interviews
+  ]
+
   describe '.single_application_json' do
     subject(:parsed_json) do
       JSON.parse(including_class.single_application_json)
@@ -24,14 +29,18 @@ RSpec.describe ApplicationJson do
       expect(parsed_json.keys).to match_array(ALL_APPLICATION_FIELDS)
     end
 
-    it 'has two interviews and an offer' do
-      expect(parsed_json['interviews'].count).to eq 2
-      expect(parsed_json['offer']).not_to be_nil
-    end
-
     it 'does not have a withdrawal or rejection' do
       expect(parsed_json['withdrawal']).to be_nil
       expect(parsed_json['rejection']).to be_nil
+    end
+
+    it 'does not include subresources' do
+      expect(parsed_json.values_at(*APPLICATION_SUBRESOURCES))
+        .to all(satisfy do |v|
+          v.nil? ||
+          v == ApplicationJson::DUMMY_OBJECT ||
+          v == ApplicationJson::DUMMY_ARRAY_OF_OBJECTS
+      end)
     end
   end
 end
