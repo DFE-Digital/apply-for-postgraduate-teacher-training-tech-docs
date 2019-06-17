@@ -2,8 +2,8 @@ module ApplicationJson
   def single_application_json
     JSON.pretty_generate(
       json_data.merge(
-        "withdrawal": nil,
-        "rejection": nil
+        'withdrawal' => nil,
+        'rejection' => nil
       )
     )
   end
