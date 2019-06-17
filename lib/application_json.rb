@@ -18,6 +18,21 @@ module ApplicationJson
     )
   end
 
+  def application_attributes
+    [
+      {
+        name: 'id',
+        type: 'uuid',
+        description: 'The unique ID of this application'
+      },
+      {
+        name: 'created_at',
+        type: 'string',
+        description: 'ISO8601 date with time'
+      }
+    ]
+  end
+
   def json_data
     @json_data ||= JSON.parse(File.read('lib/application.json'))
   end
