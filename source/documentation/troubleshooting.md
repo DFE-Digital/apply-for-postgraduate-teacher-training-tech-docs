@@ -1,5 +1,0 @@
-# Troubleshooting
-
-## Rate limits
-
-## Errors
