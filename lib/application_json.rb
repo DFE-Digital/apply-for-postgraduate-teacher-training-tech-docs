@@ -32,7 +32,7 @@ module ApplicationJson
       },
       {
         name: 'candidate',
-        type: '<a href="/resources_and_their_attributes.html#candidate">Candidate</a>',
+        type: link_to_resource_definition('Candidate'),
         description: 'Candidate details'
       }
     ]
@@ -46,6 +46,13 @@ module ApplicationJson
         description: 'The unique ID of this candidate'
       }
     ]
+  end
+
+  def link_to_resource_definition(resource_name)
+    slug = resource_name.downcase.gsub(' ', '_')
+    "<a href='/resources_and_their_attributes.html##{slug}'>
+      #{resource_name}
+    </a>"
   end
 
   def json_data
