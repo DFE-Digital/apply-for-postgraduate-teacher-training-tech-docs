@@ -23,17 +23,4 @@ GET /applications/aa546741-b54a-403c-a67a-7f5aec1939d1
 
 ## Attributes
 
-<%= partial 'partials/attribute_table', locals: {
-  attributes: [
-    {
-      name: 'id',
-      type: 'uuid',
-      description: 'The unique ID of this application'
-    },
-    {
-      name: 'created_at',
-      type: 'string',
-      description: 'ISO8601 date with time'
-    }
-  ]
-} %>
+<%= partial 'partials/attribute_table', locals: { attributes: application_attributes } %>
