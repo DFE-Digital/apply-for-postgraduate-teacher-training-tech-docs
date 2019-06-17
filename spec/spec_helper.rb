@@ -13,6 +13,19 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+# https://github.com/SimonRice/middleman-rspec/blob/master/spec/spec_helper.rb
+require 'capybara/rspec'
+require 'middleman-core'
+require 'middleman-core/rack'
+
+middleman_app = ::Middleman::Application.new do
+  set :environment, :test
+  set :show_exceptions, false
+end
+
+Capybara.app = ::Middleman::Rack.new(middleman_app).to_app
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
