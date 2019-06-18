@@ -365,10 +365,9 @@ module ApplicationJson
   end
 
   def link_to_resource_definition(resource_name)
-    slug = resource_name.downcase.gsub(' ', '_')
-    "<a href='/resources-and-their-attributes##{slug}'>
-      #{resource_name}
-    </a>"
+    slug = resource_name.downcase.gsub(' ', '-')
+    link = "/resources-and-their-attributes##{slug}"
+    "<a href='#{link}'>#{resource_name}</a>"
   end
 
   def json_data

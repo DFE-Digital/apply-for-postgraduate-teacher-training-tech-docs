@@ -281,4 +281,13 @@ RSpec.describe ApplicationJson do
       expect(fields).to match_array(REJECTION_FIELDS)
     end
   end
+
+  describe '#link_to_resource_definition' do
+    it 'links to the correct page' do
+      result = including_class.link_to_resource_definition('Arbitrary field name')
+      link = '/resources-and-their-attributes#arbitrary-field-name'
+      expected = "<a href='#{link}'>Arbitrary field name</a>"
+      expect(result).to eq(expected)
+    end
+  end
 end
