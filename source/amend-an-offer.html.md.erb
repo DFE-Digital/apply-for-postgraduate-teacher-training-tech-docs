@@ -5,8 +5,32 @@ weight: 50
 
 # Amend an offer
 
+```
+PATCH /applications/:id/offer
+```
+
 ## Example request
+
+```
+PATCH /applications/aa546741-b54a-403c-a67a-7f5aec1939d1/offer
+```
+
+It's possible to amend one or all of the fields of an offer using this method.
+
+Example request body:
+
+```json
+<%= offer_creation_json %>
+```
 
 ## Example response
 
+**HTTP 204**
+
+```json
+<%= offer_json %>
+```
+
 ## Attributes
+
+<%= partial 'partials/attribute_table', locals: { attributes: offer_attributes } %>
