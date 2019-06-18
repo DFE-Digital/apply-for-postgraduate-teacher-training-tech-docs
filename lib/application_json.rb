@@ -345,6 +345,25 @@ module ApplicationJson
     ]
   end
 
+  def rejection_json
+    JSON.pretty_generate(json_data['rejection'])
+  end
+
+  def rejection_attributes
+    [
+      {
+        name: 'reason',
+        type: 'string',
+        description: 'The reason for rejection'
+      },
+      {
+        name: 'date',
+        type: 'string',
+        description: 'The date on which the rejection was issued in YYYY-MM-DD format'
+      }
+    ]
+  end
+
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '_')
     "<a href='/resources-and-their-attributes##{slug}'>
