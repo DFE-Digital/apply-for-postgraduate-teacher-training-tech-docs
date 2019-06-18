@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe 'following resource links', type: :feature do
-  scenario 'clicking the "Candidate" link in the "Application" attributes list' do
+describe 'following resource links', type: :feature do
+  scenario 'clicking the "Contact details" link in the "Application" attributes list' do
     visit '/'
 
     click_on 'Retrieve a single application'
@@ -9,6 +9,6 @@ RSpec.describe 'following resource links', type: :feature do
       click_on 'Candidate'
     end
 
-    expect(page).to have_content 'The unique ID of this candidate'
+    expect(page).to have_content 'The candidate’s phone number'
   end
 end
