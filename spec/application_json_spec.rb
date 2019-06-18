@@ -32,6 +32,10 @@ RSpec.describe ApplicationJson do
     description provider_ucas_code course_ucas_code location_ucas_code
   ].freeze
 
+  ALL_QUALIFICATION_FIELDS = %w[
+    type subject grade award_date institution_name international
+  ].freeze
+
   describe '#single_application_json' do
     subject(:parsed_json) do
       JSON.parse(including_class.single_application_json)
@@ -115,6 +119,26 @@ RSpec.describe ApplicationJson do
     it 'contains an entry for all the relevant fields' do
       fields = including_class.course_attributes.map { |desc| desc[:name] }
       expect(fields).to match_array(ALL_COURSE_FIELDS)
+    end
+  end
+
+  describe '#qualification_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.qualification_json)
+    end
+
+    it 'returns the JSON for a qualification with all the fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(ALL_QUALIFICATION_FIELDS)
+    end
+  end
+
+  describe '#qualification_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.qualification_attributes.map do |desc|
+        desc[:name]
+      end
+      expect(fields).to match_array(ALL_QUALIFICATION_FIELDS)
     end
   end
 end

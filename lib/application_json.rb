@@ -200,6 +200,45 @@ module ApplicationJson
     ]
   end
 
+  def qualification_json
+    JSON.pretty_generate(json_data['qualifications'].first)
+  end
+
+  def qualification_attributes
+    [
+      {
+        name: 'type',
+        type: 'string',
+        description: 'The qualification awarded'
+      },
+      {
+        name: 'subject',
+        type: 'string',
+        description: 'The subject studied'
+      },
+      {
+        name: 'grade',
+        type: 'string',
+        description: 'The grade awarded'
+      },
+      {
+        name: 'award_date',
+        type: 'string',
+        description: 'The date awarded, in YYYY-MM-DD format'
+      },
+      {
+        name: 'institution_name',
+        type: 'string',
+        description: 'The awarding institution'
+      },
+      {
+        name: 'international',
+        type: 'boolean',
+        description: 'Was this qualification awarded by a non-UK body'
+      }
+    ]
+  end
+
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '_')
     "<a href='/resources-and-their-attributes##{slug}'>
