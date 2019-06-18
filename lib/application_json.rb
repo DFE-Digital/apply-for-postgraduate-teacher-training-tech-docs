@@ -316,12 +316,31 @@ module ApplicationJson
       {
         name: 'date',
         type: 'string',
-        description: 'The offered entry date'
+        description: 'The offered entry date in YYYY-MM-DD format'
       },
       {
         name: 'conditions',
         type: 'array of strings',
         description: 'The conditions of the offer'
+      }
+    ]
+  end
+
+  def withdrawal_json
+    JSON.pretty_generate(json_data['withdrawal'])
+  end
+
+  def withdrawal_attributes
+    [
+      {
+        name: 'reason',
+        type: 'string',
+        description: 'The candidate’s reason for withdrawing'
+      },
+      {
+        name: 'date',
+        type: 'string',
+        description: 'The date on which the withdrawal was received in YYYY-MM-DD format'
       }
     ]
   end
