@@ -5,8 +5,30 @@ weight: 30
 
 # Invite a candidate to interview
 
+```
+POST /applications/:id/interviews
+```
+
 ## Example request
+
+```
+POST /applications/aa546741-b54a-403c-a67a-7f5aec1939d1/interviews
+```
+
+Request body:
+
+```json
+<%= interview_json %>
+```
 
 ## Example response
 
+**HTTP 201**
+
+```json
+<%= interview_json %>
+```
+
 ## Attributes
+
+<%= partial 'partials/attribute_table', locals: { attributes: interview_attributes } %>
