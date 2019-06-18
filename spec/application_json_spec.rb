@@ -36,6 +36,10 @@ RSpec.describe ApplicationJson do
     type subject grade award_date institution_name international
   ].freeze
 
+  ALL_WORK_EXPERIENCE_FIELDS = %w[
+    employer_name start_date end_date job_title job_description
+  ].freeze
+
   describe '#single_application_json' do
     subject(:parsed_json) do
       JSON.parse(including_class.single_application_json)
@@ -139,6 +143,46 @@ RSpec.describe ApplicationJson do
         desc[:name]
       end
       expect(fields).to match_array(ALL_QUALIFICATION_FIELDS)
+    end
+  end
+
+  describe '#work_experience_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.work_experience_json)
+    end
+
+    it 'returns the JSON for a qualification with all the fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(ALL_WORK_EXPERIENCE_FIELDS)
+    end
+  end
+
+  describe '#work_experience_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.work_experience_attributes.map do |desc|
+        desc[:name]
+      end
+      expect(fields).to match_array(ALL_WORK_EXPERIENCE_FIELDS)
+    end
+  end
+
+  describe '#work_experience_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.work_experience_json)
+    end
+
+    it 'returns the JSON for a qualification with all the fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(ALL_WORK_EXPERIENCE_FIELDS)
+    end
+  end
+
+  describe '#work_experience_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.work_experience_attributes.map do |desc|
+        desc[:name]
+      end
+      expect(fields).to match_array(ALL_WORK_EXPERIENCE_FIELDS)
     end
   end
 end
