@@ -31,14 +31,56 @@ weight: 70
 
 ## Course
 
+```json
+<%= course_json %>
+```
+
+<%= partial 'partials/attribute_table', locals: { attributes: course_attributes } %>
+
 ## Qualification
+
+```json
+<%= qualification_json %>
+```
+
+<%= partial 'partials/attribute_table', locals: { attributes: qualification_attributes } %>
 
 ## Work experience
 
+```json
+<%= work_experience_json %>
+```
+
+<%= partial 'partials/attribute_table', locals: { attributes: work_experience_attributes } %>
+
 ## Interview
+
+```json
+<%= interview_json %>
+```
+
+<%= partial 'partials/attribute_table', locals: { attributes: interview_attributes } %>
 
 ## Offer
 
+```json
+<%= offer_json %>
+```
+
+<%= partial 'partials/attribute_table', locals: { attributes: offer_attributes } %>
+
 ## Withdrawal
 
+```json
+<%= withdrawal_json %>
+```
+
+<%= partial 'partials/attribute_table', locals: { attributes: withdrawal_attributes } %>
+
 ## Rejection
+
+```json
+<%= rejection_json %>
+```
+
+<%= partial 'partials/attribute_table', locals: { attributes: rejection_attributes } %>
