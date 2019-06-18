@@ -68,7 +68,7 @@ module ApplicationJson
       {
         name: 'course',
         type: link_to_resource_definition('Course'),
-        description: 'Contact details'
+        description: 'Course details'
       },
       {
         name: 'work_experiences',
@@ -117,12 +117,12 @@ module ApplicationJson
       {
         name: 'first_name',
         type: 'string',
-        description: ''
+        description: 'The candidate’s first name'
       },
       {
         name: 'last_name',
         type: 'string',
-        description: ''
+        description: 'The candidate’s last name'
       },
       {
         name: 'date_of_birth',
@@ -248,7 +248,7 @@ module ApplicationJson
       {
         name: 'employer_name',
         type: 'string',
-        description: ''
+        description: 'The name of the employer (company or individual)'
       },
       {
         name: 'start_date',
@@ -263,12 +263,12 @@ module ApplicationJson
       {
         name: 'job_title',
         type: 'string',
-        description: ''
+        description: 'The position held by the candidate'
       },
       {
         name: 'job_description',
         type: 'string',
-        description: ''
+        description: 'A brief written description of the work involved'
       }
     ]
   end
@@ -319,7 +319,7 @@ module ApplicationJson
       {
         name: 'course',
         type: link_to_resource_definition('Course'),
-        description: ''
+        description: 'Course details'
       },
       {
         name: 'date',
