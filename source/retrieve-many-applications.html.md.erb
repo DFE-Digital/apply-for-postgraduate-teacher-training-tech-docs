@@ -5,8 +5,24 @@ weight: 20
 
 # Retrieve many applications
 
+```
+GET /applications
+```
+
 ## Example request
+
+```
+GET /applications/:id
+```
 
 ## Example response
 
+**HTTP 200**
+
+```json
+[ { Application }, { Application } ...  ]
+```
+
 ## Attributes
+
+See <%= link_to_resource_definition('Application') %>
