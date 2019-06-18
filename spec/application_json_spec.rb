@@ -51,6 +51,10 @@ RSpec.describe ApplicationJson do
   ALL_WITHDRAWAL_FIELDS = %w[
     reason date
   ].freeze
+  
+  ALL_REJECTION_FIELDS = %w[
+    reason date
+  ].freeze
 
   describe '#single_application_json' do
     subject(:parsed_json) do
@@ -255,6 +259,26 @@ RSpec.describe ApplicationJson do
         desc[:name]
       end
       expect(fields).to match_array(ALL_WITHDRAWAL_FIELDS)
+    end
+  end
+
+  describe '#rejection_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.rejection_json)
+    end
+
+    it 'returns the JSON for a qualification with all the fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(ALL_REJECTION_FIELDS)
+    end
+  end
+
+  describe '#rejection_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.rejection_attributes.map do |desc|
+        desc[:name]
+      end
+      expect(fields).to match_array(ALL_REJECTION_FIELDS)
     end
   end
 end
