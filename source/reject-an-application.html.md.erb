@@ -5,8 +5,30 @@ weight: 60
 
 # Reject an application
 
+```
+POST /applications/:id/rejection
+```
+
 ## Example request
+
+```
+POST /applications/aa546741-b54a-403c-a67a-7f5aec1939d1/rejection
+```
+
+Request body:
+
+```json
+<%= rejection_json %>
+```
 
 ## Example response
 
+**HTTP 201**
+
+```json
+<%= rejection_json %>
+```
+
 ## Attributes
+
+<%= partial 'partials/attribute_table', locals: { attributes: rejection_attributes } %>
