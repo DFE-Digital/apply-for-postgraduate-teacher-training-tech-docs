@@ -239,6 +239,40 @@ module ApplicationJson
     ]
   end
 
+  def work_experience_json
+    JSON.pretty_generate(json_data['work_experiences'].first)
+  end
+
+  def work_experience_attributes
+    [
+      {
+        name: 'employer_name',
+        type: 'string',
+        description: ''
+      },
+      {
+        name: 'start_date',
+        type: 'string',
+        description: 'The date employment began in YYYY-MM-DD format'
+      },
+      {
+        name: 'end_date',
+        type: 'string',
+        description: 'The date employment finished in YYYY-MM-DD format, if appropriate'
+      },
+      {
+        name: 'job_title',
+        type: 'string',
+        description: ''
+      },
+      {
+        name: 'job_description',
+        type: 'string',
+        description: ''
+      }
+    ]
+  end
+
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '_')
     "<a href='/resources-and-their-attributes##{slug}'>
