@@ -233,6 +233,16 @@ RSpec.describe ApplicationJson do
     end
   end
 
+  describe '#offer_creation_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.offer_creation_json)
+    end
+
+    it 'returns the JSON with the course description removed' do
+      expect(parsed_json['course']).not_to include('description')
+    end
+  end
+
   describe '#offer_attributes' do
     it 'contains an entry for all the relevant fields' do
       fields = including_class.offer_attributes.map do |desc|
