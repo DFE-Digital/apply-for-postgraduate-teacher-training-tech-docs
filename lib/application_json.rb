@@ -302,6 +302,30 @@ module ApplicationJson
     ]
   end
 
+  def offer_json
+    JSON.pretty_generate(json_data['offer'])
+  end
+
+  def offer_attributes
+    [
+      {
+        name: 'course',
+        type: link_to_resource_definition('Course'),
+        description: ''
+      },
+      {
+        name: 'date',
+        type: 'string',
+        description: 'The offered entry date'
+      },
+      {
+        name: 'conditions',
+        type: 'array of strings',
+        description: 'The conditions of the offer'
+      }
+    ]
+  end
+
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '_')
     "<a href='/resources-and-their-attributes##{slug}'>
