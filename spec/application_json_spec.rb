@@ -19,7 +19,12 @@ RSpec.describe ApplicationJson do
     work_experiences withdrawal rejection offer interviews
   ]
 
-  describe '.single_application_json' do
+  ALL_CANDIDATE_FIELDS = %w[
+    id email first_name last_name date_of_birth nationality
+    residency_status disability disability_hesa_code
+  ].freeze
+
+  describe '#single_application_json' do
     subject(:parsed_json) do
       JSON.parse(including_class.single_application_json)
     end
@@ -48,6 +53,42 @@ RSpec.describe ApplicationJson do
     it 'contains an entry for all the relevant fields' do
       fields = including_class.application_attributes.map { |desc| desc[:name] }
       expect(fields).to match_array(ALL_APPLICATION_FIELDS)
+    end
+  end
+
+  describe '#candidate_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.candidate_json)
+    end
+
+    it 'returns the JSON for a candidate with all the fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(ALL_CANDIDATE_FIELDS)
+    end
+  end
+
+  describe '#candidate_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.candidate_attributes.map { |desc| desc[:name] }
+      expect(fields).to match_array(ALL_CANDIDATE_FIELDS)
+    end
+  end
+
+  describe '#contact_details_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.contact_details_json)
+    end
+
+    it 'returns the JSON for a candidate with all the fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(ALL_CONTACT_DETAILS_FIELDS)
+    end
+  end
+
+  describe '#candidate_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.contact_details_json.map { |desc| desc[:name] }
+      expect(fields).to match_array(ALL_CONTACT_DETAILS_FIELDS)
     end
   end
 end

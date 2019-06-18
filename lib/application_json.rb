@@ -98,12 +98,56 @@ module ApplicationJson
     ]
   end
 
+  def candidate_json
+    JSON.pretty_generate(json_data['candidate'])
+  end
+
   def candidate_attributes
     [
       {
         name: 'id',
         type: 'uuid',
         description: 'The unique ID of this candidate'
+      },
+      {
+        name: 'email',
+        type: 'string',
+        description: 'The candidate’s email address'
+      },
+      {
+        name: 'first_name',
+        type: 'string',
+        description: ''
+      },
+      {
+        name: 'last_name',
+        type: 'string',
+        description: ''
+      },
+      {
+        name: 'date_of_birth',
+        type: 'string',
+        description: 'The candidate’s date of birth in YYYY-MM-DD format'
+      },
+      {
+        name: 'nationality',
+        type: 'string',
+        description: 'The applicant’s nationality'
+      },
+      {
+        name: 'residency_status',
+        type: 'string',
+        description: 'The applicant’s residency_status'
+      },
+      {
+        name: 'disability',
+        type: 'string',
+        description: 'The candidate’s disabilities in a sentence'
+      },
+      {
+        name: 'disability_hesa_code',
+        type: 'string',
+        description: 'The candidate’s disabilities expressed as a HESA code'
       }
     ]
   end
