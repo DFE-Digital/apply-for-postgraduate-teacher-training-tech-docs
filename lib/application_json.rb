@@ -171,6 +171,35 @@ module ApplicationJson
     ]
   end
 
+  def course_json
+    JSON.pretty_generate(json_data['course'])
+  end
+
+  def course_attributes
+    [
+      {
+        name: 'description',
+        type: 'string',
+        description: 'The plain text description of the course'
+      },
+      {
+        name: 'provider_ucas_code',
+        type: 'string',
+        description: 'The provider’s UCAS code'
+      },
+      {
+        name: 'course_ucas_code',
+        type: 'string',
+        description: 'The course’s UCAS code'
+      },
+      {
+        name: 'location_ucas_code',
+        type: 'string',
+        description: 'The location’s UCAS code'
+      }
+    ]
+  end
+
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '_')
     "<a href='/resources-and-their-attributes##{slug}'>
