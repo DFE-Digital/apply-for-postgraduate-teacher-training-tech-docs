@@ -40,6 +40,10 @@ RSpec.describe ApplicationJson do
     employer_name start_date end_date job_title job_description
   ].freeze
 
+  ALL_INTERVIEW_FIELDS = %w[
+    booked_at date instructions address
+  ].freeze
+
   describe '#single_application_json' do
     subject(:parsed_json) do
       JSON.parse(including_class.single_application_json)
@@ -183,6 +187,26 @@ RSpec.describe ApplicationJson do
         desc[:name]
       end
       expect(fields).to match_array(ALL_WORK_EXPERIENCE_FIELDS)
+    end
+  end
+
+  describe '#interview_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.interview_json)
+    end
+
+    it 'returns the JSON for a qualification with all the fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(ALL_INTERVIEW_FIELDS)
+    end
+  end
+
+  describe '#interview_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.interview_attributes.map do |desc|
+        desc[:name]
+      end
+      expect(fields).to match_array(ALL_INTERVIEW_FIELDS)
     end
   end
 end

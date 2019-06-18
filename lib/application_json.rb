@@ -273,6 +273,35 @@ module ApplicationJson
     ]
   end
 
+  def interview_json
+    JSON.pretty_generate(json_data['interviews'].first)
+  end
+
+  def interview_attributes
+    [
+      {
+        name: 'booked_at',
+        type: 'string',
+        description: 'The ISO8601 date and time this interview was booked'
+      },
+      {
+        name: 'date',
+        type: 'string',
+        description: 'The ISO8601 date and time this interview takes place'
+      },
+      {
+        name: 'instructions',
+        type: 'string',
+        description: 'Instructions to the candidate'
+      },
+      {
+        name: 'address',
+        type: 'string',
+        description: 'The address of the building where the interview takes place'
+      }
+    ]
+  end
+
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '_')
     "<a href='/resources-and-their-attributes##{slug}'>
