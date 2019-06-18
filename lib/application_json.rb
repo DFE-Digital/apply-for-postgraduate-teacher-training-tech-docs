@@ -152,6 +152,25 @@ module ApplicationJson
     ]
   end
 
+  def contact_details_json
+    JSON.pretty_generate(json_data['contact_details'])
+  end
+
+  def contact_details_attributes
+    [
+      {
+        name: 'address',
+        type: 'string',
+        description: 'The candidate’s address'
+      },
+      {
+        name: 'phone_number',
+        type: 'string',
+        description: 'The candidate’s phone number'
+      }
+    ]
+  end
+
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '_')
     "<a href='/resources-and-their-attributes##{slug}'>

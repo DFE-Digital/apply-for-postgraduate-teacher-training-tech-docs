@@ -24,6 +24,10 @@ RSpec.describe ApplicationJson do
     residency_status disability disability_hesa_code
   ].freeze
 
+  ALL_CONTACT_DETAILS_FIELDS = %w[
+    phone_number address
+  ].freeze
+
   describe '#single_application_json' do
     subject(:parsed_json) do
       JSON.parse(including_class.single_application_json)
@@ -87,7 +91,7 @@ RSpec.describe ApplicationJson do
 
   describe '#candidate_attributes' do
     it 'contains an entry for all the relevant fields' do
-      fields = including_class.contact_details_json.map { |desc| desc[:name] }
+      fields = including_class.contact_details_attributes.map { |desc| desc[:name] }
       expect(fields).to match_array(ALL_CONTACT_DETAILS_FIELDS)
     end
   end
