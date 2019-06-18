@@ -28,6 +28,10 @@ RSpec.describe ApplicationJson do
     phone_number address
   ].freeze
 
+  ALL_COURSE_FIELDS = %w[
+    description provider_ucas_code course_ucas_code location_ucas_code
+  ].freeze
+
   describe '#single_application_json' do
     subject(:parsed_json) do
       JSON.parse(including_class.single_application_json)
@@ -93,6 +97,24 @@ RSpec.describe ApplicationJson do
     it 'contains an entry for all the relevant fields' do
       fields = including_class.contact_details_attributes.map { |desc| desc[:name] }
       expect(fields).to match_array(ALL_CONTACT_DETAILS_FIELDS)
+    end
+  end
+
+  describe '#course_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.course_json)
+    end
+
+    it 'returns the JSON for a course with all the fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(ALL_COURSE_FIELDS)
+    end
+  end
+
+  describe '#course_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.course_attributes.map { |desc| desc[:name] }
+      expect(fields).to match_array(ALL_COURSE_FIELDS)
     end
   end
 end
