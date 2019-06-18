@@ -26,14 +26,74 @@ module ApplicationJson
         description: 'The unique ID of this application'
       },
       {
-        name: 'created_at',
+        name: 'status',
         type: 'string',
-        description: 'ISO8601 date with time'
+        description: 'The status of this application'
+      },
+      {
+        name: 'status_ucas_code',
+        type: 'string',
+        description: 'The status of this application in legacy UCAS code format'
+      },
+      {
+        name: 'personal_statement',
+        type: 'string',
+        description: 'The candidate’s personal statement'
+      },
+      {
+        name: 'offer',
+        type: link_to_resource_definition('Offer'),
+        description: 'The offer on this application, if there is one'
+      },
+      {
+        name: 'rejection',
+        type: link_to_resource_definition('Rejection'),
+        description: 'Rejection details, if applicable'
+      },
+      {
+        name: 'withdrawal',
+        type: link_to_resource_definition('Withdrawal'),
+        description: 'Application withdrawal details, if applicable'
       },
       {
         name: 'candidate',
         type: link_to_resource_definition('Candidate'),
         description: 'Candidate details'
+      },
+      {
+        name: 'contact_details',
+        type: link_to_resource_definition('Contact details'),
+        description: 'Contact details'
+      },
+      {
+        name: 'course',
+        type: link_to_resource_definition('Course'),
+        description: 'Contact details'
+      },
+      {
+        name: 'work_experiences',
+        type: link_to_resource_definition('Work experience'),
+        description: 'A list of work experiences'
+      },
+      {
+        name: 'qualifications',
+        type: link_to_resource_definition('Qualification'),
+        description: 'A list of qualifications'
+      },
+      {
+        name: 'interviews',
+        type: link_to_resource_definition('Interview'),
+        description: 'A list of interviews'
+      },
+      {
+        name: 'created_at',
+        type: 'string',
+        description: 'ISO8601 date with time and timezone'
+      },
+      {
+        name: 'updated_at',
+        type: 'string',
+        description: 'ISO8601 date with time and timezone'
       }
     ]
   end

@@ -43,4 +43,11 @@ RSpec.describe ApplicationJson do
       end)
     end
   end
+
+  describe '#application_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.application_attributes.map { |desc| desc[:name] }
+      expect(fields).to match_array(ALL_APPLICATION_FIELDS)
+    end
+  end
 end
