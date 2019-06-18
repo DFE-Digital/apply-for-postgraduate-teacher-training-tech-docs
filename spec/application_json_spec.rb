@@ -48,6 +48,10 @@ RSpec.describe ApplicationJson do
     course date conditions
   ].freeze
 
+  ALL_WITHDRAWAL_FIELDS = %w[
+    reason date
+  ].freeze
+
   describe '#single_application_json' do
     subject(:parsed_json) do
       JSON.parse(including_class.single_application_json)
@@ -231,6 +235,26 @@ RSpec.describe ApplicationJson do
         desc[:name]
       end
       expect(fields).to match_array(ALL_OFFER_FIELDS)
+    end
+  end
+
+  describe '#withdrawal_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.withdrawal_json)
+    end
+
+    it 'returns the JSON for a qualification with all the fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(ALL_WITHDRAWAL_FIELDS)
+    end
+  end
+
+  describe '#withdrawal_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.withdrawal_attributes.map do |desc|
+        desc[:name]
+      end
+      expect(fields).to match_array(ALL_WITHDRAWAL_FIELDS)
     end
   end
 end
