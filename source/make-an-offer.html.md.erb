@@ -5,8 +5,30 @@ weight: 40
 
 # Make an offer
 
+```
+POST /applications/:id/offer
+```
+
 ## Example request
+
+```
+POST /applications/aa546741-b54a-403c-a67a-7f5aec1939d1/offer
+```
+
+Request body:
+
+```json
+<%= offer_creation_json %>
+```
 
 ## Example response
 
+**HTTP 201**
+
+```json
+<%= offer_json %>
+```
+
 ## Attributes
+
+<%= partial 'partials/attribute_table', locals: { attributes: interview_attributes } %>

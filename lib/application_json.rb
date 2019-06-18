@@ -306,6 +306,14 @@ module ApplicationJson
     JSON.pretty_generate(json_data['offer'])
   end
 
+  def offer_creation_json
+    course_details = json_data['offer']['course'].dup # we are going to mutate this :/
+    course_details.delete('description')
+    JSON.pretty_generate(
+      json_data['offer'].merge('course' => course_details)
+    )
+  end
+
   def offer_attributes
     [
       {
