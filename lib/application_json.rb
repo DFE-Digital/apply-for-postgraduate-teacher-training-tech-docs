@@ -132,12 +132,12 @@ module ApplicationJson
       {
         name: 'nationality',
         type: 'string',
-        description: 'The applicant’s nationality'
+        description: 'The candidate’s nationality'
       },
       {
         name: 'residency_status',
         type: 'string',
-        description: 'The applicant’s residency_status'
+        description: 'The candidate’s residency_status'
       },
       {
         name: 'disability',
