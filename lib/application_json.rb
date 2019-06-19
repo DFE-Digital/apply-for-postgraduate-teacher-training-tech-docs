@@ -32,11 +32,6 @@ module ApplicationJson
         description: 'The status of this application'
       },
       {
-        name: 'status_ucas_code',
-        type: 'string',
-        description: 'The status of this application in legacy UCAS code format'
-      },
-      {
         name: 'personal_statement',
         type: 'string',
         description: 'The candidate’s personal statement'
