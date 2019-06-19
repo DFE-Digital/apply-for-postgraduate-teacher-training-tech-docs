@@ -189,6 +189,11 @@ module ApplicationJson
         description: 'The plain text description of the course'
       },
       {
+        name: 'start_date',
+        type: 'string',
+        description: 'The course’s start date in YYYY-MM-DD format'
+      },
+      {
         name: 'provider_ucas_code',
         type: 'string',
         description: 'The provider’s UCAS code'
