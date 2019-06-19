@@ -138,7 +138,7 @@ module ApplicationJson
       {
         name: 'nationality',
         type: 'string',
-        description: 'The candidate’s nationality'
+        description: 'The candidate’s nationality as an ISO3166 country code'
       },
       {
         name: 'residency_status',
