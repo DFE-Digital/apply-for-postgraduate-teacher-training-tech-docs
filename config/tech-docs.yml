@@ -5,7 +5,7 @@ host: apply-for-postgraduate-teacher-training-tech-docs.cloudapps.digital
 show_govuk_logo: true
 service_name: Apply for postgraduate teacher training
 service_link: https://apply-for-postgraduate-teacher-training.education.gov.uk
-phase: Beta
+phase: Prototype
 
 # Links to show on right-hand-side of header
 header_links:
