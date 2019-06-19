@@ -378,6 +378,20 @@ module ApplicationJson
     ]
   end
 
+  def placement_json
+    JSON.pretty_generate(json_data['placement'])
+  end
+
+  def placement_attributes
+    [
+      {
+        name: 'date',
+        type: 'string',
+        description: 'The date on which the placement was made in YYYY-MM-DD format'
+      }
+    ]
+  end
+
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '-')
     link = "/resources-and-their-attributes##{slug}"
