@@ -1,0 +1,34 @@
+---
+title: Confirm a placement
+weight: 50
+---
+
+# Confirm a placement
+
+```
+POST /applications/:id/placement
+```
+
+## Example request
+
+```
+POST /applications/aa546741-b54a-403c-a67a-7f5aec1939d1/placement
+```
+
+Example request body:
+
+```json
+<%= placement_json %>
+```
+
+## Example response
+
+**HTTP 201**
+
+```json
+<%= placement_json %>
+```
+
+## Attributes
+
+<%= partial 'partials/attribute_table', locals: { attributes: placement_attributes } %>
