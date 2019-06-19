@@ -11,8 +11,8 @@
     "date_of_birth": "1980-09-13",
     "nationality": "British",
     "residency_status": "UK Citizen",
-    "disability": "partially sighted",
-    "disability_hesa_code": "???"
+    "disability": "Dyslexia",
+    "disability_hesa_code": "51"
   },
   "contact_details": {
     "phone_number": "07944386555",
