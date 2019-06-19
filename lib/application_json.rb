@@ -141,9 +141,9 @@ module ApplicationJson
         description: 'The candidate’s nationality as an ISO3166 country code'
       },
       {
-        name: 'residency_status',
+        name: 'uk_residency_status',
         type: 'string',
-        description: 'The candidate’s residency_status'
+        description: 'The candidate’s UK residency status, e.g. Citizen'
       },
       {
         name: 'disability',

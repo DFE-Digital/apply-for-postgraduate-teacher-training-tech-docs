@@ -10,7 +10,7 @@
     "last_name": "Brown",
     "date_of_birth": "1980-09-13",
     "nationality": "GB",
-    "residency_status": "UK Citizen",
+    "uk_residency_status": "UK Citizen",
     "disability": "Dyslexia",
     "disability_hesa_code": "51"
   },
