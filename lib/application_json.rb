@@ -34,7 +34,7 @@ module ApplicationJson
       {
         name: 'personal_statement',
         type: 'string',
-        description: 'The candidate’s personal statement'
+        description: 'The candidate’s personal statement - this can be up to 500 characters'
       },
       {
         name: 'offer',
@@ -118,12 +118,12 @@ module ApplicationJson
       {
         name: 'first_name',
         type: 'string',
-        description: 'The candidate’s first name'
+        description: 'The candidate’s first name - this can be up to 60 characters'
       },
       {
         name: 'last_name',
         type: 'string',
-        description: 'The candidate’s last name'
+        description: 'The candidate’s last name - this can be up to 60 characters'
       },
       {
         name: 'date_of_birth',
