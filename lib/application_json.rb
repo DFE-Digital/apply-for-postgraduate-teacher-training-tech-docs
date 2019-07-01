@@ -13,6 +13,7 @@ module ApplicationJson
         'contact_details' => DUMMY_OBJECT,
         'course' => DUMMY_ARRAY_OF_OBJECTS,
         'work_experiences' => DUMMY_ARRAY_OF_OBJECTS,
+        'references' => DUMMY_ARRAY_OF_OBJECTS,
         'qualifications' => DUMMY_ARRAY_OF_OBJECTS,
         'interviews' => DUMMY_ARRAY_OF_OBJECTS
       )
@@ -75,6 +76,11 @@ module ApplicationJson
         name: 'work_experiences',
         type: link_to_resource_definition('Work experience'),
         description: 'A list of work experiences'
+      },
+      {
+        name: 'references',
+        type: link_to_resource_definition('Reference'),
+        description: 'Reference details'
       },
       {
         name: 'qualifications',
@@ -280,6 +286,40 @@ module ApplicationJson
         name: 'description',
         type: 'string',
         description: 'A brief written description of the work involved'
+      }
+    ]
+  end
+
+  def reference_json
+    JSON.pretty_generate(json_data['references'].first)
+  end
+
+  def reference_attributes
+    [
+      {
+        name: 'type',
+        type: 'string',
+        description: 'The type of the reference, which will always be one of "academic", "professional", "school_senior_leadership" or "character"'
+      },
+      {
+        name: 'reason_for_character_reference',
+        type: 'string',
+        description: 'If this is a character reference, this field will contain the reason the candidate gave for not providing one of the other types'
+      },
+      {
+        name: 'email',
+        type: 'string',
+        description: 'The referee’s email'
+      },
+      {
+        name: 'name',
+        type: 'string',
+        description: 'The referee’s name'
+      },
+      {
+        name: 'relationship',
+        type: 'string',
+        description: 'The referee’s relationship to the candidate'
       }
     ]
   end
