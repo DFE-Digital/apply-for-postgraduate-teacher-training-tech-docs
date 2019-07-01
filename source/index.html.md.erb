@@ -30,6 +30,18 @@ Vendors will be able to gain access to Apply data on these users’ behalf via a
 
 We're still working on how the service will deal with combinations of these processes. We're seeking your feedback on these to help improve it.
 
+## Codes and reference data
+
+Before each application cycle, UCAS provides vendors with reference data defining how certain values appear in API responses.
+
+DfE Apply will avoid prioprietary codes wherever possible, preferring existing data formats such as ISO-certified standards or HESA codes.
+
+Currently this happens in three places:
+
+- All dates in in the API specification are intended to be ISO8601 compliant.
+- Nationality is expressed as an ISO3611 country code.
+- Disability is expressed as a [HESA Disability type code](https://www.hesa.ac.uk/collection/student/datafutures/a/disability_disability)
+
 ## How do I connect to this API?
 
 **This is a working draft specification**.
