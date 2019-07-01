@@ -39,7 +39,7 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   WORK_EXPERIENCE_FIELDS = %w[
-    employer_name start_date end_date job_title job_description
+    org start_date end_date role description
   ].freeze
 
   INTERVIEW_FIELDS = %w[

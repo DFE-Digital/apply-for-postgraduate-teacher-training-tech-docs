@@ -257,7 +257,7 @@ module ApplicationJson
   def work_experience_attributes
     [
       {
-        name: 'employer_name',
+        name: 'org',
         type: 'string',
         description: 'The name of the employer (company or individual)'
       },
@@ -272,12 +272,12 @@ module ApplicationJson
         description: 'The date employment finished in YYYY-MM-DD format, if appropriate'
       },
       {
-        name: 'job_title',
+        name: 'role',
         type: 'string',
         description: 'The position held by the candidate'
       },
       {
-        name: 'job_description',
+        name: 'description',
         type: 'string',
         description: 'A brief written description of the work involved'
       }
