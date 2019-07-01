@@ -4,7 +4,6 @@
   "personal_statement": "Since retiring from the Police Service in 2007...",
   "candidate": {
     "id": "a0afe017-ea18-491d-9bda-16037102e1dd",
-    "email": "boris.brown@racingdemon.net",
     "first_name": "Boris",
     "last_name": "Brown",
     "date_of_birth": "1980-09-13",
@@ -15,6 +14,7 @@
   },
   "contact_details": {
     "phone_number": "07944386555",
+    "email": "boris.brown@racingdemon.net",
     "address": "45 Dialstone Lane, Stockport, England SK2 6AA"
   },
   "course": {

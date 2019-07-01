@@ -111,11 +111,6 @@ module ApplicationJson
         description: 'The unique ID of this candidate'
       },
       {
-        name: 'email',
-        type: 'string',
-        description: 'The candidate’s email address'
-      },
-      {
         name: 'first_name',
         type: 'string',
         description: 'The candidate’s first name - this can be up to 60 characters'
@@ -163,6 +158,11 @@ module ApplicationJson
         name: 'address',
         type: 'string',
         description: 'The candidate’s address'
+      },
+      {
+        name: 'email',
+        type: 'string',
+        description: 'The candidate’s email address'
       },
       {
         name: 'phone_number',
