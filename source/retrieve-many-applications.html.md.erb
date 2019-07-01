@@ -12,8 +12,12 @@ GET /applications
 ## Example request
 
 ```
-GET /applications/:id
+GET /applications/:id?since=2018-10-01T10:00:00Z
 ```
+
+## Query parameters
+
+<%= partial 'partials/attribute_table', locals: { attributes: applications_params } %>
 
 ## Example response
 

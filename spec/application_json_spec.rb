@@ -21,6 +21,10 @@ RSpec.describe ApplicationJson do
     references
   ].freeze
 
+  APPLICATIONS_PARAMS = %w[
+    since
+  ].freeze
+
   CANDIDATE_FIELDS = %w[
     id first_name last_name date_of_birth nationality
     uk_residency_status disability disability_hesa_code
@@ -97,6 +101,13 @@ RSpec.describe ApplicationJson do
     it 'contains an entry for all the relevant fields' do
       fields = including_class.application_attributes.map { |desc| desc[:name] }
       expect(fields).to match_array(APPLICATION_FIELDS)
+    end
+  end
+
+  describe '#applications_params' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.applications_params.map { |desc| desc[:name] }
+      expect(fields).to match_array(APPLICATIONS_PARAMS)
     end
   end
 

@@ -105,6 +105,17 @@ module ApplicationJson
     ]
   end
 
+  def applications_params
+    [
+      {
+        name: 'since',
+        type: 'string',
+        description: 'Optional. Include only applications changed or created on
+        or since a date and time. Times should be in ISO8601 format.'
+      }
+    ]
+  end
+
   def candidate_json
     JSON.pretty_generate(json_data['candidate'])
   end
