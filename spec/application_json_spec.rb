@@ -11,7 +11,7 @@ RSpec.describe ApplicationJson do
   APPLICATION_FIELDS = %w[
     id candidate contact_details course qualifications
     work_experiences status personal_statement
-    withdrawal rejection offer interviews placement created_at updated_at
+    withdrawal rejection offer interviews placement submitted_at updated_at
   ].freeze
 
   APPLICATION_SUBRESOURCES = %w[

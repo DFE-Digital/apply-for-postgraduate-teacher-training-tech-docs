@@ -87,14 +87,14 @@ module ApplicationJson
         description: 'A list of interviews'
       },
       {
-        name: 'created_at',
+        name: 'submitted_at',
         type: 'string',
-        description: 'ISO8601 date with time and timezone'
+        description: 'ISO8601 date of submission, with time and timezone'
       },
       {
         name: 'updated_at',
         type: 'string',
-        description: 'ISO8601 date with time and timezone'
+        description: 'ISO8601 date of last change, with time and timezone'
       }
     ]
   end
