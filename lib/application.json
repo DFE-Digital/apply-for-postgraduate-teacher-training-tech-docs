@@ -61,6 +61,13 @@
     "instructions": "Come to Room 4 in Building 6",
     "address": "Acorns Teaching School Alliance HQ, 1 Romney Way, Doncaster, DN1 8TQ"
   }],
+  "references": [{
+    "type": "school_senior_leadership",
+    "reason_for_character_reference": null,
+    "email": "julia@school.ac.uk",
+    "name": "Julia Wild",
+    "relationship": "Julia was my mentor at Cheadle Hulme High"
+  }],
   "offer": {
     "course": {
       "description": "Acorns Teaching School Alliance, Primary (salaried, full-time)",

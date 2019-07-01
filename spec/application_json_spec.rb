@@ -12,11 +12,13 @@ RSpec.describe ApplicationJson do
     id candidate contact_details course qualifications
     work_experiences status personal_statement
     withdrawal rejection offer interviews placement submitted_at updated_at
+    references
   ].freeze
 
   APPLICATION_SUBRESOURCES = %w[
     candidate contact_details course qualifications
     work_experiences withdrawal rejection offer interviews
+    references
   ].freeze
 
   CANDIDATE_FIELDS = %w[
@@ -40,6 +42,10 @@ RSpec.describe ApplicationJson do
 
   WORK_EXPERIENCE_FIELDS = %w[
     org start_date end_date role description
+  ].freeze
+
+  REFERENCE_FIELDS = %w[
+    type reason_for_character_reference email name relationship
   ].freeze
 
   INTERVIEW_FIELDS = %w[
@@ -315,6 +321,26 @@ RSpec.describe ApplicationJson do
         desc[:name]
       end
       expect(fields).to match_array(PLACEMENT_FIELDS)
+    end
+  end
+
+  describe '#reference_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.reference_json)
+    end
+
+    it 'returns reference JSON with all fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(REFERENCE_FIELDS)
+    end
+  end
+
+  describe '#reference_attributes' do
+    it 'contains an entry for all the relevant fields' do
+     fields = including_class.reference_attributes.map do |desc|
+        desc[:name]
+      end
+      expect(fields).to match_array(REFERENCE_FIELDS)
     end
   end
 
