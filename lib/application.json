@@ -43,11 +43,11 @@
   }
   ],
   "work_experiences": [{
-    "employer_name": "Cheadle Hulme High School",
+    "org": "Cheadle Hulme High School",
     "start_date": "2018-05-01",
     "end_date": "2019-04-01",
-    "job_title": "Whole School Literacy Specialist",
-    "job_description": "I lead, develop and enhance the literacy teaching practice of others..."
+    "role": "Whole School Literacy Specialist",
+    "description": "I lead, develop and enhance the literacy teaching practice of others..."
   }],
   "interviews": [{
     "booked_at": "2019-01-16T14:00:00Z",
