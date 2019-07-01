@@ -352,16 +352,6 @@ module ApplicationJson
         name: 'date',
         type: 'string',
         description: 'The ISO8601 date and time this interview takes place'
-      },
-      {
-        name: 'instructions',
-        type: 'string',
-        description: 'Instructions to the candidate'
-      },
-      {
-        name: 'address',
-        type: 'string',
-        description: 'The address of the building where the interview takes place'
       }
     ]
   end

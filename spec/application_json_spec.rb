@@ -53,7 +53,7 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   INTERVIEW_FIELDS = %w[
-    booked_at date instructions address
+    booked_at date
   ].freeze
 
   OFFER_FIELDS = %w[
