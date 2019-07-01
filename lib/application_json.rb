@@ -223,24 +223,29 @@ module ApplicationJson
         description: 'The subject studied'
       },
       {
-        name: 'grade',
+        name: 'result',
         type: 'string',
         description: 'The grade awarded'
       },
       {
-        name: 'award_date',
+        name: 'award_year',
         type: 'string',
-        description: 'The date awarded, in YYYY-MM-DD format'
+        description: 'The year the award was made'
       },
       {
-        name: 'institution_name',
+        name: 'place_of_study',
         type: 'string',
-        description: 'The awarding institution'
+        description: 'The place of study'
       },
       {
-        name: 'international',
-        type: 'boolean',
-        description: 'Was this qualification awarded by a non-UK body'
+        name: 'awarding_body_name',
+        type: 'string',
+        description: 'Optional. The awarding body’s name, e.g. AQA'
+      },
+      {
+        name: 'awarding_body_country',
+        type: 'string',
+        description: 'The awarding body’s country as an ISO3166 country code'
       }
     ]
   end
