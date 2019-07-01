@@ -1,0 +1,94 @@
+---
+title: Usage scenarios
+weight: 80
+---
+
+# Usage scenarios
+
+The examples on this page show typical request URLs and payloads clients can
+use to take actions via this API. The examples are only concerned with business
+logic and contain no details necessary for real-world usage. For example,
+authentication is completely left out.
+
+At the beginning of each scenario, a candidate has completed an application for initial teacher training via the Apply service and that application is available via the API.
+
+The provider has authenticated to your system and begins their work by retrieving all the applications since a given date. Your system issues the following request on their behalf:
+
+```
+GET /applications?since=2019-01-10
+```
+
+This returns a list of <%= link_to_resource_definition('Application') %>s.
+
+## A successful application (3 steps)
+
+**1. The provider invites the candidate to interview.**
+
+`POST /applications/abc-123/interview`
+
+
+```json
+<%= interview_json %>
+```
+
+The interview goes well. The provider would like to offer the candidate a conditional place.
+
+**2. The provider makes an offer**
+
+`POST /applications/abc-123/offer`
+
+```json
+<%= offer_json %>
+```
+
+The candidate goes on to meet the provider’s conditions. The provider indicates that the candidate has a place.
+
+**3. The provider confirms the candidate’s place**
+
+`POST /applications/abc-123/placement`
+
+```json
+<%= placement_json %>
+```
+
+## An unsuccessful application (3 steps)
+
+**1. The provider invites the candidate to interview.**
+
+`POST /applications/abc-123/interview`
+
+```json
+<%= interview_json %>
+```
+
+**2. The provider makes an offer**
+
+The interview went well. The provider would like to offer the candidate a conditional place.
+
+`POST /applications/abc-123/offer`
+
+```json
+<%= offer_json %>
+```
+
+**3. The provider rejects the candidate**
+
+The candidate did not meet the provider’s conditions. The provider rejects them.
+
+`POST /applications/abc-123/rejection`
+
+```json
+<%= rejection_json %>
+```
+
+## Rejecting an application (1 step)
+
+**1. The provider reviews the form and rejects the candidate without an interview**
+
+`POST /applications/abc-123/rejection`
+
+```json
+<%= rejection_json %>
+```
+
+## 
