@@ -14,8 +14,7 @@ module ApplicationJson
         'course' => DUMMY_ARRAY_OF_OBJECTS,
         'work_experiences' => DUMMY_ARRAY_OF_OBJECTS,
         'references' => DUMMY_ARRAY_OF_OBJECTS,
-        'qualifications' => DUMMY_ARRAY_OF_OBJECTS,
-        'interviews' => DUMMY_ARRAY_OF_OBJECTS
+        'qualifications' => DUMMY_ARRAY_OF_OBJECTS
       )
     )
   end
@@ -86,11 +85,6 @@ module ApplicationJson
         name: 'qualifications',
         type: link_to_resource_definition('Qualification'),
         description: 'A list of qualifications'
-      },
-      {
-        name: 'interviews',
-        type: link_to_resource_definition('Interview'),
-        description: 'A list of interviews'
       },
       {
         name: 'submitted_at',
@@ -333,25 +327,6 @@ module ApplicationJson
         name: 'relationship',
         type: 'string',
         description: 'The referee’s relationship to the candidate'
-      }
-    ]
-  end
-
-  def interview_json
-    JSON.pretty_generate(json_data['interviews'].first)
-  end
-
-  def interview_attributes
-    [
-      {
-        name: 'booked_at',
-        type: 'string',
-        description: 'The ISO8601 date and time this interview was booked'
-      },
-      {
-        name: 'date',
-        type: 'string',
-        description: 'The ISO8601 date and time this interview takes place'
       }
     ]
   end
