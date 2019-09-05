@@ -29,11 +29,6 @@ we assume belongs to one of the applications in that list.
 
 `POST /applications/abc-123/interview`
 
-
-```json
-<%= interview_json %>
-```
-
 **2. The provider makes an offer**
 
 The interview goes well. The provider would like to offer the candidate a conditional place.
@@ -59,10 +54,6 @@ The candidate goes on to meet the provider’s conditions. The provider indicate
 **1. The provider invites the candidate to interview.**
 
 `POST /applications/abc-123/interview`
-
-```json
-<%= interview_json %>
-```
 
 **2. The provider makes an offer**
 
@@ -93,5 +84,3 @@ The candidate did not meet the provider’s conditions. The provider rejects the
 ```json
 <%= rejection_json %>
 ```
-
-## 
