@@ -89,12 +89,12 @@ module ApplicationJson
       {
         name: 'submitted_at',
         type: 'string',
-        description: 'ISO8601 date of submission, with time and timezone'
+        description: 'ISO 8601 date of submission, with time and timezone'
       },
       {
         name: 'updated_at',
         type: 'string',
-        description: 'ISO8601 date of last change, with time and timezone'
+        description: 'ISO 8601 date of last change, with time and timezone'
       }
     ]
   end
@@ -105,7 +105,7 @@ module ApplicationJson
         name: 'since',
         type: 'string',
         description: 'Optional. Include only applications changed or created on
-        or since a date and time. Times should be in ISO8601 format.'
+        or since a date and time. Times should be in ISO 8601 format.'
       }
     ]
   end
@@ -139,7 +139,7 @@ module ApplicationJson
       {
         name: 'nationality',
         type: 'string',
-        description: 'The candidate’s nationality as an ISO3166 country code'
+        description: 'The candidate’s nationality as an ISO 3166 country code'
       },
       {
         name: 'uk_residency_status',
@@ -258,7 +258,7 @@ module ApplicationJson
       {
         name: 'awarding_body_country',
         type: 'string',
-        description: 'The awarding body’s country as an ISO3166 country code'
+        description: 'The awarding body’s country as an ISO 3166 country code'
       }
     ]
   end
