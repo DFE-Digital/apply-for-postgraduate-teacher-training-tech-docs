@@ -11,7 +11,7 @@ RSpec.describe ApplicationJson do
   APPLICATION_FIELDS = %w[
     id candidate contact_details course qualifications
     work_experiences status personal_statement
-    withdrawal rejection offer placement submitted_at updated_at
+    withdrawal rejection offer submitted_at updated_at
     references
   ].freeze
 
@@ -62,10 +62,6 @@ RSpec.describe ApplicationJson do
 
   REJECTION_FIELDS = %w[
     reason date
-  ].freeze
-
-  PLACEMENT_FIELDS = %w[
-    date
   ].freeze
 
   describe '#single_application_json' do
@@ -288,26 +284,6 @@ RSpec.describe ApplicationJson do
         desc[:name]
       end
       expect(fields).to match_array(REJECTION_FIELDS)
-    end
-  end
-
-  describe '#placement_json' do
-    subject(:parsed_json) do
-      JSON.parse(including_class.placement_json)
-    end
-
-    it 'returns placement JSON with all fields present' do
-      expect(parsed_json).to be_a Hash
-      expect(parsed_json.keys).to match_array(PLACEMENT_FIELDS)
-    end
-  end
-
-  describe '#placement_attributes' do
-    it 'contains an entry for all the relevant fields' do
-     fields = including_class.placement_attributes.map do |desc|
-        desc[:name]
-      end
-      expect(fields).to match_array(PLACEMENT_FIELDS)
     end
   end
 

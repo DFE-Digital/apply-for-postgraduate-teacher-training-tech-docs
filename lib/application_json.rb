@@ -8,7 +8,6 @@ module ApplicationJson
         'withdrawal' => nil,
         'rejection' => nil,
         'offer' => nil,
-        'placement' => nil,
         'candidate' => DUMMY_OBJECT,
         'contact_details' => DUMMY_OBJECT,
         'course' => DUMMY_ARRAY_OF_OBJECTS,
@@ -45,11 +44,6 @@ module ApplicationJson
         name: 'rejection',
         type: link_to_resource_definition('Rejection'),
         description: 'Rejection details, if applicable'
-      },
-      {
-        name: 'placement',
-        type: link_to_resource_definition('Placement'),
-        description: 'Placement details, if applicable'
       },
       {
         name: 'withdrawal',
@@ -397,20 +391,6 @@ module ApplicationJson
         name: 'date',
         type: 'string',
         description: 'The date on which the rejection was issued in YYYY-MM-DD format'
-      }
-    ]
-  end
-
-  def placement_json
-    JSON.pretty_generate(json_data['placement'])
-  end
-
-  def placement_attributes
-    [
-      {
-        name: 'date',
-        type: 'string',
-        description: 'The date on which the placement was made in YYYY-MM-DD format'
       }
     ]
   end
