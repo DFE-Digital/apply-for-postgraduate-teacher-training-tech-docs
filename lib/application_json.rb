@@ -357,8 +357,8 @@ module ApplicationJson
       },
       {
         name: 'conditions',
-        type: 'array of strings',
-        description: 'The conditions of the offer'
+        type: 'array of strings [20]',
+        description: 'The conditions of the offer, limited to 20 conditions'
       }
     ]
   end
