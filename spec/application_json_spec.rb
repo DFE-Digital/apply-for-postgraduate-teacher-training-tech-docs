@@ -26,8 +26,8 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   CANDIDATE_FIELDS = %w[
-    first_name last_name date_of_birth nationality
-    uk_residency_status disability disability_hesa_code
+    full_name nationality
+    uk_residency_status
   ].freeze
 
   CONTACT_DETAILS_FIELDS = %w[
