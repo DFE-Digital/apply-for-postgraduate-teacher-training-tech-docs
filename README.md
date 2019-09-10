@@ -40,6 +40,12 @@ bundle exec middleman build`
 
 Every time you run this command, the `build` folder gets generated from scratch. This means any changes to the `build` folder that are not part of the build command will get overwritten.
 
+## Deploy
+
+To deploy, create a Pull Request to merge new commits from `master` into the `deploy-to-production` branch. You can [use this compare link to create the PR](https://github.com/DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs/compare/deploy-to-production...master).
+
+Once your PR is merged Travis will automatically deploy the changes.
+
 ## Troubleshooting
 
 Run `bundle update` to make sure you're using the most recent Ruby gem versions.
