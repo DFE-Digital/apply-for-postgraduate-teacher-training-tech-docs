@@ -46,6 +46,20 @@ To deploy, create a Pull Request to merge new commits from `master` into the `de
 
 Once your PR is merged Travis will automatically deploy the changes.
 
+### Release notes
+
+Each deploy should be accompanied by an update to the release notes.
+
+We only add:
+
+- Functionality changes like https://github.com/DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs/pull/31 and https://github.com/DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs/pull/23. These are most important and should always be on the top.
+- Clarifications that might impact assumptions of vendors like https://github.com/DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs/pull/27. These are less important and go into a "Additional changes" section.
+
+We don't include the following in the release notes:
+
+- Typo fixes, unless the typo is significant and could cause confusion or misunderstanding
+- Internal work like gem upgrades
+
 ## Troubleshooting
 
 Run `bundle update` to make sure you're using the most recent Ruby gem versions.
