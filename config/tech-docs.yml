@@ -4,7 +4,7 @@ host: apply-for-postgraduate-teacher-training-tech-docs.cloudapps.digital
 # Header-related options
 show_govuk_logo: true
 service_name: Apply for postgraduate teacher training
-service_link: https://apply-for-postgraduate-teacher-training.education.gov.uk
+service_link: /
 phase: Prototype
 
 # Links to show on right-hand-side of header
@@ -32,7 +32,7 @@ collapsible_nav: true
 max_toc_heading_level: 6
 
 # Prevent robots from indexing (e.g. whilst in development)
-prevent_indexing: false
+prevent_indexing: true
 
 show_contribution_banner: true
 github_repo: DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs
