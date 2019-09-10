@@ -126,7 +126,7 @@ RSpec.describe ApplicationJson do
       JSON.parse(including_class.contact_details_json)
     end
 
-    it 'returns the JSON for a candidate with all the fields present' do
+    it 'returns the JSON for contact details with all the fields present' do
       expect(parsed_json).to be_a Hash
       expect(parsed_json.keys).to match_array(CONTACT_DETAILS_FIELDS)
     end
@@ -182,7 +182,7 @@ RSpec.describe ApplicationJson do
       JSON.parse(including_class.work_experience_json)
     end
 
-    it 'returns the JSON for a qualification with all the fields present' do
+    it 'returns the JSON for work experience with all the fields present' do
       expect(parsed_json).to be_a Hash
       expect(parsed_json.keys).to match_array(WORK_EXPERIENCE_FIELDS)
     end
@@ -202,7 +202,7 @@ RSpec.describe ApplicationJson do
       JSON.parse(including_class.work_experience_json)
     end
 
-    it 'returns the JSON for a qualification with all the fields present' do
+    it 'returns the JSON for work experience  with all the fields present' do
       expect(parsed_json).to be_a Hash
       expect(parsed_json.keys).to match_array(WORK_EXPERIENCE_FIELDS)
     end
@@ -222,7 +222,7 @@ RSpec.describe ApplicationJson do
       JSON.parse(including_class.offer_json)
     end
 
-    it 'returns the JSON for a qualification with all the fields present' do
+    it 'returns the JSON for an offer with all the fields present' do
       expect(parsed_json).to be_a Hash
       expect(parsed_json.keys).to match_array(OFFER_FIELDS)
     end
@@ -252,7 +252,7 @@ RSpec.describe ApplicationJson do
       JSON.parse(including_class.withdrawal_json)
     end
 
-    it 'returns the JSON for a qualification with all the fields present' do
+    it 'returns the JSON for a withdrawal with all the fields present' do
       expect(parsed_json).to be_a Hash
       expect(parsed_json.keys).to match_array(WITHDRAWAL_FIELDS)
     end
@@ -272,7 +272,7 @@ RSpec.describe ApplicationJson do
       JSON.parse(including_class.rejection_json)
     end
 
-    it 'returns the JSON for a qualification with all the fields present' do
+    it 'returns the JSON for a rejection with all the fields present' do
       expect(parsed_json).to be_a Hash
       expect(parsed_json.keys).to match_array(REJECTION_FIELDS)
     end
@@ -292,7 +292,7 @@ RSpec.describe ApplicationJson do
       JSON.parse(including_class.reference_json)
     end
 
-    it 'returns reference JSON with all fields present' do
+    it 'returns the JSON for a reference with all fields present' do
       expect(parsed_json).to be_a Hash
       expect(parsed_json.keys).to match_array(REFERENCE_FIELDS)
     end
@@ -300,7 +300,7 @@ RSpec.describe ApplicationJson do
 
   describe '#reference_attributes' do
     it 'contains an entry for all the relevant fields' do
-     fields = including_class.reference_attributes.map do |desc|
+      fields = including_class.reference_attributes.map do |desc|
         desc[:name]
       end
       expect(fields).to match_array(REFERENCE_FIELDS)
