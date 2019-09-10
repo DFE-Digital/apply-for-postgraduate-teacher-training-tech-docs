@@ -10,7 +10,7 @@ module ApplicationJson
         'offer' => nil,
         'candidate' => DUMMY_OBJECT,
         'contact_details' => DUMMY_OBJECT,
-        'course' => DUMMY_ARRAY_OF_OBJECTS,
+        'course' => DUMMY_OBJECT,
         'work_experiences' => DUMMY_ARRAY_OF_OBJECTS,
         'references' => DUMMY_ARRAY_OF_OBJECTS,
         'qualifications' => DUMMY_ARRAY_OF_OBJECTS
