@@ -22,8 +22,8 @@ module ApplicationJson
     [
       {
         name: 'id',
-        type: 'uuid',
-        description: 'The unique ID of this application'
+        type: 'string',
+        description: 'The unique ID of this application - this is limited to 10 characters'
       },
       {
         name: 'status',
@@ -110,11 +110,6 @@ module ApplicationJson
 
   def candidate_attributes
     [
-      {
-        name: 'id',
-        type: 'uuid',
-        description: 'The unique ID of this candidate'
-      },
       {
         name: 'first_name',
         type: 'string',
