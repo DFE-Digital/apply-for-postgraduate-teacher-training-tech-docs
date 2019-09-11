@@ -370,7 +370,7 @@ module ApplicationJson
       {
         name: 'reason',
         type: 'string',
-        description: 'The candidate’s reason for withdrawing'
+        description: 'Optional. The candidate’s reason for withdrawing'
       },
       {
         name: 'date',
