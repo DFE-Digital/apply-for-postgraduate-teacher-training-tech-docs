@@ -13,11 +13,16 @@ weight: 200
 - Remove functionality to amend an offer
 - Rename the [rejection endpoint](/reject-an-application)
 - Update Contact Details resource to split address into separate fields
+- References have a "content" attribute containing the referee's contribution
+- Qualifications have an "equivalency_details" attribute for overseas awards
 
 Additional changes:
 
 - Clarify how to [make an unconditional and conditional offer](/make-an-offer)
 - Clarify that [offer conditions](/make-an-offer/#attributes) are optional
+- Use a valid "status" in the example Application resource
+- Withdrawals and Rejections now have timestamps instead of dates
+- Withdrawal reason has become optional
 
 ### Release 0.2 - 11 September 2019
 
