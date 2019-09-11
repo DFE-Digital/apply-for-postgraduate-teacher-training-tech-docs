@@ -334,6 +334,11 @@ module ApplicationJson
         name: 'relationship',
         type: 'string',
         description: 'The referee’s relationship to the candidate'
+      },
+      {
+        name: 'content',
+        type: 'string',
+        description: 'Optional. The reference content provided by the referee, once it is available'
       }
     ]
   end

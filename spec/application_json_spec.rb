@@ -49,7 +49,7 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   REFERENCE_FIELDS = %w[
-    type reason_for_character_reference email name relationship
+    type reason_for_character_reference email name relationship content
   ].freeze
 
   OFFER_FIELDS = %w[
