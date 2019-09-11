@@ -11,6 +11,7 @@ weight: 200
 - Remove id from Candidate
 - Remove disability information from Candidate, as this is not collected via the application form
 - Rename the [rejection endpoint](/reject-an-application)
+- Update Contact Details resource to split address into separate fields
 
 ### Release 0.2 - 11 September 2019
 
