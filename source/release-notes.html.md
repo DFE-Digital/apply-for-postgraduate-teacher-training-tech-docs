@@ -25,7 +25,7 @@ Additional changes:
 - Remove functionality to confirm a placement for a candidate
 - Remove functionality to schedule interviews for a candidate
 - Applications now have a [10 character identifier](/resources-and-their-attributes/#application)
-- The [`course` attribute](/retrieve-a_single-application) of an application now refers to a single course instead of multiple
+- The [`course` attribute](/retrieve-a-single-application) of an application now refers to a single course instead of multiple
 
 Additional changes:
 
