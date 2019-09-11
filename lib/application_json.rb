@@ -266,6 +266,11 @@ module ApplicationJson
         name: 'awarding_body_country',
         type: 'string',
         description: 'The awarding body’s country as an ISO 3166 country code'
+      },
+      {
+        name: 'equivalency_details',
+        type: 'string',
+        description: 'Optional. Details of equivalency, if this qualification was awarded overseas'
       }
     ]
   end

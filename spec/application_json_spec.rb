@@ -41,7 +41,7 @@ RSpec.describe ApplicationJson do
 
   QUALIFICATION_FIELDS = %w[
     type subject result award_year place_of_study
-    awarding_body_name awarding_body_country
+    awarding_body_name awarding_body_country equivalency_details
   ].freeze
 
   WORK_EXPERIENCE_FIELDS = %w[

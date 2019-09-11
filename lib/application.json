@@ -32,9 +32,9 @@
     "award_year": "1992",
     "place_of_study": "University of Huddersfield",
     "awarding_body_name": null,
-    "awarding_body_country": "GB"
-  }
-  ],
+    "awarding_body_country": "GB",
+    "equivalency_details": null
+  }],
   "work_experiences": [{
     "org": "Cheadle Hulme High School",
     "start_date": "2018-05-01",
