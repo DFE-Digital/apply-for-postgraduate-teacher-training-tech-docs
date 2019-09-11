@@ -31,7 +31,7 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   CONTACT_DETAILS_FIELDS = %w[
-    phone_number address_line1 address_line2 address_line3 address_line4 postcode email
+    phone_number address_line1 address_line2 address_line3 address_line4 postcode country email
   ].freeze
 
   COURSE_FIELDS = %w[

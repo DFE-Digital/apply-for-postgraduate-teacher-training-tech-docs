@@ -14,7 +14,9 @@
     "address_line2": "Dialstone Lane",
     "address_line3": "Stockport",
     "address_line4": "England",
-    "postcode": "SK2 6AA"
+    "postcode": "SK2 6AA",
+    "country": "GB"
+
   },
   "course": {
     "description": "Acorns Teaching School Alliance, Oxford Oakleaf Campus, Primary (salaried, full-time) PGCE, September 2020",

@@ -160,6 +160,11 @@ module ApplicationJson
         description: 'The candidate’s postcode - this is limited to 8 characters'
       },
       {
+        name: 'country',
+        type: 'string',
+        description: 'The candidate’s country - ISO 3166 country code'
+      },
+      {
         name: 'email',
         type: 'string',
         description: 'The candidate’s email address - this is limited to 100 characters'
