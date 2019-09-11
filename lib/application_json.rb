@@ -392,7 +392,7 @@ module ApplicationJson
 
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '-')
-    link = "/resources-and-their-attributes##{slug}"
+    link = "/reference/resources-and-their-attributes##{slug}"
     "<a href='#{link}'>#{resource_name}</a>"
   end
 
