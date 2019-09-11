@@ -327,6 +327,10 @@ module ApplicationJson
     ]
   end
 
+  def unconditional_offer_json
+    JSON.generate({})
+  end
+
   def withdrawal_json
     JSON.pretty_generate(json_data['withdrawal'])
   end

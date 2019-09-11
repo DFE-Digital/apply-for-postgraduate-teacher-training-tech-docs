@@ -217,6 +217,17 @@ RSpec.describe ApplicationJson do
     end
   end
 
+  describe '#unconditional_offer_json' do
+    subject(:json) do
+      JSON.parse(including_class.unconditional_offer_json)
+    end
+
+    it 'returns the JSON for an unconditional offer' do
+      expect(json).to be_a Hash
+      expect(json).to be_empty
+    end
+  end
+
   describe '#withdrawal_json' do
     subject(:parsed_json) do
       JSON.parse(including_class.withdrawal_json)

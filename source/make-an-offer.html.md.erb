@@ -5,6 +5,8 @@ weight: 40
 
 # Make an offer
 
+Used to make an unconditional or conditional offer.
+
 ```
 POST /applications/:id/offer
 ```
@@ -15,7 +17,13 @@ POST /applications/:id/offer
 POST /applications/11fc0d3b2f/offer
 ```
 
-Request body:
+Request body for an **unconditional** offer:
+
+```json
+<%= unconditional_offer_json %>
+```
+
+Add `conditions` to the request body for a **conditional** offer:
 
 ```json
 <%= offer_json %>
