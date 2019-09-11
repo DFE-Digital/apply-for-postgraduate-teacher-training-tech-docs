@@ -148,19 +148,44 @@ module ApplicationJson
   def contact_details_attributes
     [
       {
-        name: 'address',
+        name: 'address_line1',
         type: 'string',
-        description: 'The candidate’s address'
+        description: 'The candidate’s address line 1 - this is limited to 50 characters'
+      },
+      {
+        name: 'address_line2',
+        type: 'string',
+        description: 'The candidate’s address line 2 - this is limited to 50 characters'
+      },
+      {
+        name: 'address_line3',
+        type: 'string',
+        description: 'The candidate’s address line 3 - this is limited to 50 characters'
+      },
+      {
+        name: 'address_line4',
+        type: 'string',
+        description: 'The candidate’s address line 4 - this is limited to 50 characters'
+      },
+      {
+        name: 'postcode',
+        type: 'string',
+        description: 'The candidate’s postcode - this is limited to 8 characters'
+      },
+      {
+        name: 'country',
+        type: 'string',
+        description: 'The candidate’s country - ISO 3166 country code'
       },
       {
         name: 'email',
         type: 'string',
-        description: 'The candidate’s email address'
+        description: 'The candidate’s email address - this is limited to 100 characters'
       },
       {
         name: 'phone_number',
         type: 'string',
-        description: 'The candidate’s phone number'
+        description: 'The candidate’s phone number - this is limited to 18 characters'
       }
     ]
   end

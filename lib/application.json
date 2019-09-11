@@ -10,7 +10,13 @@
   "contact_details": {
     "phone_number": "07944386555",
     "email": "boris.brown@racingdemon.net",
-    "address": "45 Dialstone Lane, Stockport, England SK2 6AA"
+    "address_line1": "45",
+    "address_line2": "Dialstone Lane",
+    "address_line3": "Stockport",
+    "address_line4": "England",
+    "postcode": "SK2 6AA",
+    "country": "GB"
+
   },
   "course": {
     "description": "Acorns Teaching School Alliance, Oxford Oakleaf Campus, Primary (salaried, full-time) PGCE, September 2020",

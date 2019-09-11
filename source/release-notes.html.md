@@ -12,6 +12,7 @@ weight: 200
 - Remove disability information from Candidate, as this is not collected via the application form
 - Remove functionality to amend an offer
 - Rename the [rejection endpoint](/reject-an-application)
+- Update Contact Details resource to split address into separate fields
 
 Additional changes:
 
