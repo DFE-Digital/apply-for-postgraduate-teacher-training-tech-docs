@@ -35,7 +35,7 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   COURSE_FIELDS = %w[
-    description provider_ucas_code course_ucas_code location_ucas_code
+    provider_ucas_code course_ucas_code location_ucas_code
     start_date
   ].freeze
 

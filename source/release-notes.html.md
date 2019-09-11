@@ -8,7 +8,13 @@ weight: 200
 ### Release 0.3 - 16 September 2019
 
 Changes to the data:
-
+- Remove first and last name from Candidate in favour of full name
+- Remove id from Candidate
+- Remove disability information from Candidate, as this is not collected via the application form
+- Remove functionality to amend an offer
+- Rename the [rejection endpoint](/reject-an-application)
+- Update Contact Details resource to split address into separate fields
+- Remove description from course resource
 - Add first name, last name and date of birth for Candidate
 
 ### Release 0.2 - 11 September 2019

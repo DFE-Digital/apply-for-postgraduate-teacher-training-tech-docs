@@ -207,13 +207,6 @@ module ApplicationJson
   def course_attributes
     [
       {
-        name: 'description',
-        type: 'string',
-        description: 'A plain text description of the course, composed of
-          English translations of the provider UCAS code, the course UCAS code,
-          the location UCAS code, and the start date'
-      },
-      {
         name: 'start_date',
         type: 'string',
         description: 'The course’s start date in YYYY-MM-DD format'
