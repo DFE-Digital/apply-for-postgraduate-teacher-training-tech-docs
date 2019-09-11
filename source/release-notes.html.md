@@ -10,7 +10,13 @@ weight: 200
 - Remove first and last name from Candidate in favour of full name
 - Remove id from Candidate
 - Remove disability information from Candidate, as this is not collected via the application form
+- Remove functionality to amend an offer
 - Rename the [rejection endpoint](/reject-an-application)
+
+Additional changes:
+
+- Clarify how to [make an unconditional and conditional offer](/make-an-offer)
+- Clarify that [offer conditions](/make-an-offer/#attributes) are optional
 
 ### Release 0.2 - 11 September 2019
 
