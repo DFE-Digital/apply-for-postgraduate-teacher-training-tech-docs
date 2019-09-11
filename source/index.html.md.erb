@@ -42,12 +42,43 @@ Codes appear in three contexts:
 
 ## How do I connect to this API?
 
-**This is a working draft specification**.
+### Authentication and authorisation
 
-We are currently building the service. The API has not yet been implemented.
+The data held by the Apply service is confidential, only available
+to candidates themselves and staff from the training provider to
+which applications are made. Therefore authentication will be required
+for all API interactions.
 
-We're working with all vendors on timelines for integration. As part of this, we'll make private testing environments available.
+Training Provider Staff identify themselves to Apply using DfE
+Sign-in, the Single Sign-on service used on the existing _Publish
+teacher training courses_ service. This means that the rules
+around who is able to see and do what all live inside the Apply
+service and student record systems (SRS) will not need to deal with
+authorization.
 
-If you need information about what we're working on now and next, [contact us](mailto:becomingateacher@digital.education.gov.uk) at becomingateacher@digital.education.gov.uk.
+Your existing users will be grant your SRS access to the Apply API on
+their behalf via DfE Sign-in, which uses an [OpenID
+Connect](https://openid.net/connect/faq/) flow. This works in the
+following way:
+
+1. A user is logged into the SRS and tries to perform some action
+   involving an API call, such as downloading applications or issuing
+   an offer, triggering a request to the API
+1. The API returns a 401 Unauthorized response
+1. The SRS opens a popup web browser window containing a DfE Sign-in
+   login screen
+1. The user signs in to DfE Sign-in and confirms that the SRS may
+   access their data on Apply
+1. The user is redirected back to the SRS with an authorization code,
+   which the SRS exchanges with DfE Sign-in for an access token and
+   refresh token
+1. The SRS stores the access token, which is associated with the user,
+   and includes it on subsequent requests to the API
+
+The access token will eventually expire, at which point the SRS will
+once again receive a 401 Unauthorized response from Apply. When this
+happens the refresh token may be exchanged for a fresh access token
+and, assuming the user is still authorized to access the resources in
+question.
 
 _Last updated: <%= Date.today.strftime("%-d %B %Y") %>_
