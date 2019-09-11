@@ -18,57 +18,66 @@ The provider has authenticated to your system and begins their work by retrievin
 GET /applications?since=2019-01-10
 ```
 
-This returns a list of <%= link_to_resource_definition('Application') %>s.
+This returns a list of <%= link_to_resource_definition('Application') %>s:
 
-The following examples all refer to a single application id, `abc-123`, which
+```json
+<%= applications_json %>
+```
+
+The following examples all refer to a single application id, `11fc0d3b2f`, which
 we assume belongs to one of the applications in that list.
 
-## A successful application (3 steps)
+## A successful application
 
-**1. The provider invites the candidate to interview.**
+### 1. Provider retrieves the application
 
-`POST /applications/abc-123/interview`
+Get the application data.
 
-**2. The provider makes an offer**
-
-The interview goes well. The provider would like to offer the candidate a conditional place.
-
-`POST /applications/abc-123/offer`
+```
+GET /applications/11fc0d3b2f
+```
 
 ```json
-<%= offer_json %>
+<%= single_application_json %>
 ```
-## An unsuccessful application (3 steps)
 
-**1. The provider invites the candidate to interview.**
+### 2. The provider makes an offer
 
-`POST /applications/abc-123/interview`
+The provider would like to offer the candidate a conditional place.
 
-**2. The provider makes an offer**
-
-The interview went well. The provider would like to offer the candidate a conditional place.
-
-`POST /applications/abc-123/offer`
+```
+POST /applications/11fc0d3b2f/offer
+```
 
 ```json
 <%= offer_json %>
 ```
 
-**3. The provider rejects the candidate**
+Make this request again if you want to amend the offer.
 
-The candidate did not meet the provider’s conditions. The provider rejects them.
+### 3. Confirm that the conditions are met
 
-`POST /applications/abc-123/rejection`
+Once you know the conditions are met, make the following request.
 
-```json
-<%= rejection_json %>
+```
+POST /applications/11fc0d3b2f/confirm-conditions-met
 ```
 
-## Rejecting an application (1 step)
+### 4. Confirm candidate enrolment
 
-**1. The provider reviews the form and rejects the candidate without an interview**
+Once the candidate has onboarded, make the following request.
 
-`POST /applications/abc-123/rejection`
+```
+POST /applications/11fc0d3b2f/confirm-enrolment
+```
+
+## Rejecting an application
+
+### 1. The provider reviews the form and rejects the candidate without an interview
+
+```
+POST /applications/11fc0d3b2f/rejection
+```
 
 ```json
 <%= rejection_json %>

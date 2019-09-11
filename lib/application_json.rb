@@ -4,17 +4,30 @@ module ApplicationJson
 
   def single_application_json
     JSON.pretty_generate(
-      json_data.merge(
-        'withdrawal' => nil,
-        'rejection' => nil,
-        'offer' => nil,
-        'candidate' => DUMMY_OBJECT,
-        'contact_details' => DUMMY_OBJECT,
-        'course' => DUMMY_OBJECT,
-        'work_experiences' => DUMMY_ARRAY_OF_OBJECTS,
-        'references' => DUMMY_ARRAY_OF_OBJECTS,
-        'qualifications' => DUMMY_ARRAY_OF_OBJECTS
-      )
+      single_application
+    )
+  end
+
+  def applications_json
+    JSON.pretty_generate(
+      [
+        single_application,
+        single_application.merge("id" => SecureRandom.hex[0..10])
+      ]
+    )
+  end
+
+  def single_application
+    json_data.merge(
+      'withdrawal' => nil,
+      'rejection' => nil,
+      'offer' => nil,
+      'candidate' => DUMMY_OBJECT,
+      'contact_details' => DUMMY_OBJECT,
+      'course' => DUMMY_OBJECT,
+      'work_experiences' => DUMMY_ARRAY_OF_OBJECTS,
+      'references' => DUMMY_ARRAY_OF_OBJECTS,
+      'qualifications' => DUMMY_ARRAY_OF_OBJECTS
     )
   end
 
