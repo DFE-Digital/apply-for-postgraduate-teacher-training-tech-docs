@@ -10,6 +10,7 @@ weight: 200
 - Remove first and last name from Candidate in favour of full name
 - Remove id from Candidate
 - Remove disability information from Candidate, as this is not collected via the application form
+- Rename the [rejection endpoint](/reject-an-application)
 
 ### Release 0.2 - 11 September 2019
 
