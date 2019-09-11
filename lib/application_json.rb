@@ -317,26 +317,8 @@ module ApplicationJson
     JSON.pretty_generate(json_data['offer'])
   end
 
-  def offer_creation_json
-    course_details = json_data['offer']['course'].dup # we are going to mutate this :/
-    course_details.delete('description')
-    JSON.pretty_generate(
-      json_data['offer'].merge('course' => course_details)
-    )
-  end
-
   def offer_attributes
     [
-      {
-        name: 'course',
-        type: link_to_resource_definition('Course'),
-        description: 'Course details'
-      },
-      {
-        name: 'date',
-        type: 'string',
-        description: 'The offered entry date in YYYY-MM-DD format'
-      },
       {
         name: 'conditions',
         type: 'array of strings [20]',

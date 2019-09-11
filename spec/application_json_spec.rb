@@ -53,7 +53,7 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   OFFER_FIELDS = %w[
-    course date conditions
+    conditions
   ].freeze
 
   WITHDRAWAL_FIELDS = %w[
@@ -205,16 +205,6 @@ RSpec.describe ApplicationJson do
     it 'returns the JSON for an offer with all the fields present' do
       expect(parsed_json).to be_a Hash
       expect(parsed_json.keys).to match_array(OFFER_FIELDS)
-    end
-  end
-
-  describe '#offer_creation_json' do
-    subject(:parsed_json) do
-      JSON.parse(including_class.offer_creation_json)
-    end
-
-    it 'returns the JSON with the course description removed' do
-      expect(parsed_json['course']).not_to include('description')
     end
   end
 
