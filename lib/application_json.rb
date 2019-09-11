@@ -111,39 +111,19 @@ module ApplicationJson
   def candidate_attributes
     [
       {
-        name: 'first_name',
+        name: 'full_name',
         type: 'string',
-        description: 'The candidate’s first name - this can be up to 60 characters'
-      },
-      {
-        name: 'last_name',
-        type: 'string',
-        description: 'The candidate’s last name - this can be up to 60 characters'
-      },
-      {
-        name: 'date_of_birth',
-        type: 'string',
-        description: 'The candidate’s date of birth in YYYY-MM-DD format'
+        description: 'The candidate’s full name - this can be up to 60 characters'
       },
       {
         name: 'nationality',
-        type: 'string',
-        description: 'The candidate’s nationality as an ISO 3166 country code'
+        type: 'array',
+        description: 'One or more ISO 3166 country codes'
       },
       {
         name: 'uk_residency_status',
         type: 'string',
         description: 'The candidate’s UK residency status, e.g. Citizen'
-      },
-      {
-        name: 'disability',
-        type: 'string',
-        description: 'The candidate’s disabilities in a sentence'
-      },
-      {
-        name: 'disability_hesa_code',
-        type: 'string',
-        description: 'The candidate’s disabilities expressed as a HESA code'
       }
     ]
   end

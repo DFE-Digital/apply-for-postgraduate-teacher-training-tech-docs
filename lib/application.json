@@ -3,13 +3,9 @@
   "status": "open",
   "personal_statement": "Since retiring from the Police Service in 2007...",
   "candidate": {
-    "first_name": "Boris",
-    "last_name": "Brown",
-    "date_of_birth": "1980-09-13",
-    "nationality": "GB",
-    "uk_residency_status": "UK Citizen",
-    "disability": "Dyslexia",
-    "disability_hesa_code": "51"
+    "full_name": "Boris Brown",
+    "nationality": ["GB", "DE"],
+    "uk_residency_status": "UK Citizen"
   },
   "contact_details": {
     "phone_number": "07944386555",

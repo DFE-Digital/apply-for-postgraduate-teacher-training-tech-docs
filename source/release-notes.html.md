@@ -5,6 +5,12 @@ weight: 200
 
 # Release notes
 
+### Unreleased
+
+- Remove first and last name from Candidate in favour of full name
+- Remove id from Candidate
+- Remove disability information from Candidate, as this is not collected via the application form
+
 ### Release 0.2 - 11 September 2019
 
 - Limit the number of [offer conditions](/make-an-offer/#attributes) to 20
