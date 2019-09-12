@@ -33,7 +33,7 @@ Additional changes:
 
 - Clarify that strings have a [255 character limit](/resources-and-their-attributes/#strings), unless otherwise specified
 - Clarify that only candidates can [withdraw an application](/resources-and-their-attributes/#withdrawal)
-- Clarify that we're using [ISO 3166 dates](/#codes-and-reference-data) (not ISO3611)
+- Clarify that we're using [ISO 3166 for country codes](/#codes-and-reference-data), not ISO 3611
 - Clarify how to [make an unconditional and conditional offer](/make-an-offer)
 - Clarify that [offer conditions](/make-an-offer/#attributes) are optional
 
