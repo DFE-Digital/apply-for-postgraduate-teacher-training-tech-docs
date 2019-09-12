@@ -1,6 +1,6 @@
 {
   "id": "11fc0d3b2f",
-  "status": "open",
+  "status": "application_complete",
   "personal_statement": "Since retiring from the Police Service in 2007...",
   "candidate": {
     "full_name": "Boris Brown",
@@ -32,17 +32,9 @@
     "award_year": "1992",
     "place_of_study": "University of Huddersfield",
     "awarding_body_name": null,
-    "awarding_body_country": "GB"
-  },
-  {
-    "type": "O Level",
-    "subject": "Maths",
-    "grade": "A",
-    "award_date": "1986-01-20",
-    "institution_name": "",
-    "international": false
-  }
-  ],
+    "awarding_body_country": "GB",
+    "equivalency_details": null
+  }],
   "work_experiences": [{
     "org": "Cheadle Hulme High School",
     "start_date": "2018-05-01",
@@ -55,7 +47,8 @@
     "reason_for_character_reference": null,
     "email": "julia@school.ac.uk",
     "name": "Julia Wild",
-    "relationship": "Julia was my mentor at Cheadle Hulme High"
+    "relationship": "Julia was my mentor at Cheadle Hulme High",
+    "content": "Boris is committed to the profession of teaching..."
   }],
   "offer": {
     "conditions": [
@@ -65,11 +58,11 @@
   },
   "withdrawal": {
     "reason": "Candidate is unwell",
-    "date": "2019-01-30"
+    "date": "2019-01-30T10:41:21Z"
   },
   "rejection": {
     "reason": "Does not meet minimum GCSE requirements",
-    "date": "2019-01-30"
+    "date": "2019-01-30T10:41:21Z"
   },
   "submitted_at": "2019-06-13T10:44:31Z",
   "updated_at": "2019-06-13T10:44:31Z"

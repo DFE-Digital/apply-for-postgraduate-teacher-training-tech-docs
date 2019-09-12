@@ -266,6 +266,11 @@ module ApplicationJson
         name: 'awarding_body_country',
         type: 'string',
         description: 'The awarding body’s country as an ISO 3166 country code'
+      },
+      {
+        name: 'equivalency_details',
+        type: 'string',
+        description: 'Optional. Details of equivalency, if this qualification was awarded overseas'
       }
     ]
   end
@@ -334,6 +339,11 @@ module ApplicationJson
         name: 'relationship',
         type: 'string',
         description: 'The referee’s relationship to the candidate'
+      },
+      {
+        name: 'content',
+        type: 'string',
+        description: 'Optional. The reference content provided by the referee, once it is available'
       }
     ]
   end
@@ -365,7 +375,7 @@ module ApplicationJson
       {
         name: 'reason',
         type: 'string',
-        description: 'The candidate’s reason for withdrawing'
+        description: 'Optional. The candidate’s reason for withdrawing'
       },
       {
         name: 'date',
