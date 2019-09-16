@@ -3,7 +3,9 @@
   "status": "application_complete",
   "personal_statement": "Since retiring from the Police Service in 2007...",
   "candidate": {
-    "full_name": "Boris Brown",
+    "first_name": "Boris",
+    "last_name": "Brown",
+    "date_of_birth": "1985-02-02",
     "nationality": ["GB", "DE"],
     "uk_residency_status": "UK Citizen"
   },
