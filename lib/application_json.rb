@@ -124,9 +124,19 @@ module ApplicationJson
   def candidate_attributes
     [
       {
-        name: 'full_name',
+        name: 'first_name',
         type: 'string',
-        description: 'The candidate’s full name - this can be up to 60 characters'
+        description: 'The candidate’s first name - this can be up to 60 characters'
+      },
+      {
+        name: 'last_name',
+        type: 'string',
+        description: 'The candidate’s last name - this can be up to 60 characters'
+      },
+      {
+        name: 'date_of_birth',
+        type: 'date',
+        description: 'The candidate’s date of birth in YYYY-MM-DD format'
       },
       {
         name: 'nationality',

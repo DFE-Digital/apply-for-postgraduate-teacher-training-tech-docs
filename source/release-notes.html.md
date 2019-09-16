@@ -5,6 +5,12 @@ weight: 200
 
 # Release notes
 
+### Release 0.3 - 16 September 2019
+
+Changes to the data:
+
+- Add first name, last name and date of birth for Candidate
+
 ### Release 0.2 - 11 September 2019
 
 Changes to functionality:
