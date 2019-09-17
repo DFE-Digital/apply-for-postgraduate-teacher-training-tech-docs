@@ -61,7 +61,7 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   REJECTION_FIELDS = %w[
-    reason date
+    reason
   ].freeze
 
   describe '#single_application_json' do
