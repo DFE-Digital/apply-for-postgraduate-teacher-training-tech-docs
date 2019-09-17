@@ -4,7 +4,7 @@ module ApplicationJson
 
   def single_application_json
     JSON.pretty_generate(
-      single_application
+      data: single_application
     )
   end
 
@@ -18,7 +18,9 @@ module ApplicationJson
   end
 
   def single_application
-    json_data.merge(
+    application = json_data.clone
+
+    application['attributes'] = application['attributes'].merge(
       'withdrawal' => nil,
       'rejection' => nil,
       'offer' => nil,
@@ -29,6 +31,8 @@ module ApplicationJson
       'references' => DUMMY_ARRAY_OF_OBJECTS,
       'qualifications' => DUMMY_ARRAY_OF_OBJECTS
     )
+
+    application
   end
 
   def application_attributes
@@ -39,67 +43,72 @@ module ApplicationJson
         description: 'The unique ID of this application - this is limited to 10 characters'
       },
       {
-        name: 'status',
+        name: 'type',
+        type: 'string',
+        description: 'The type of resource'
+      },
+      {
+        name: 'attributes.status',
         type: 'string',
         description: 'The status of this application'
       },
       {
-        name: 'personal_statement',
+        name: 'attributes.personal_statement',
         type: 'string',
         description: 'The candidate’s personal statement - this can be up to 500 characters'
       },
       {
-        name: 'offer',
+        name: 'attributes.offer',
         type: link_to_resource_definition('Offer'),
         description: 'The offer on this application, if there is one'
       },
       {
-        name: 'rejection',
+        name: 'attributes.rejection',
         type: link_to_resource_definition('Rejection'),
         description: 'Rejection details, if applicable'
       },
       {
-        name: 'withdrawal',
+        name: 'attributes.withdrawal',
         type: link_to_resource_definition('Withdrawal'),
         description: 'Application withdrawal details, if applicable'
       },
       {
-        name: 'candidate',
+        name: 'attributes.candidate',
         type: link_to_resource_definition('Candidate'),
         description: 'Candidate details'
       },
       {
-        name: 'contact_details',
+        name: 'attributes.contact_details',
         type: link_to_resource_definition('Contact details'),
         description: 'Contact details'
       },
       {
-        name: 'course',
+        name: 'attributes.course',
         type: link_to_resource_definition('Course'),
         description: 'Course details'
       },
       {
-        name: 'work_experiences',
+        name: 'attributes.work_experiences',
         type: link_to_resource_definition('Work experience'),
         description: 'A list of work experiences'
       },
       {
-        name: 'references',
+        name: 'attributes.references',
         type: link_to_resource_definition('Reference'),
         description: 'Reference details'
       },
       {
-        name: 'qualifications',
+        name: 'attributes.qualifications',
         type: link_to_resource_definition('Qualification'),
         description: 'A list of qualifications'
       },
       {
-        name: 'submitted_at',
+        name: 'attributes.submitted_at',
         type: 'string',
         description: 'ISO 8601 date of submission, with time and timezone'
       },
       {
-        name: 'updated_at',
+        name: 'attributes.updated_at',
         type: 'string',
         description: 'ISO 8601 date of last change, with time and timezone'
       }
@@ -118,7 +127,7 @@ module ApplicationJson
   end
 
   def candidate_json
-    JSON.pretty_generate(json_data['candidate'])
+    JSON.pretty_generate(json_data['attributes']['candidate'])
   end
 
   def candidate_attributes
@@ -152,7 +161,7 @@ module ApplicationJson
   end
 
   def contact_details_json
-    JSON.pretty_generate(json_data['contact_details'])
+    JSON.pretty_generate(json_data['attributes']['contact_details'])
   end
 
   def contact_details_attributes
@@ -201,7 +210,7 @@ module ApplicationJson
   end
 
   def course_json
-    JSON.pretty_generate(json_data['course'])
+    JSON.pretty_generate(json_data['attributes']['course'])
   end
 
   def course_attributes
@@ -230,7 +239,7 @@ module ApplicationJson
   end
 
   def qualification_json
-    JSON.pretty_generate(json_data['qualifications'].first)
+    JSON.pretty_generate(json_data['attributes']['qualifications'].first)
   end
 
   def qualification_attributes
@@ -279,7 +288,7 @@ module ApplicationJson
   end
 
   def work_experience_json
-    JSON.pretty_generate(json_data['work_experiences'].first)
+    JSON.pretty_generate(json_data['attributes']['work_experiences'].first)
   end
 
   def work_experience_attributes
@@ -313,7 +322,7 @@ module ApplicationJson
   end
 
   def reference_json
-    JSON.pretty_generate(json_data['references'].first)
+    JSON.pretty_generate(json_data['attributes']['references'].first)
   end
 
   def reference_attributes
@@ -352,7 +361,7 @@ module ApplicationJson
   end
 
   def offer_json
-    JSON.pretty_generate(json_data['offer'])
+    JSON.pretty_generate(json_data['attributes']['offer'])
   end
 
   def offer_attributes
@@ -370,7 +379,7 @@ module ApplicationJson
   end
 
   def withdrawal_json
-    JSON.pretty_generate(json_data['withdrawal'])
+    JSON.pretty_generate(json_data['attributes']['withdrawal'])
   end
 
   def withdrawal_attributes
@@ -389,7 +398,7 @@ module ApplicationJson
   end
 
   def rejection_json
-    JSON.pretty_generate(json_data['rejection'])
+    JSON.pretty_generate(json_data['attributes']['rejection'])
   end
 
   def rejection_attributes

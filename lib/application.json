@@ -1,69 +1,71 @@
 {
   "id": "11fc0d3b2f",
-  "status": "application_complete",
-  "personal_statement": "Since retiring from the Police Service in 2007...",
-  "candidate": {
-    "first_name": "Boris",
-    "last_name": "Brown",
-    "date_of_birth": "1985-02-02",
-    "nationality": ["GB", "DE"],
-    "uk_residency_status": "UK Citizen"
-  },
-  "contact_details": {
-    "phone_number": "07944386555",
-    "email": "boris.brown@racingdemon.net",
-    "address_line1": "45",
-    "address_line2": "Dialstone Lane",
-    "address_line3": "Stockport",
-    "address_line4": "England",
-    "postcode": "SK2 6AA",
-    "country": "GB"
-
-  },
-  "course": {
-    "start_date": "2020-09-10",
-    "provider_ucas_code": "2FR",
-    "course_ucas_code": "3CVK",
-    "location_ucas_code": "K"
-  },
-  "qualifications": [{
-    "type": "BA",
-    "subject": "History and Politics",
-    "result": "2:1",
-    "award_year": "1992",
-    "place_of_study": "University of Huddersfield",
-    "awarding_body_name": null,
-    "awarding_body_country": "GB",
-    "equivalency_details": null
-  }],
-  "work_experiences": [{
-    "organisation_name": "Cheadle Hulme High School",
-    "start_date": "2018-05-01",
-    "end_date": "2019-04-01",
-    "role": "Whole School Literacy Specialist",
-    "description": "I lead, develop and enhance the literacy teaching practice of others..."
-  }],
-  "references": [{
-    "type": "school_senior_leadership",
-    "reason_for_character_reference": null,
-    "email": "julia@school.ac.uk",
-    "name": "Julia Wild",
-    "relationship": "Julia was my mentor at Cheadle Hulme High",
-    "content": "Boris is committed to the profession of teaching..."
-  }],
-  "offer": {
-    "conditions": [
-      "Completion of subject knowledge enhancement",
-      "Completion of professional skills test"
-    ]
-  },
-  "withdrawal": {
-    "reason": "Candidate is unwell",
-    "date": "2019-01-30T10:41:21Z"
-  },
-  "rejection": {
-    "reason": "Does not meet minimum GCSE requirements"
-  },
-  "submitted_at": "2019-06-13T10:44:31Z",
-  "updated_at": "2019-06-13T10:44:31Z"
+  "type": "application",
+  "attributes": {
+    "status": "application_complete",
+    "personal_statement": "Since retiring from the Police Service in 2007...",
+    "candidate": {
+      "first_name": "Boris",
+      "last_name": "Brown",
+      "date_of_birth": "1985-02-02",
+      "nationality": ["GB", "DE"],
+      "uk_residency_status": "UK Citizen"
+    },
+    "contact_details": {
+      "phone_number": "07944386555",
+      "email": "boris.brown@racingdemon.net",
+      "address_line1": "45",
+      "address_line2": "Dialstone Lane",
+      "address_line3": "Stockport",
+      "address_line4": "England",
+      "postcode": "SK2 6AA",
+      "country": "GB"
+    },
+    "course": {
+      "start_date": "2020-09-10",
+      "provider_ucas_code": "2FR",
+      "course_ucas_code": "3CVK",
+      "location_ucas_code": "K"
+    },
+    "qualifications": [{
+      "type": "BA",
+      "subject": "History and Politics",
+      "result": "2:1",
+      "award_year": "1992",
+      "place_of_study": "University of Huddersfield",
+      "awarding_body_name": null,
+      "awarding_body_country": "GB",
+      "equivalency_details": null
+    }],
+    "work_experiences": [{
+      "organisation_name": "Cheadle Hulme High School",
+      "start_date": "2018-05-01",
+      "end_date": "2019-04-01",
+      "role": "Whole School Literacy Specialist",
+      "description": "I lead, develop and enhance the literacy teaching practice of others..."
+    }],
+    "references": [{
+      "type": "school_senior_leadership",
+      "reason_for_character_reference": null,
+      "email": "julia@school.ac.uk",
+      "name": "Julia Wild",
+      "relationship": "Julia was my mentor at Cheadle Hulme High",
+      "content": "Boris is committed to the profession of teaching..."
+    }],
+    "offer": {
+      "conditions": [
+        "Completion of subject knowledge enhancement",
+        "Completion of professional skills test"
+      ]
+    },
+    "withdrawal": {
+      "reason": "Candidate is unwell",
+      "date": "2019-01-30T10:41:21Z"
+    },
+    "rejection": {
+      "reason": "Does not meet minimum GCSE requirements"
+    },
+    "submitted_at": "2019-06-13T10:44:31Z",
+    "updated_at": "2019-06-13T10:44:31Z"
+  }
 }

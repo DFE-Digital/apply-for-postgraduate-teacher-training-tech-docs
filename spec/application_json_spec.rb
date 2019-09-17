@@ -8,8 +8,20 @@ RSpec.describe ApplicationJson do
     end.new
   end
 
+  DATA_FIELDS = %w[
+    id type attributes
+  ]
+
+  ALL_APPLICATION_FIELDS = %w[
+    id type attributes.candidate attributes.contact_details attributes.course
+    attributes.qualifications attributes.work_experiences attributes.status
+    attributes.personal_statement attributes.withdrawal attributes.rejection
+    attributes.offer attributes.submitted_at attributes.updated_at
+    attributes.references
+  ].freeze
+
   APPLICATION_FIELDS = %w[
-    id candidate contact_details course qualifications
+    candidate contact_details course qualifications
     work_experiences status personal_statement
     withdrawal rejection offer submitted_at updated_at
     references
@@ -65,34 +77,61 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   describe '#single_application_json' do
-    subject(:parsed_json) do
-      JSON.parse(including_class.single_application_json)
+    context 'within the JSON object' do
+      subject(:parsed_json) do
+        JSON.parse(including_class.single_application_json)
+      end
+
+      it 'contains a data object' do
+        expect(parsed_json.keys).to contain_exactly('data')
+      end
     end
 
-    it 'returns the JSON for an application with all fields present' do
-      expect(parsed_json).to be_a Hash
-      expect(parsed_json.keys).to match_array(APPLICATION_FIELDS)
+    context 'within the data object' do
+      subject(:parsed_data) do
+        JSON.parse(including_class.single_application_json)['data']
+      end
+
+      it 'returns the JSON with all fields present' do
+        expect(parsed_data).to be_a Hash
+        expect(parsed_data.keys).to match_array(DATA_FIELDS)
+      end
+
+      it 'returns application for the type' do
+        expect(parsed_data['type']).to eq('application')
+      end
     end
 
-    it 'does not have a withdrawal or rejection' do
-      expect(parsed_json['withdrawal']).to be_nil
-      expect(parsed_json['rejection']).to be_nil
-    end
+    context 'within the attributes object of the data object' do
+      subject(:parsed_attributes) do
+        JSON.parse(including_class.single_application_json)['data']['attributes']
+      end
 
-    it 'does not include subresources' do
-      expect(parsed_json.values_at(*APPLICATION_SUBRESOURCES))
-        .to all(satisfy do |v|
-                  v.nil? ||
-                  v == ApplicationJson::DUMMY_OBJECT ||
-                  v == ApplicationJson::DUMMY_ARRAY_OF_OBJECTS
-                end)
+      it 'returns the JSON for an application with all fields present' do
+        expect(parsed_attributes).to be_a Hash
+        expect(parsed_attributes.keys).to match_array(APPLICATION_FIELDS)
+      end
+
+      it 'does not have a withdrawal or rejection' do
+        expect(parsed_attributes['withdrawal']).to be_nil
+        expect(parsed_attributes['rejection']).to be_nil
+      end
+
+      it 'does not include subresources' do
+        expect(parsed_attributes.values_at(*APPLICATION_SUBRESOURCES))
+          .to all(satisfy do |v|
+                    v.nil? ||
+                    v == ApplicationJson::DUMMY_OBJECT ||
+                    v == ApplicationJson::DUMMY_ARRAY_OF_OBJECTS
+                  end)
+      end
     end
   end
 
   describe '#application_attributes' do
     it 'contains an entry for all the relevant fields' do
       fields = including_class.application_attributes.map { |desc| desc[:name] }
-      expect(fields).to match_array(APPLICATION_FIELDS)
+      expect(fields).to match_array(ALL_APPLICATION_FIELDS)
     end
   end
 
