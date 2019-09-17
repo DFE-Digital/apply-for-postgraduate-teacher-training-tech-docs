@@ -5,6 +5,13 @@ weight: 200
 
 # Release notes
 
+### Unreleased
+
+Changes to the data:
+- Remove date from reject endpoint
+- Update Usage scenarios to match reject endpoint
+
+
 ### Release 0.3 - 16 September 2019
 
 Changes to the data:
