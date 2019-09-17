@@ -398,11 +398,6 @@ module ApplicationJson
         name: 'reason',
         type: 'string',
         description: 'The reason for rejection'
-      },
-      {
-        name: 'date',
-        type: 'string',
-        description: 'The date on which the rejection was issued in YYYY-MM-DD format'
       }
     ]
   end
