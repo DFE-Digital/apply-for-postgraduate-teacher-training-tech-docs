@@ -285,7 +285,7 @@ module ApplicationJson
   def work_experience_attributes
     [
       {
-        name: 'org',
+        name: 'organisation_name',
         type: 'string',
         description: 'The name of the employer (company or individual)'
       },

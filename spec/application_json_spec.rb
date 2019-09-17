@@ -45,7 +45,7 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   WORK_EXPERIENCE_FIELDS = %w[
-    org start_date end_date role description
+    organisation_name start_date end_date role description
   ].freeze
 
   REFERENCE_FIELDS = %w[
