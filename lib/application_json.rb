@@ -140,8 +140,8 @@ module ApplicationJson
       },
       {
         name: 'nationality',
-        type: 'array',
-        description: 'One or more ISO 3166 country codes'
+        type: 'array[2]',
+        description: 'ISO 3166 country codes - limited to 2'
       },
       {
         name: 'uk_residency_status',
