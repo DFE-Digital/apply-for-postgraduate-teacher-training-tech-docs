@@ -8,9 +8,13 @@ weight: 200
 ### Unreleased
 
 Changes to the data:
-- Remove date from reject endpoint
-- Update Usage scenarios to match reject endpoint
 
+- Remove date from reject endpoint
+- Rename the `org` attribute to `organisation_name` for the Work Experience resource
+
+Additional changes:
+
+- Update Usage scenarios to match reject endpoint
 
 ### Release 0.3 - 16 September 2019
 
