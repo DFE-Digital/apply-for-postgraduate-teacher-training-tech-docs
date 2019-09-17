@@ -14,7 +14,8 @@ Changes to the data:
 
 Additional changes:
 
-- Update Usage scenarios to match reject endpoint
+- Clarify the endpoint for rejecting an application in usage scenarios
+- Clarify the timestamp format for retrieving applications in usage scenarios
 
 ### Release 0.3 - 16 September 2019
 
