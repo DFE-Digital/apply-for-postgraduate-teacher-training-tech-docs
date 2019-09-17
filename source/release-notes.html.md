@@ -13,6 +13,10 @@ Changes to the data:
 - Rename the `org` attribute to `organisation_name` for the Work Experience resource
 - Limit candidates to only 2 nationalities
 
+Changes to functionality:
+
+- Support an `order` parameter when [retrieving many applications](/retrieve-many-applications)
+
 Additional changes:
 
 - Clarify the endpoint for rejecting an application in usage scenarios
@@ -22,6 +26,7 @@ Additional changes:
 ### Release 0.3 - 16 September 2019
 
 Changes to the data:
+
 - Remove first and last name from Candidate in favour of full name
 - Remove id from Candidate
 - Remove disability information from Candidate, as this is not collected via the application form

@@ -22,7 +22,7 @@ RSpec.describe ApplicationJson do
   ].freeze
 
   APPLICATIONS_PARAMS = %w[
-    since
+    since order
   ].freeze
 
   CANDIDATE_FIELDS = %w[
