@@ -36,3 +36,5 @@ prevent_indexing: true
 
 show_contribution_banner: true
 github_repo: DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs
+
+api_path: ./source/openapi-spec.yml
