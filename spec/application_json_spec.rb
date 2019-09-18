@@ -129,13 +129,25 @@ RSpec.describe ApplicationJson do
   end
 
   describe '#applications_json' do
-    subject(:parsed_json) do
-      JSON.parse(including_class.applications_json)
+    context 'within the JSON object' do
+      subject(:parsed_json) do
+        JSON.parse(including_class.applications_json)
+      end
+
+      it 'contains a data object' do
+        expect(parsed_json.keys).to contain_exactly('data')
+      end
     end
 
-    it 'returns an array of objects' do
-      expect(parsed_json).to be_a Array
-      expect(parsed_json).to all be_a Hash
+    context 'within the data object' do
+      subject(:parsed_data) do
+        JSON.parse(including_class.applications_json)['data']
+      end
+
+      it 'returns an array of objects' do
+        expect(parsed_data).to be_a Array
+        expect(parsed_data).to all be_a Hash
+      end
     end
   end
 

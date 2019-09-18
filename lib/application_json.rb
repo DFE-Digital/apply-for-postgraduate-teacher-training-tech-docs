@@ -10,9 +10,9 @@ module ApplicationJson
 
   def applications_json
     JSON.pretty_generate(
-      [
+      data: [
         single_application,
-        single_application.merge("id" => SecureRandom.hex[0..10])
+        single_application.merge('id' => SecureRandom.hex[0..10])
       ]
     )
   end
