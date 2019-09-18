@@ -128,6 +128,17 @@ RSpec.describe ApplicationJson do
     end
   end
 
+  describe '#applications_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.applications_json)
+    end
+
+    it 'returns an array of objects' do
+      expect(parsed_json).to be_a Array
+      expect(parsed_json).to all be_a Hash
+    end
+  end
+
   describe '#application_attributes' do
     it 'contains an entry for all the relevant fields' do
       fields = including_class.application_attributes.map { |desc| desc[:name] }
