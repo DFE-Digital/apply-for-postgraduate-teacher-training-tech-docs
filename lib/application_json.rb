@@ -402,6 +402,31 @@ module ApplicationJson
     ]
   end
 
+  def error_attributes
+    [
+      {
+        name: 'errors',
+        type: 'array',
+        description: 'Array containing multiple errors'
+      },
+      {
+        name: 'status',
+        type: 'string',
+        description: 'http status code for the error'
+      },
+      {
+        name: 'title',
+        type: 'string',
+        description: 'Generic information about the error'
+      },
+      {
+        name: 'detail',
+        type: 'string',
+        description: 'Information about this error specific to the occurrence'
+      },
+    ]
+  end
+
   def link_to_resource_definition(resource_name)
     slug = resource_name.downcase.gsub(' ', '-')
     link = "/resources-and-their-attributes##{slug}"

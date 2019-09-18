@@ -1,0 +1,85 @@
+---
+title: Errors
+weight: 80
+---
+
+# Errors
+
+This page shows examples of error responses.
+
+Errors will be structured as such
+
+```
+{
+  "errors": [
+    {
+      "status": "422",
+      "title":  "Invalid Attribute",
+      "detail": "Volume does not, in fact, go to 11."
+    }
+  ]
+}
+```
+
+<%= partial 'partials/attribute_table', locals: { attributes: error_attributes } %>
+
+
+## Examples
+
+### No Authorisation
+
+If no authentication information provided with the request.
+
+```
+{
+  "errors": [
+    {
+      "status": "401",
+      "title":  "Unauthorized",
+      "detail": "Please use correct api token"
+    }
+  ]
+}
+```
+
+### Application not found
+
+If no Resource is found for a request.
+
+```
+GET /applications/:id
+```
+
+```
+{
+  "errors": [
+    {
+      "status": "404",
+      "title":  "Not Found",
+      "detail": "Application not found"
+    }
+  ]
+}
+```
+
+### Application in wrong state
+
+When an application is found, but is in the wrong state.
+
+```
+POST /applications/:id/offer
+```
+
+If the application found has been withdrawn by the candidate.
+
+```
+{
+  "errors": [
+    {
+      "status": "409",
+      "title":  "Conflict",
+      "detail": "You cannot submit an offer to application in withdrawn state"
+    }
+  ]
+}
+```
