@@ -1,0 +1,349 @@
+openapi: 3.0.0
+info:
+  version: 0.0.4
+  title: Apply API
+servers:
+  - url: "https://example.com/vendor-api/v1"
+paths:
+  "/applications/{application_id}":
+    get:
+      summary: Retrieve an application
+      parameters:
+        - name: application_id
+          in: path
+          required: true
+          description: The unique ID of this application
+          schema:
+            type: string
+            maxLength: 10
+      responses:
+        "200":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
+  /applications:
+    get:
+      summary: Retrieve many applications
+      parameters:
+        - name: since
+          description: Optional. Include only applications changed or created on or since a date and time. Times should be in ISO 8601 format.
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+        - name: order
+          description: If missing, defaults to newest_first
+          in: query
+          schema:
+            type: string
+            default: newest_first
+            enum:
+              - newest_first
+              - oldest_first
+      responses:
+        "200":
+          description: An array of applications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Application"
+components:
+  schemas:
+    Application:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - type
+        - attributes
+      properties:
+        id:
+          type: string
+          description: The unique ID of this application
+          maxLength: 10
+          example: 11fc0d3b2f
+        type:
+          type: string
+          enum:
+            - application
+          example: application
+        attributes:
+          $ref: "#/components/schemas/ApplicationAttributes"
+
+    ApplicationAttributes:
+      type: object
+      properties:
+        status:
+          type: string
+          description: The status of this application
+          enum:
+            - accepted
+            - rejected
+          example: accepted
+        submitted_at:
+          type: string
+          format: date-time
+          description: ISO 8601 date of submission, with time and timezone
+          example: "2019-06-13T10:44:31Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: ISO 8601 date of last change, with time and timezone
+          example: "2019-06-13T10:44:31Z"
+        personal_statement:
+          type: string
+          description: The candidate’s personal statement
+          maxLength: 500
+          example: "Since retiring from the Police Service in 2007..."
+        candidate:
+          $ref: "#/components/schemas/Candidate"
+        contact_details:
+          $ref: "#/components/schemas/ContactDetails"
+        course:
+          $ref: "#/components/schemas/Course"
+        qualifications:
+          type: array
+          items:
+            $ref: "#/components/schemas/Qualification"
+        work_experiences:
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkExperience"
+        references:
+          type: array
+          items:
+            $ref: "#/components/schemas/Reference"
+        offer:
+          $ref: "#/components/schemas/Offer"
+        withdrawal:
+          $ref: "#/components/schemas/Withdrawal"
+        rejection:
+          $ref: "#/components/schemas/Rejection"
+
+    Candidate:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: The candidate’s first name
+          maxLength: 60
+          example: Boris
+        last_name:
+          type: string
+          description: The candidate’s last name
+          example: Brown
+          maxLength: 60
+        date_of_birth:
+          type: string
+          format: date
+          description: The candidate’s date of birth
+          example: "1985-02-02"
+        nationality:
+          type: array
+          items:
+            type: string
+            pattern: "^[A-Z]{2}$"
+            example: NL
+          maxItems: 2
+          description: One or more ISO 3166 country codes
+        uk_residency_status:
+          type: string
+          description: "The candidate’s UK residency status, e.g. Citizen"
+          example: UK Citizen
+    ContactDetails:
+      type: object
+      properties:
+        address_line1:
+          type: string
+          description: The candidate’s address line 1
+          maxLength: 50
+          example: 45
+        address_line2:
+          type: string
+          description: The candidate’s address line 2
+          maxLength: 50
+          example: Dialstone Lane
+        address_line3:
+          type: string
+          description: The candidate’s address line 3
+          maxLength: 50
+          example: Stockport
+        address_line4:
+          type: string
+          description: The candidate’s address line 4
+          maxLength: 50
+          example: England
+        postcode:
+          type: string
+          description: The candidate’s postcode
+          maxLength: 8
+          example: SK2 6AA
+        country:
+          type: string
+          description: The candidate’s country - ISO 3166 country code
+          pattern: "^[A-Z]{2}$"
+          example: GB
+        email:
+          type: string
+          description: The candidate’s email address
+          maxLength: 100
+          example: boris.brown@example.com
+        phone_number:
+          type: string
+          description: The candidate’s phone number
+          maxLength: 18
+          example: 07944386555
+    Course:
+      type: object
+      properties:
+        start_date:
+          type: string
+          format: date
+          description: The course’s start date
+          example: "2020-09-10"
+        provider_ucas_code:
+          type: string
+          description: The provider’s UCAS code
+          example: 2FR
+        course_ucas_code:
+          type: string
+          description: The course’s UCAS code
+          example: 3CVK
+        location_ucas_code:
+          type: string
+          description: The location’s UCAS code
+          example: K
+    Offer:
+      type: object
+      properties:
+        conditions:
+          type: array
+          items:
+            type: string
+            maxLength: 255
+          description: The conditions of the offer
+          maxItems: 20
+    Qualification:
+      type: object
+      properties:
+        qualification_type:
+          type: string
+          description: The qualification awarded
+          example: BA
+        subject:
+          type: string
+          description: The subject studied
+          example: History and Politics
+        result:
+          type: string
+          description: The grade awarded
+          example: "2:1"
+        award_year:
+          type: string
+          description: The year the award was made
+          example: "1992"
+        place_of_study:
+          type: string
+          description: The place of study
+          example: University of Huddersfield
+        awarding_body_name:
+          type: string
+          description: "Optional. The awarding body’s name, e.g. AQA"
+        awarding_body_country:
+          type: string
+          description: The awarding body’s country as an ISO 3166 country code
+          example: GB
+        equivalency_details:
+          type: string
+          description: Optional. Details of equivalency, if this qualification was awarded overseas
+    Reference:
+      type: object
+      properties:
+        reference_type:
+          type: string
+          description: The type of the reference
+          enum:
+            - academic
+            - professional
+            - school_senior_leadership
+            - character
+          example: school_senior_leadership
+        reason_for_character_reference:
+          type: string
+          description: "If this is a character reference, this field will contain the reason the candidate gave for not providing one of the other types"
+        email:
+          type: string
+          description: The referee’s email
+          example: julia@example.com
+        name:
+          type: string
+          description: The referee’s name
+          example: Julia Wild
+        relationship:
+          type: string
+          description: The referee’s relationship to the candidate
+          example: Julia was my mentor at Cheadle Hulme High
+        content:
+          type: string
+          description: "Optional. The reference content provided by the referee, once it is available"
+          example: Boris is committed to the profession of teaching...
+    Rejection:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: The reason for rejection
+          example: Does not meet minimum GCSE requirements
+        date:
+          type: string
+          format: date-time
+          description: The date on which the rejection was issued
+          example: "2019-09-18T15:33:49.216Z"
+    Withdrawal:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: Optional. The candidate’s reason for withdrawing
+          example: Candidate is unwell
+        date:
+          type: string
+          format: date-time
+          description: The date on which the withdrawal was received
+          example: "2019-09-18T15:33:49.216Z"
+    WorkExperience:
+      type: object
+      properties:
+        organisation_name:
+          type: string
+          description: The name of the employer (company or individual)
+          example: Cheadle Hulme High School
+        start_date:
+          type: string
+          format: date
+          description: The date employment began
+          example: "2020-09-10"
+        end_date:
+          type: string
+          format: date
+          description: "The date employment finished, if appropriate"
+          example: "2019-04-01"
+        role:
+          type: string
+          description: The position held by the candidate
+          example: Whole School Literacy Specialist
+        description:
+          type: string
+          description: A brief written description of the work involved
+          example: "I lead, develop and enhance the literacy teaching practice of others..."
