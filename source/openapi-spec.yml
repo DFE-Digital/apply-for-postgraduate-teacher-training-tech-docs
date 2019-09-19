@@ -58,10 +58,35 @@ paths:
                       $ref: "#/components/schemas/Application"
         "401":
           $ref: "#/components/responses/Unauthorized"
-
         "404":
           $ref: "#/components/responses/NotFound"
+  "/applications/{application_id}/offer":
+    post:
+      summary: Make an unconditional or conditional offer
+      parameters:
+        - $ref: '#/components/parameters/application_id'
+      requestBody:
+        description: |
+          The conditions of the offer
 
+          Providing a request body with an array of conditions is equivalent to making a **conditional** offer. For an **unconditional** offer, provide an empty request body.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: "#/components/schemas/Offer"
+      responses:
+        "201":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
 components:
   responses:
     NotFound:
