@@ -25,7 +25,6 @@ paths:
                 type: object
                 properties:
                   data:
-                    type: object
                     $ref: "#/components/schemas/Application"
   /applications:
     get:
