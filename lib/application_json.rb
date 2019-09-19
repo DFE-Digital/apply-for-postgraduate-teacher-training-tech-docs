@@ -113,6 +113,12 @@ module ApplicationJson
         type: 'string',
         description: 'Optional. Include only applications changed or created on
         or since a date and time. Times should be in ISO 8601 format.'
+      },
+      {
+        name: 'order',
+        type: 'string',
+        description: 'Optional. Specify how the returned applications are to be
+        sorted: "newest_first" or "oldest_first". Defaults to "newest_first".'
       }
     ]
   end
