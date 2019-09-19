@@ -79,40 +79,58 @@ components:
             - application
           example: application
         attributes:
-          type: object
-          properties:
-            status:
-              $ref: "#/components/schemas/status"
-            personal_statement:
-              $ref: "#/components/schemas/personal_statement"
-            candidate:
-              $ref: "#/components/schemas/candidate"
-            contact_details:
-              $ref: "#/components/schemas/contact_details"
-            course:
-              $ref: "#/components/schemas/course"
-            qualifications:
-              type: array
-              items:
-                $ref: "#/components/schemas/qualification"
-            work_experiences:
-              type: array
-              items:
-                $ref: "#/components/schemas/work_experience"
-            references:
-              type: array
-              items:
-                $ref: "#/components/schemas/reference"
-            offer:
-              $ref: "#/components/schemas/offer"
-            withdrawal:
-              $ref: "#/components/schemas/withdrawal"
-            rejection:
-              $ref: "#/components/schemas/rejection"
-            submitted_at:
-              $ref: "#/components/schemas/submitted_at"
-            updated_at:
-              $ref: "#/components/schemas/updated_at"
+          $ref: "#/components/schemas/ApplicationAttributes"
+
+    ApplicationAttributes:
+      type: object
+      properties:
+        status:
+          type: string
+          description: The status of this application
+          enum:
+            - accepted
+            - rejected
+          example: accepted
+        submitted_at:
+          type: string
+          format: date-time
+          description: ISO 8601 date of submission, with time and timezone
+          example: "2019-06-13T10:44:31Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: ISO 8601 date of last change, with time and timezone
+          example: "2019-06-13T10:44:31Z"
+        personal_statement:
+          type: string
+          description: The candidate’s personal statement
+          maxLength: 500
+          example: "Since retiring from the Police Service in 2007..."
+        candidate:
+          $ref: "#/components/schemas/candidate"
+        contact_details:
+          $ref: "#/components/schemas/contact_details"
+        course:
+          $ref: "#/components/schemas/course"
+        qualifications:
+          type: array
+          items:
+            $ref: "#/components/schemas/qualification"
+        work_experiences:
+          type: array
+          items:
+            $ref: "#/components/schemas/work_experience"
+        references:
+          type: array
+          items:
+            $ref: "#/components/schemas/reference"
+        offer:
+          $ref: "#/components/schemas/offer"
+        withdrawal:
+          $ref: "#/components/schemas/withdrawal"
+        rejection:
+          $ref: "#/components/schemas/rejection"
+
     candidate:
       type: object
       properties:
@@ -216,11 +234,6 @@ components:
             maxLength: 255
           description: The conditions of the offer
           maxItems: 20
-    personal_statement:
-      type: string
-      description: The candidate’s personal statement
-      maxLength: 500
-      example: "Since retiring from the Police Service in 2007..."
     qualification:
       type: object
       properties:
@@ -297,23 +310,6 @@ components:
           format: date-time
           description: The date on which the rejection was issued
           example: "2019-09-18T15:33:49.216Z"
-    status:
-      type: string
-      description: The status of this application
-      enum:
-        - accepted
-        - rejected
-      example: accepted
-    submitted_at:
-      type: string
-      format: date-time
-      description: ISO 8601 date of submission, with time and timezone
-      example: "2019-06-13T10:44:31Z"
-    updated_at:
-      type: string
-      format: date-time
-      description: ISO 8601 date of last change, with time and timezone
-      example: "2019-06-13T10:44:31Z"
     withdrawal:
       type: object
       properties:
