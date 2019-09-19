@@ -3,7 +3,7 @@ info:
   version: 0.0.4
   title: Apply API
 servers:
-  - url: "https://sandbox.azurewebsites.net/vendor-api/v1"
+  - url: "https://example.com/vendor-api/v1"
 paths:
   "/applications/{application_id}":
     get:
