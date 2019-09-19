@@ -357,3 +357,18 @@ components:
           type: string
           description: A brief written description of the work involved
           example: "I lead, develop and enhance the literacy teaching practice of others..."
+    Error:
+      type: object
+      additionalProperties: false
+      properties:
+        error:
+          type: string
+          description: Name of the current error
+          example: "Unauthorized"
+        message:
+          type: string
+          description: Description of the current error
+          example: Please provide a valid authentication token
+      required:
+        - error
+        - message
