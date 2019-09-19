@@ -26,6 +26,13 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+
+        '401':
+          $ref: "#/components/responses/Unauthorized"
+
+        '404':
+          $ref: "#/components/responses/NotFound"
+
   /applications:
     get:
       summary: Retrieve many applications. Applications are returned in the order they were changed or created.
@@ -58,7 +65,43 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Application"
+        '401':
+          $ref: "#/components/responses/Unauthorized"
+
+        '404':
+          $ref: "#/components/responses/NotFound"
+
 components:
+  responses:
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Error'
+                example:
+                  error: NotFound
+                  message: Unable to find Application(s)
+
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Error'
+                example:
+                  error: Unauthorized
+                  message: Please provide a valid authentication token
   schemas:
     Application:
       type: object
@@ -357,3 +400,18 @@ components:
           type: string
           description: A brief written description of the work involved
           example: "I lead, develop and enhance the literacy teaching practice of others..."
+    Error:
+      type: object
+      additionalProperties: false
+      properties:
+        error:
+          type: string
+          description: Name of the current error
+          example: "Unauthorized"
+        message:
+          type: string
+          description: Description of the current error
+          example: Please provide a valid authentication token
+      required:
+        - error
+        - message
