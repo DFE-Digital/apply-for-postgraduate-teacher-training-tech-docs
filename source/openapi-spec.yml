@@ -271,6 +271,9 @@ components:
             maxLength: 255
           description: The conditions of the offer
           maxItems: 20
+          example:
+            - Completion of subject knowledge enhancement
+            - Completion of professional skills test
     Qualification:
       type: object
       additionalProperties: false
