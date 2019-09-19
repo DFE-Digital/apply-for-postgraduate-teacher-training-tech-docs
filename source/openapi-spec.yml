@@ -107,31 +107,31 @@ components:
           maxLength: 500
           example: "Since retiring from the Police Service in 2007..."
         candidate:
-          $ref: "#/components/schemas/candidate"
+          $ref: "#/components/schemas/Candidate"
         contact_details:
-          $ref: "#/components/schemas/contact_details"
+          $ref: "#/components/schemas/ContactDetails"
         course:
-          $ref: "#/components/schemas/course"
+          $ref: "#/components/schemas/Course"
         qualifications:
           type: array
           items:
-            $ref: "#/components/schemas/qualification"
+            $ref: "#/components/schemas/Qualification"
         work_experiences:
           type: array
           items:
-            $ref: "#/components/schemas/work_experience"
+            $ref: "#/components/schemas/WorkExperience"
         references:
           type: array
           items:
-            $ref: "#/components/schemas/reference"
+            $ref: "#/components/schemas/Reference"
         offer:
-          $ref: "#/components/schemas/offer"
+          $ref: "#/components/schemas/Offer"
         withdrawal:
-          $ref: "#/components/schemas/withdrawal"
+          $ref: "#/components/schemas/Withdrawal"
         rejection:
-          $ref: "#/components/schemas/rejection"
+          $ref: "#/components/schemas/Rejection"
 
-    candidate:
+    Candidate:
       type: object
       properties:
         first_name:
@@ -161,7 +161,7 @@ components:
           type: string
           description: "The candidate’s UK residency status, e.g. Citizen"
           example: UK Citizen
-    contact_details:
+    ContactDetails:
       type: object
       properties:
         address_line1:
@@ -204,7 +204,7 @@ components:
           description: The candidate’s phone number
           maxLength: 18
           example: 07944386555
-    course:
+    Course:
       type: object
       properties:
         start_date:
@@ -224,7 +224,7 @@ components:
           type: string
           description: The location’s UCAS code
           example: K
-    offer:
+    Offer:
       type: object
       properties:
         conditions:
@@ -234,7 +234,7 @@ components:
             maxLength: 255
           description: The conditions of the offer
           maxItems: 20
-    qualification:
+    Qualification:
       type: object
       properties:
         qualification_type:
@@ -267,7 +267,7 @@ components:
         equivalency_details:
           type: string
           description: Optional. Details of equivalency, if this qualification was awarded overseas
-    reference:
+    Reference:
       type: object
       properties:
         reference_type:
@@ -298,7 +298,7 @@ components:
           type: string
           description: "Optional. The reference content provided by the referee, once it is available"
           example: Boris is committed to the profession of teaching...
-    rejection:
+    Rejection:
       type: object
       properties:
         reason:
@@ -310,7 +310,7 @@ components:
           format: date-time
           description: The date on which the rejection was issued
           example: "2019-09-18T15:33:49.216Z"
-    withdrawal:
+    Withdrawal:
       type: object
       properties:
         reason:
@@ -322,7 +322,7 @@ components:
           format: date-time
           description: The date on which the withdrawal was received
           example: "2019-09-18T15:33:49.216Z"
-    work_experience:
+    WorkExperience:
       type: object
       properties:
         organisation_name:
