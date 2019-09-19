@@ -12,7 +12,7 @@ RSpec.describe ApplicationJson do
     id candidate contact_details course qualifications
     work_experiences status personal_statement
     withdrawal rejection offer submitted_at updated_at
-    references
+    references hesa_itt_data
   ].freeze
 
   APPLICATION_SUBRESOURCES = %w[
@@ -63,6 +63,10 @@ RSpec.describe ApplicationJson do
   REJECTION_FIELDS = %w[
     reason
   ].freeze
+
+  HESA_ITT_DATA_FIELDS = %w[
+    sex disability ethnicity
+  ]
 
   describe '#single_application_json' do
     subject(:parsed_json) do
@@ -285,6 +289,26 @@ RSpec.describe ApplicationJson do
         desc[:name]
       end
       expect(fields).to match_array(REFERENCE_FIELDS)
+    end
+  end
+
+  describe '#hesa_itt_data_json' do
+    subject(:parsed_json) do
+      JSON.parse(including_class.hesa_itt_data_json)
+    end
+
+    it 'returns the JSON for a reference with all fields present' do
+      expect(parsed_json).to be_a Hash
+      expect(parsed_json.keys).to match_array(HESA_ITT_DATA_FIELDS)
+    end
+  end
+
+  describe '#hesa_itt_data_attributes' do
+    it 'contains an entry for all the relevant fields' do
+      fields = including_class.hesa_itt_data_attributes.map do |desc|
+        desc[:name]
+      end
+      expect(fields).to match_array(HESA_ITT_DATA_FIELDS)
     end
   end
 

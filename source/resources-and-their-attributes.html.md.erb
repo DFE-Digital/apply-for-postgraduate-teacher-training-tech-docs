@@ -90,3 +90,20 @@ The withdrawal of an application can only be made by a candidate.
 ```
 
 <%= partial 'partials/attribute_table', locals: { attributes: rejection_attributes } %>
+
+## HESA ITT Data
+
+Information required by HESA for the Initial Teacher Training data
+return. This information will only be returned once the application
+status is `enrolled`.
+
+If the candidate declined to provide a piece of information, its value
+will be the approriate HESA code for "information refused", or if this is
+not supported by HESA, `null`. Therefore fields not supporting an
+"information refused" code are marked optional.
+
+```json
+<%= hesa_itt_data_json %>
+```
+
+<%= partial 'partials/attribute_table', locals: { attributes: hesa_itt_data_attributes } %>

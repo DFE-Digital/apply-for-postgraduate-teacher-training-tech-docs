@@ -27,7 +27,8 @@ module ApplicationJson
       'course' => DUMMY_OBJECT,
       'work_experiences' => DUMMY_ARRAY_OF_OBJECTS,
       'references' => DUMMY_ARRAY_OF_OBJECTS,
-      'qualifications' => DUMMY_ARRAY_OF_OBJECTS
+      'qualifications' => DUMMY_ARRAY_OF_OBJECTS,
+      'hesa_itt_data' => nil
     )
   end
 
@@ -92,6 +93,11 @@ module ApplicationJson
         name: 'qualifications',
         type: link_to_resource_definition('Qualification'),
         description: 'A list of qualifications'
+      },
+      {
+        name: 'hesa_itt_data',
+        type: link_to_resource_definition('HESA ITT Data'),
+        description: 'Demographic information about the candidate. Only available once the student is enrolled'
       },
       {
         name: 'submitted_at',
@@ -404,6 +410,30 @@ module ApplicationJson
         name: 'reason',
         type: 'string',
         description: 'The reason for rejection'
+      }
+    ]
+  end
+
+  def hesa_itt_data_json
+    JSON.pretty_generate(json_data['hesa_itt_data'])
+  end
+
+  def hesa_itt_data_attributes
+    [
+      {
+        name: 'ethnicity',
+        type: 'string',
+        description: 'The candidate’s ethnicity as a two-digit HESA code (https://www.hesa.ac.uk/collection/c19053/e/ethnic)'
+      },
+      {
+        name: 'sex',
+        type: 'string',
+        description: 'Optional. The candidate’s sex as a one-digit HESA code (https://www.hesa.ac.uk/collection/c19053/e/sexid)'
+      },
+      {
+        name: 'disability',
+        type: 'string',
+        description: 'Optional. The candidate’s disability as a two-digit HESA code (https://www.hesa.ac.uk/collection/c19053/e/disable)'
       }
     ]
   end
