@@ -17,6 +17,7 @@ Additional changes:
 
 - Clarify the endpoint for rejecting an application in usage scenarios
 - Clarify the timestamp format for retrieving applications in usage scenarios
+- Add description of the API versioning
 
 ### Release 0.3 - 16 September 2019
 
