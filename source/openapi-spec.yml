@@ -28,17 +28,17 @@ paths:
                     $ref: "#/components/schemas/Application"
   /applications:
     get:
-      summary: Retrieve many applications
+      summary: Retrieve many applications. Applications are returned in the order they were changed or created.
       parameters:
         - name: since
-          description: Optional. Include only applications changed or created on or since a date and time. Times should be in ISO 8601 format.
+          description: Include only applications changed or created on or since a date and time. Times should be in ISO 8601 format.
           in: query
           required: true
           schema:
             type: string
             format: date-time
         - name: order
-          description: If missing, defaults to newest_first
+          description: Specify how the returned applications are to be sorted. If missing, defaults to newest_first
           in: query
           schema:
             type: string
