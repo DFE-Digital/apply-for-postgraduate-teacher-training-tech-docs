@@ -117,6 +117,34 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+  "/applications/{application_id}/reject":
+    post:
+      summary: Reject an application
+      parameters:
+        - $ref: '#/components/parameters/application_id'
+      requestBody:
+        description: The reason for rejection
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    reason:
+                      type: string
+                      example: Does not meet minimum GCSE requirements
+      responses:
+        "201":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
 components:
   responses:
     NotFound:
