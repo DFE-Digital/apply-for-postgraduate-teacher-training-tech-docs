@@ -102,6 +102,21 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+  "/applications/{application_id}/confirm-conditions-met":
+    post:
+      summary: Confirm offer conditions are met
+      parameters:
+        - $ref: '#/components/parameters/application_id'
+      responses:
+        "204":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
 components:
   responses:
     NotFound:
