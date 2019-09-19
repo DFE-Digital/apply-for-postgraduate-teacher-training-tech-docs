@@ -83,6 +83,7 @@ components:
 
     ApplicationAttributes:
       type: object
+      additionalProperties: false
       properties:
         status:
           type: string
@@ -133,6 +134,7 @@ components:
 
     Candidate:
       type: object
+      additionalProperties: false
       properties:
         first_name:
           type: string
@@ -163,6 +165,7 @@ components:
           example: UK Citizen
     ContactDetails:
       type: object
+      additionalProperties: false
       properties:
         address_line1:
           type: string
@@ -206,6 +209,7 @@ components:
           example: 07944386555
     Course:
       type: object
+      additionalProperties: false
       properties:
         start_date:
           type: string
@@ -226,6 +230,7 @@ components:
           example: K
     Offer:
       type: object
+      additionalProperties: false
       properties:
         conditions:
           type: array
@@ -236,6 +241,7 @@ components:
           maxItems: 20
     Qualification:
       type: object
+      additionalProperties: false
       properties:
         qualification_type:
           type: string
@@ -269,6 +275,7 @@ components:
           description: Optional. Details of equivalency, if this qualification was awarded overseas
     Reference:
       type: object
+      additionalProperties: false
       properties:
         reference_type:
           type: string
@@ -300,6 +307,7 @@ components:
           example: Boris is committed to the profession of teaching...
     Rejection:
       type: object
+      additionalProperties: false
       properties:
         reason:
           type: string
@@ -312,6 +320,7 @@ components:
           example: "2019-09-18T15:33:49.216Z"
     Withdrawal:
       type: object
+      additionalProperties: false
       properties:
         reason:
           type: string
@@ -324,6 +333,7 @@ components:
           example: "2019-09-18T15:33:49.216Z"
     WorkExperience:
       type: object
+      additionalProperties: false
       properties:
         organisation_name:
           type: string
