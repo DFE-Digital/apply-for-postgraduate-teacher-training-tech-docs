@@ -9,13 +9,7 @@ paths:
     get:
       summary: Retrieve an application
       parameters:
-        - name: application_id
-          in: path
-          required: true
-          description: The unique ID of this application
-          schema:
-            type: string
-            maxLength: 10
+        - $ref: "#/components/parameters/application_id"
       responses:
         "200":
           description: An application
@@ -26,13 +20,10 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
-
-        '401':
+        "401":
           $ref: "#/components/responses/Unauthorized"
-
-        '404':
+        "404":
           $ref: "#/components/responses/NotFound"
-
   /applications:
     get:
       summary: Retrieve many applications. Applications are returned in the order they were changed or created.
@@ -65,10 +56,10 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Application"
-        '401':
+        "401":
           $ref: "#/components/responses/Unauthorized"
 
-        '404':
+        "404":
           $ref: "#/components/responses/NotFound"
 
 components:
@@ -83,7 +74,7 @@ components:
               errors:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
                 example:
                   error: NotFound
                   message: Unable to find Application(s)
@@ -98,7 +89,7 @@ components:
               errors:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
                 example:
                   error: Unauthorized
                   message: Please provide a valid authentication token
@@ -123,7 +114,6 @@ components:
           example: application
         attributes:
           $ref: "#/components/schemas/ApplicationAttributes"
-
     ApplicationAttributes:
       type: object
       additionalProperties: false
@@ -174,7 +164,6 @@ components:
           $ref: "#/components/schemas/Withdrawal"
         rejection:
           $ref: "#/components/schemas/Rejection"
-
     Candidate:
       type: object
       additionalProperties: false
@@ -415,3 +404,12 @@ components:
       required:
         - error
         - message
+  parameters:
+    application_id:
+      name: application_id
+      in: path
+      required: true
+      description: The unique ID of this application
+      schema:
+        type: string
+        maxLength: 10
