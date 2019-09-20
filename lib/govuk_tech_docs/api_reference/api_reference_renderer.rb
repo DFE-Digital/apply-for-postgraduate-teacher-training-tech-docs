@@ -14,6 +14,7 @@ module GovukTechDocs
         @template_schema = get_renderer('schema.html.erb')
         @template_operation = get_renderer('operation.html.erb')
         @template_parameters = get_renderer('parameters.html.erb')
+        @template_request_body = get_renderer('request_body.html.erb')
         @template_responses = get_renderer('responses.html.erb')
       end
 
@@ -136,6 +137,7 @@ module GovukTechDocs
         operations.compact.each do |key, operation|
           id = "#{path_id}-#{key.parameterize}"
           parameters = parameters(operation, id)
+          request_body = request_body(operation, id)
           responses = responses(operation, id)
           output += @template_operation.result(binding)
         end
@@ -146,6 +148,13 @@ module GovukTechDocs
         parameters = operation.parameters
         id = "#{operation_id}-parameters"
         output = @template_parameters.result(binding)
+        output
+      end
+
+      def request_body(operation, operation_id)
+        request_body = operation.request_body
+        id = "#{operation_id}-request-body"
+        output = @template_request_body.result(binding)
         output
       end
 

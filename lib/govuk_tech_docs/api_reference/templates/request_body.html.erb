@@ -1,0 +1,12 @@
+<% unless request_body.nil? %>
+  <h4 id="<%= id %>">Request body</h4>
+  <%= markdown(request_body.description) %>
+  <% if request_body.content['application/json']
+    if request_body.content['application/json']["example"]
+      example = json_prettyprint(request_body.content['application/json']["example"])
+    else
+      example = json_output(request_body.content['application/json'].schema)
+    end
+  end %>
+  <pre><code><%= example %></code></pre>
+<% end %>
