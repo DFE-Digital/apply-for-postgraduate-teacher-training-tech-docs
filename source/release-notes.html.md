@@ -23,6 +23,7 @@ Additional changes:
 - Clarify the timestamp format for retrieving applications in usage scenarios
 - Add description of the API versioning
 - Add error responses to OpenAPI spec for application endpoints
+- Add instructions for importing our OpenAPI specification in the Swagger Editor
 
 ### Release 0.3 - 16 September 2019
 
