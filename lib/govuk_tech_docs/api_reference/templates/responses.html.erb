@@ -1,28 +1,20 @@
-<% if responses.any? %>
-<h4 id="<%= id %>">Responses</h4>
-<table>
-<thead>
-<tr><th>Status</th><th>Description</th></tr>
-</thead>
-<tbody>
-<% responses.each do |key,response| %>
-<tr>
-<td><%= key %></td>
-<td>
-<%= markdown(response.description) %>
+<% if operation.responses.any? %>
+### Possible reponses
+
+<% operation.responses.each do |key,response| %>
+#### HTTP <code><%= key %></code> - <%= response.description %>
+
 <% if response.content['application/json']
-if response.content['application/json']["example"]
-  request_body = json_prettyprint(response.content['application/json']["example"])
+response_body = if response.content['application/json']['example']
+  render_object_as_json_block(response.content['application/json']['example'])
 else
-  request_body = json_output(response.content['application/json'].schema)
+  render_schema_example_as_json_block(response.content['application/json'].schema)
 end
 end %>
-<% if !request_body.blank? %>
-<pre><code><%= request_body %></code></pre>
+
+<% if response_body %>
+<pre><code><%= response_body %></code></pre>
 <% end %>
-</td>
-</tr>
+
 <% end %>
-</tbody>
-</table>
 <% end %>

@@ -1,27 +1,33 @@
-<h3 id="<%= id = 'schema-' + title; id.parameterize %>"><%= title %></h3>
-<%= markdown(schema.description) %>
+### <%= schema_name %>
+<%= schema.description %>
 <% if properties.any? %>
-<table class='<%= id.parameterize %>'>
+<table>
 <thead>
-<tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th><th>Schema</th></tr>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Example</th>
+    <th>Description</th>
+    <th>Schema</th>
+  </tr>
 </thead>
 <tbody>
 <% properties.each do |property_name, property_attributes| %>
 <tr>
-<td><%= property_name %></td>
-<td><%= property_attributes.type %></td>
-<td><%= property_name.in?(schema.required.to_a) %></td>
-<td><%= markdown(property_attributes.description) %></td>
-<td>
-  <%=
-  linked_schema = property_attributes
-  # If property is an array, check the items property for a reference.
-  if property_attributes.type == 'array'
-    linked_schema = property_attributes['items']
-  end
-  # Only print a link if it's a referenced object.
-  get_schema_link(linked_schema) if linked_schema.node_context.referenced_by.to_s.include?('#/components/schemas') && !linked_schema.node_context.source_location.to_s.include?('/properties/') %>
-</td>
+  <td><%= property_name %><%= property_name.in?(schema.required.to_a) ? "<abbr title='This field will always be present in the response'>*</abbr>" : "" %></td>
+  <td><%= property_attributes.type %></td>
+  <td><%= property_attributes.example %></td>
+  <td><%= property_attributes.description %></td>
+  <td>
+    <%=
+    linked_schema = property_attributes
+    # If property is an array, check the items property for a reference.
+    if property_attributes.type == 'array'
+      linked_schema = property_attributes['items']
+    end
+    # Only print a link if it's a referenced object.
+    get_schema_link(linked_schema) if linked_schema.node_context.referenced_by.to_s.include?('#/components/schemas') && !linked_schema.node_context.source_location.to_s.include?('/properties/') %>
+  </td>
 </tr>
 <% end %>
 </tbody>

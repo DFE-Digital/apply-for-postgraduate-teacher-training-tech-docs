@@ -1,11 +1,24 @@
-<h3 id="<%= id %>"><%= key %></h3>
-<% if operation.summary %>
-  <p><em><%= operation.summary %></em></p>
-<% end %>
-<% if operation.description %>
-  <p><%= markdown(operation.description) %></p>
+## <%= http_verb.upcase %> <%= path_name %>
+
+<%= operation.summary %>
+
+<%= operation.description %>
+
+<%= parameters_html %>
+
+<% unless operation.request_body.nil? %>
+### Request body
+
+<%= operation.request_body.description %>
+
+ <% if operation.request_body.content['application/json']
+   if operation.request_body.content['application/json']["example"]
+     example = render_object_as_json_block(operation.request_body.content['application/json']["example"])
+   else
+     example = render_schema_example_as_json_block(operation.request_body.content['application/json'].schema)
+   end
+ end %>
+ <pre><code><%= example %></code></pre>
 <% end %>
 
-<%= parameters %>
-
-<%= responses %>
+<%= responses_html %>
