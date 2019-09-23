@@ -12,6 +12,8 @@ Changes to the data:
 - Remove date from reject endpoint
 - Rename the `org` attribute to `organisation_name` for the Work Experience resource
 - Limit candidates to only 2 nationalities
+- Rename the `type` field on `qualification` to `qualification_type`
+- Rename the `type` field on `reference` to `reference_type`
 
 Changes to functionality:
 
