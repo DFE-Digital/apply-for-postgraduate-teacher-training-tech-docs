@@ -19,7 +19,7 @@ module GovukTechDocs
           raise "Unable to load #{url_or_path}"
         end
 
-        render = Renderer.new({}, document)
+        render = Renderer.new(document)
         render.render_api_reference
       end
 

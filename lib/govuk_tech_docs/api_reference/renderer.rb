@@ -1,8 +1,7 @@
 module GovukTechDocs
   module ApiReference
     class Renderer
-      def initialize(app, document)
-        @app = app
+      def initialize(document)
         @document = document
 
         # Load template files
