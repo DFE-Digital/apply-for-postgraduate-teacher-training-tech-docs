@@ -2,7 +2,7 @@
 <h4 id="<%= id %>">Responses</h4>
 <table>
 <thead>
-<tr><th>Status</th><th>Description</th><th>Schema</th></tr>
+<tr><th>Status</th><th>Description</th></tr>
 </thead>
 <tbody>
 <% responses.each do |key,response| %>
@@ -20,11 +20,6 @@ end %>
 <% if !request_body.blank? %>
 <pre><code><%= request_body %></code></pre>
 <% end %>
-</td>
-<td>
-<%= if response.content['application/json']
-  get_schema_link(response.content['application/json'].schema)
-end %>
 </td>
 </tr>
 <% end %>
