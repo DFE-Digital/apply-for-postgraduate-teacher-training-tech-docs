@@ -44,6 +44,12 @@ paths:
             enum:
               - newest_first
               - oldest_first
+        - name: provider_code
+          description: UCAS Provider Code to uniquely identify a provider
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: An array of applications

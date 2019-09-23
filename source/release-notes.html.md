@@ -27,6 +27,7 @@ Changes to functionality:
   confirming offer conditions are met and rejecting an application endpoints to be
   the application
 - Support an `order` parameter when [retrieving many applications](/retrieve-many-applications)
+- Support a `provider_code` parameter when [retrieving many applications](/retrieve-many-applications)
 
 Additional changes:
 
