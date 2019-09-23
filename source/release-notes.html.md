@@ -9,12 +9,21 @@ weight: 200
 
 Changes to the data:
 
+- Change the structure an application:
+  - add `type` field
+  - add `attributes` field and move `status`, `submitted_at`, `updated_at`, `personal_statement`
+    `candidate`, `contact_details`, `course`, `qualifications`, `work_experiences`
+    `references`, `offer`, `withdrawal` and `rejection` fields into it
 - Remove date from reject endpoint
 - Rename the `org` attribute to `organisation_name` for the Work Experience resource
 - Limit candidates to only 2 nationalities
 
 Changes to functionality:
 
+- Change the successful response for all endpoints to be within a `data` object
+- Change the successful response for making an offer, confirming candidate enrolment,
+  confirming offer conditions are met and rejecting an application endpoints to be
+  the application
 - Support an `order` parameter when [retrieving many applications](/retrieve-many-applications)
 
 Additional changes:
