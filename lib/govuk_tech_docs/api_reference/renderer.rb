@@ -16,8 +16,7 @@ module GovukTechDocs
         @template_api_full.result(binding)
       end
 
-    private
-
+      # This method is called by the templates via `binding`
       def render_schema_block(schema_name, schema)
         properties = []
 
@@ -36,6 +35,7 @@ module GovukTechDocs
         @template_schema.result(binding)
       end
 
+      # This method is called by the templates via `binding`
       def render_operations_block(path_name, path)
         %w[get put post delete patch].map do |http_verb|
           operation = path.node_data[http_verb]
@@ -48,14 +48,27 @@ module GovukTechDocs
         end.join
       end
 
+      # This method is called by the templates via `binding`
       def render_schema_example_as_json_block(schema)
         properties = SchemaExample.new(schema).as_json
         render_object_as_json_block(properties)
       end
 
+      # This method is called by the templates via `binding`
       def render_object_as_json_block(data)
         JSON.pretty_generate(data)
       end
+
+      # This method is called by the templates via `binding`
+      def get_schema_link(schema)
+        schema_name = get_schema_name(schema.node_context.source_location.to_s)
+        return unless schema_name
+
+        id = "#{schema_name.parameterize}"
+        "<a href='\##{id}'>#{schema_name}</a>"
+      end
+
+    private
 
       def get_renderer(file)
         template_path = File.join("lib/govuk_tech_docs/api_reference/templates", file)
@@ -68,14 +81,6 @@ module GovukTechDocs
 
         # Schema dictates that it's always components['schemas']
         text.gsub(/#\/components\/schemas\//, '')
-      end
-
-      def get_schema_link(schema)
-        schema_name = get_schema_name(schema.node_context.source_location.to_s)
-        return unless schema_name
-
-        id = "#{schema_name.parameterize}"
-        "<a href='\##{id}'>#{schema_name}</a>"
       end
     end
   end
