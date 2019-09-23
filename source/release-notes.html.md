@@ -43,6 +43,8 @@ Additional changes:
 - Update responses for making an offer, confirming candidate enrolment,
   confirming offer conditions are met and rejecting an application endpoints in usage scenarios
 - Clarify Max length of strings in Schemas
+- Document the workflow for authenticating with an API key
+- Remove documentation for OpenID Connect, which will not be supported
 
 ### Release 0.3 - 16 September 2019
 
