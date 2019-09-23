@@ -9,13 +9,7 @@ paths:
     get:
       summary: Retrieve an application
       parameters:
-        - name: application_id
-          in: path
-          required: true
-          description: The unique ID of this application
-          schema:
-            type: string
-            maxLength: 10
+        - $ref: "#/components/parameters/application_id"
       responses:
         "200":
           description: An application
@@ -26,13 +20,10 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
-
-        '401':
+        "401":
           $ref: "#/components/responses/Unauthorized"
-
-        '404':
+        "404":
           $ref: "#/components/responses/NotFound"
-
   /applications:
     get:
       summary: Retrieve many applications. Applications are returned in the order they were changed or created.
@@ -65,12 +56,95 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Application"
-        '401':
+        "401":
           $ref: "#/components/responses/Unauthorized"
-
-        '404':
+        "404":
           $ref: "#/components/responses/NotFound"
+  "/applications/{application_id}/offer":
+    post:
+      summary: Make an unconditional or conditional offer
+      parameters:
+        - $ref: '#/components/parameters/application_id'
+      requestBody:
+        description: |
+          The conditions of the offer
 
+          Providing a request body with an array of conditions is equivalent to making a **conditional** offer. For an **unconditional** offer, provide an empty request body.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: "#/components/schemas/Offer"
+      responses:
+        "201":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
+  "/applications/{application_id}/confirm-enrolment":
+    post:
+      summary: Confirm candidate enrolment
+      parameters:
+        - $ref: '#/components/parameters/application_id'
+      responses:
+        "204":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
+  "/applications/{application_id}/confirm-conditions-met":
+    post:
+      summary: Confirm offer conditions are met
+      parameters:
+        - $ref: '#/components/parameters/application_id'
+      responses:
+        "204":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
+  "/applications/{application_id}/reject":
+    post:
+      summary: Reject an application
+      parameters:
+        - $ref: '#/components/parameters/application_id'
+      requestBody:
+        description: The reason for rejection
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    reason:
+                      type: string
+                      example: Does not meet minimum GCSE requirements
+      responses:
+        "201":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
 components:
   responses:
     NotFound:
@@ -83,7 +157,7 @@ components:
               errors:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
                 example:
                   error: NotFound
                   message: Unable to find Application(s)
@@ -98,7 +172,7 @@ components:
               errors:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Error'
+                  $ref: "#/components/schemas/Error"
                 example:
                   error: Unauthorized
                   message: Please provide a valid authentication token
@@ -123,7 +197,6 @@ components:
           example: application
         attributes:
           $ref: "#/components/schemas/ApplicationAttributes"
-
     ApplicationAttributes:
       type: object
       additionalProperties: false
@@ -174,7 +247,6 @@ components:
           $ref: "#/components/schemas/Withdrawal"
         rejection:
           $ref: "#/components/schemas/Rejection"
-
     Candidate:
       type: object
       additionalProperties: false
@@ -282,6 +354,9 @@ components:
             maxLength: 255
           description: The conditions of the offer
           maxItems: 20
+          example:
+            - Completion of subject knowledge enhancement
+            - Completion of professional skills test
     Qualification:
       type: object
       additionalProperties: false
@@ -415,3 +490,12 @@ components:
       required:
         - error
         - message
+  parameters:
+    application_id:
+      name: application_id
+      in: path
+      required: true
+      description: The unique ID of this application
+      schema:
+        type: string
+        maxLength: 10
