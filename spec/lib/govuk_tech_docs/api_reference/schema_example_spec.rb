@@ -79,7 +79,7 @@ RSpec.describe GovukTechDocs::ApiReference::SchemaExample do
       document = Openapi3Parser.load(
         openapi: '3.0.0',
         info: {
-          title: "Test shema",
+          title: "Test schema",
           version: "1.0.0"
         },
         paths: {
