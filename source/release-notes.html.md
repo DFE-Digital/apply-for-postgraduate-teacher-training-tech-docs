@@ -9,7 +9,7 @@ weight: 200
 
 Changes to the data:
 
-- Change the structure an application:
+- Change the structure of an application:
   - add `type` field
   - add `attributes` field and move `status`, `submitted_at`, `updated_at`, `personal_statement`
     `candidate`, `contact_details`, `course`, `qualifications`, `work_experiences`
