@@ -19,6 +19,7 @@ Changes to the data:
 - Limit candidates to only 2 nationalities
 - Rename the `type` field on `qualification` to `qualification_type`
 - Rename the `type` field on `reference` to `reference_type`
+- Add HESA ITT data to the application. Available only once a student is enrolled
 
 Changes to functionality:
 

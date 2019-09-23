@@ -64,6 +64,11 @@
   "rejection": {
     "reason": "Does not meet minimum GCSE requirements"
   },
+  "hesa_itt_data": {
+    "sex": "M",
+    "disability": "00",
+    "ethnicity": "43"
+  },
   "submitted_at": "2019-06-13T10:44:31Z",
   "updated_at": "2019-06-13T10:44:31Z"
 }

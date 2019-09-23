@@ -221,6 +221,7 @@ components:
         - updated_at
         - withdrawal
         - work_experiences
+        - hesa_itt_data
       properties:
         status:
           type: string
@@ -268,6 +269,8 @@ components:
           $ref: "#/components/schemas/Withdrawal"
         rejection:
           $ref: "#/components/schemas/Rejection"
+        hesa_itt_data:
+          $ref: "#/components/schemas/HESAITTData"
     Candidate:
       type: object
       additionalProperties: false
@@ -546,6 +549,32 @@ components:
           type: string
           description: A brief written description of the work involved
           example: "I lead, develop and enhance the literacy teaching practice of others..."
+    HESAITTData:
+      type: object
+      additionalProperties: false
+      description: |
+        Information required by HESA for the Initial Teacher Training data
+        return. This information will only be returned once the application
+        status is `enrolled`.
+      required:
+        - sex
+        - disability
+        - ethnicity
+      properties:
+        sex:
+          type: string
+          nullable: true
+          description: The candidate’s sex as a one-digit HESA code (https://www.hesa.ac.uk/collection/c19053/e/sexid)
+          example: "1"
+        disability:
+          type: string
+          nullable: true
+          description: The candidate’s disability as a two-digit HESA code (https://www.hesa.ac.uk/collection/c19053/e/disable)
+          example: "00"
+        ethnicity:
+          type: string
+          description: The candidate’s ethnicity as a two-digit HESA code (https://www.hesa.ac.uk/collection/c19053/e/ethnic)
+          example: "10"
     Error:
       type: object
       additionalProperties: false
