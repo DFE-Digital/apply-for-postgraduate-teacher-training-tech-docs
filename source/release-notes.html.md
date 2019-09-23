@@ -37,6 +37,9 @@ Additional changes:
 - Add description of the API versioning
 - Add error responses to OpenAPI spec for application endpoints
 - Add instructions for importing our OpenAPI specification in the Swagger Editor
+- Add `provider_code` param to retrieving many applications in usage scenarios
+- Update responses for making an offer, confirming candidate enrolment,
+  confirming offer conditions are met and rejecting an application endpoints in usage scenarios
 
 ### Release 0.3 - 16 September 2019
 
