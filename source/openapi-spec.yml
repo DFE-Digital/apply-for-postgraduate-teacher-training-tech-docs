@@ -637,3 +637,9 @@ components:
       schema:
         type: string
         maxLength: 10
+  securitySchemes:
+    tokenAuth:
+      type: http
+      scheme: bearer
+security:
+  - tokenAuth: []
