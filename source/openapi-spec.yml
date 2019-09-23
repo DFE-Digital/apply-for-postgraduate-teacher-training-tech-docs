@@ -84,6 +84,20 @@ components:
     ApplicationAttributes:
       type: object
       additionalProperties: false
+      required:
+        - candidate
+        - contact_details
+        - course
+        - offer
+        - personal_statement
+        - qualifications
+        - references
+        - rejection
+        - status
+        - submitted_at
+        - updated_at
+        - withdrawal
+        - work_experiences
       properties:
         status:
           type: string
@@ -135,6 +149,12 @@ components:
     Candidate:
       type: object
       additionalProperties: false
+      required:
+        - first_name
+        - last_name
+        - date_of_birth
+        - nationality
+        - uk_residency_status
       properties:
         first_name:
           type: string
@@ -166,6 +186,15 @@ components:
     ContactDetails:
       type: object
       additionalProperties: false
+      required:
+        - address_line1
+        - address_line2
+        - address_line3
+        - address_line4
+        - postcode
+        - country
+        - email
+        - phone_number
       properties:
         address_line1:
           type: string
@@ -210,6 +239,11 @@ components:
     Course:
       type: object
       additionalProperties: false
+      required:
+        - start_date
+        - provider_ucas_code
+        - course_ucas_code
+        - location_ucas_code
       properties:
         start_date:
           type: string
@@ -231,6 +265,8 @@ components:
     Offer:
       type: object
       additionalProperties: false
+      required:
+        - conditions
       properties:
         conditions:
           type: array
@@ -242,6 +278,15 @@ components:
     Qualification:
       type: object
       additionalProperties: false
+      required:
+        - qualification_type
+        - subject
+        - result
+        - award_year
+        - place_of_study
+        - awarding_body_country
+        - awarding_body_name
+        - equivalency_details
       properties:
         qualification_type:
           type: string
@@ -265,17 +310,24 @@ components:
           example: University of Huddersfield
         awarding_body_name:
           type: string
-          description: "Optional. The awarding body’s name, e.g. AQA"
+          description: "The awarding body’s name, e.g. AQA"
         awarding_body_country:
           type: string
-          description: The awarding body’s country as an ISO 3166 country code
+          description: "The awarding body’s country as an ISO 3166 country code"
           example: GB
         equivalency_details:
           type: string
-          description: Optional. Details of equivalency, if this qualification was awarded overseas
+          description: "Details of equivalency, if this qualification was awarded overseas"
     Reference:
       type: object
       additionalProperties: false
+      required:
+        - reference_type
+        - email
+        - relationship
+        - content
+        - name
+        - reason_for_character_reference
       properties:
         reference_type:
           type: string
@@ -308,6 +360,9 @@ components:
     Rejection:
       type: object
       additionalProperties: false
+      required:
+        - reason
+        - date
       properties:
         reason:
           type: string
@@ -321,6 +376,9 @@ components:
     Withdrawal:
       type: object
       additionalProperties: false
+      required:
+        - reason
+        - date
       properties:
         reason:
           type: string
@@ -334,6 +392,12 @@ components:
     WorkExperience:
       type: object
       additionalProperties: false
+      required:
+        - organisation_name
+        - start_date
+        - end_date
+        - role
+        - description
       properties:
         organisation_name:
           type: string
