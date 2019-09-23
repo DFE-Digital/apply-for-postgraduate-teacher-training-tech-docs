@@ -1,19 +1,19 @@
-<% if parameters.any? %>
-<h4 id="<%= id %>">Parameters</h4>
+<% if operation.parameters.any? %>
+### Parameters
 <table>
 <thead>
 <tr><th>Parameter</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr>
 </thead>
 <tbody>
-<% parameters.each do |parameter| %>
+<% operation.parameters.each do |parameter| %>
 <tr>
 <td><%= parameter.name %></td>
 <td><%= parameter.in %></td>
 <td><%= parameter.schema.type %></td>
 <td><%= parameter.required? %></td>
-<td><%= markdown(parameter.description) %>
+<td><p><%= parameter.description %></p>
 <% if parameter.schema.enum %>
-<p>Available items:</p>
+<p>Allowed items:</p>
 <ul>
 <% parameter.schema.enum.each do |item| %>
 <li><%= item %></li>

@@ -1,20 +1,24 @@
-<h1 id="<%=  info.title.parameterize %>"><%= info.title %> v<%= info.version %></h1>
+## API info
 
-<%= markdown(info.description) %>
-
-<% unless servers.empty? %>
-  <h2 id="servers">Servers</h2>
-  <div id="server-list">
-    <% servers.each do |server| %>
-    <% if server.description %>
-    <p><strong><%= server.description %></strong></p>
-    <% end %>
-    <a href="<%= server.url %>"><%= server.url %></a>
-  <% end %>
-  </div>
+API version: v<%= @document.info.version %>
+<% if @document.info.description %>
+Description: <%= @document.info.description %>
 <% end %>
 
-<%= paths %>
+<% unless @document.servers.empty? %>
+Servers:
 
-<h2 id="schemas">Schemas</h2>
-<%= schemas %>
+<% @document.servers.each do |server| %>
+- <%= server.description %>: <%= server.url %>
+<% end %>
+<% end %>
+
+<% @document.paths.each do |path_name, path| %>
+<%= render_operations_block(path_name, path) %>
+<% end %>
+
+## Schemas
+
+<% @document.components.schemas.each do |schema_name, schema| %>
+<%= render_schema_block(schema_name, schema) %>
+<% end %>
