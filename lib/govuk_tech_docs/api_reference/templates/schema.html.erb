@@ -17,7 +17,14 @@
   <td><%= property_name %><%= property_name.in?(schema.required.to_a) ? "<abbr title='This field will always be present in the response'>*</abbr>" : "" %></td>
   <td><%= property_attributes.type %></td>
   <td><%= property_attributes.example %></td>
-  <td><%= property_attributes.description %><%= property_attributes.type == 'string' && property_attributes.max_length.present? ? "<p>(limited to #{property_attributes.max_length} characters)</p>": "" %></td>
+  <td>
+    <%= property_attributes.description %>
+    <% if property_attributes.type == 'string' && property_attributes.max_length.present? %>
+      <p>(limited to <%= property_attributes.max_length %> characters)</p>
+    <% elsif property_attributes.type == 'array' && property_attributes.max_items.present? %>
+      <p>(limited to <%= property_attributes.max_items %> elements)</p>
+    <% end %>
+  </td>
   <td>
     <%=
     linked_schema = property_attributes
