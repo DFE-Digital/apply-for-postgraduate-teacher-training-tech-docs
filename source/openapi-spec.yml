@@ -96,6 +96,10 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
   "/applications/{application_id}/confirm-enrolment":
     post:
       summary: Confirm candidate enrolment
@@ -111,6 +115,10 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
   "/applications/{application_id}/confirm-conditions-met":
     post:
       summary: Confirm offer conditions are met
@@ -126,6 +134,10 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
   "/applications/{application_id}/reject":
     post:
       summary: Reject an application
@@ -154,6 +166,10 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
 components:
   responses:
     NotFound:
