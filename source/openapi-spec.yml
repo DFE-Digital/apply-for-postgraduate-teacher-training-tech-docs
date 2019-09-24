@@ -324,7 +324,7 @@ components:
           type: string
           description: The candidate’s address line 1
           maxLength: 50
-          example: 45
+          example: "45"
         address_line2:
           type: string
           description: The candidate’s address line 2
@@ -359,7 +359,7 @@ components:
           type: string
           description: The candidate’s phone number
           maxLength: 18
-          example: 07944386555
+          example: "07944386555"
     Course:
       type: object
       additionalProperties: false
