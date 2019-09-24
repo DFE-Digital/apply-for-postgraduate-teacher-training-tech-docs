@@ -250,9 +250,15 @@ components:
           type: string
           description: The status of this application
           enum:
-            - accepted
+            - application_complete
+            - conditional_offer
+            - unconditional_offer
+            - meeting_conditions
+            - recruited
+            - enrolled
             - rejected
-          example: accepted
+            - declined
+          example: conditional_offer
         submitted_at:
           type: string
           format: date-time
