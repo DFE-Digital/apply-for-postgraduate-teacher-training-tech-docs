@@ -2,32 +2,18 @@ openapi: 3.0.0
 info:
   version: 0.0.4
   title: Apply API
+  contact:
+    name: DfE
+    email: becomingateacher@digital.education.gov.uk
+  description: API for DfE's Apply for postgraduate teacher training service
 servers:
   - url: "https://example.com/vendor-api/v1"
     description: Example server
 paths:
-  "/applications/{application_id}":
-    get:
-      summary: Retrieve an application
-      parameters:
-        - $ref: "#/components/parameters/application_id"
-      responses:
-        "200":
-          description: An application
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
-        "401":
-          $ref: "#/components/responses/Unauthorized"
-        "404":
-          $ref: "#/components/responses/NotFound"
   /applications:
     get:
-      summary: Retrieve many applications. Applications are returned in the order they were changed or created.
+      summary: Get many applications
+      description: Applications are returned in the order they were changed or created.
       parameters:
         - name: since
           description: Include only applications changed or created on or since a date and time. Times should be in ISO 8601 format.
@@ -65,11 +51,29 @@ paths:
                       $ref: "#/components/schemas/Application"
         "401":
           $ref: "#/components/responses/Unauthorized"
+  "/applications/{application_id}":
+    get:
+      summary: Get a single application
+      parameters:
+        - $ref: "#/components/parameters/application_id"
+      responses:
+        "200":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
   "/applications/{application_id}/offer":
     post:
-      summary: Make an unconditional or conditional offer
+      summary: Make an offer
+      description: Make an unconditional or conditional offer
       parameters:
         - $ref: '#/components/parameters/application_id'
       requestBody:
@@ -94,9 +98,14 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
   "/applications/{application_id}/confirm-enrolment":
     post:
-      summary: Confirm candidate enrolment
+      summary: Confirm enrolment
+      description: Confirm that the candidate has enroled
       parameters:
         - $ref: '#/components/parameters/application_id'
       responses:
@@ -109,9 +118,14 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
   "/applications/{application_id}/confirm-conditions-met":
     post:
-      summary: Confirm offer conditions are met
+      summary: Confirm offer conditions
+      description: Confirm that the candidate has met all the conditions set out in the offer
       parameters:
         - $ref: '#/components/parameters/application_id'
       responses:
@@ -124,9 +138,14 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
   "/applications/{application_id}/reject":
     post:
-      summary: Reject an application
+      summary: Reject application
+      description: Reject the candidate's application with a reason
       parameters:
         - $ref: '#/components/parameters/application_id'
       requestBody:
@@ -152,6 +171,10 @@ paths:
                 properties:
                   data:
                     $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
 components:
   responses:
     NotFound:
@@ -166,8 +189,8 @@ components:
                 items:
                   $ref: "#/components/schemas/Error"
                 example:
-                  error: NotFound
-                  message: Unable to find Application(s)
+                  - error: NotFound
+                    message: Unable to find Application(s)
 
     Unauthorized:
       description: Unauthorized
@@ -181,8 +204,8 @@ components:
                 items:
                   $ref: "#/components/schemas/Error"
                 example:
-                  error: Unauthorized
-                  message: Please provide a valid authentication token
+                  - error: Unauthorized
+                    message: Please provide a valid authentication token
   schemas:
     Application:
       type: object
@@ -324,7 +347,7 @@ components:
           type: string
           description: The candidate’s address line 1
           maxLength: 50
-          example: 45
+          example: "45"
         address_line2:
           type: string
           description: The candidate’s address line 2
@@ -359,7 +382,7 @@ components:
           type: string
           description: The candidate’s phone number
           maxLength: 18
-          example: 07944386555
+          example: "07944386555"
     Course:
       type: object
       additionalProperties: false
