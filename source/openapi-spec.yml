@@ -88,6 +88,8 @@ paths:
               properties:
                 data:
                   $ref: "#/components/schemas/Offer"
+                meta:
+                  $ref: '#/components/schemas/TimestampAndAttribution'
       responses:
         "200":
           description: An application
@@ -108,6 +110,14 @@ paths:
       description: Confirm that the candidate has enroled
       parameters:
         - $ref: '#/components/parameters/application_id'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                meta:
+                  $ref: '#/components/schemas/TimestampAndAttribution'
       responses:
         "200":
           description: An application
@@ -128,6 +138,14 @@ paths:
       description: Confirm that the candidate has met all the conditions set out in the offer
       parameters:
         - $ref: '#/components/parameters/application_id'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                meta:
+                  $ref: '#/components/schemas/TimestampAndAttribution'
       responses:
         "200":
           description: An application
@@ -161,6 +179,8 @@ paths:
                     reason:
                       type: string
                       example: Does not meet minimum GCSE requirements
+                meta:
+                  $ref: '#/components/schemas/TimestampAndAttribution'
       responses:
         "200":
           description: An application
@@ -617,6 +637,40 @@ components:
           type: string
           description: The candidate’s ethnicity as a two-digit HESA code (https://www.hesa.ac.uk/collection/c19053/e/ethnic)
           example: "10"
+    Attribution:
+      type: object
+      additionalProperties: false
+      required:
+        - full_name
+        - email
+        - user_id
+      properties:
+        full_name:
+          type: string
+          description: The full name of the user who made this update
+          example: "Jane Smith"
+        email:
+          type: string
+          description: The email address of the user who made this update
+          example: "jane.smith@example.com"
+        user_id:
+          type: string
+          description: The ID of the user in the Student Record System, used for disambiguation
+          example: "12345"
+    TimestampAndAttribution:
+      type: object
+      description: Required under a "meta" key in the body of every POST or PUT request
+      additionalProperties: false
+      required:
+        - attribution
+        - timestamp
+      properties:
+        attribution:
+          $ref: '#/components/schemas/Attribution'
+        timestamp:
+          type: string
+          description: The time this update was made, formatted as an ISO 8601 timestamp with time zone
+          format: date-time
     Error:
       type: object
       additionalProperties: false
