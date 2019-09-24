@@ -27,6 +27,8 @@ Changes to functionality:
 - Change the successful response for making an offer, confirming candidate enrolment,
   confirming offer conditions are met and rejecting an application endpoints to be
   the application
+- Change the HTTP response code for making an offer, confirming candidate enrolment,
+  confirming offer conditions are met and rejecting an application endpoints to `200`
 - Support an `order` parameter when [retrieving many applications](/retrieve-many-applications)
 - Support a `provider_code` parameter when [retrieving many applications](/retrieve-many-applications)
 
