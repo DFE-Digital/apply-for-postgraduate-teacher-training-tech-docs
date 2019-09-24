@@ -243,7 +243,6 @@ components:
         personal_statement:
           type: string
           description: The candidate’s personal statement
-          maxLength: 500
           example: "Since retiring from the Police Service in 2007..."
         candidate:
           $ref: "#/components/schemas/Candidate"
@@ -423,6 +422,7 @@ components:
         subject:
           type: string
           description: The subject studied
+          maxLength: 255
           example: History and Politics
         result:
           type: string
@@ -435,10 +435,12 @@ components:
         place_of_study:
           type: string
           description: The place of study
+          maxLength: 255
           example: University of Huddersfield
         awarding_body_name:
           type: string
           description: "The awarding body’s name, e.g. AQA"
+          maxLength: 255
         awarding_body_country:
           type: string
           description: "The awarding body’s country as an ISO 3166 country code"
@@ -446,6 +448,7 @@ components:
         equivalency_details:
           type: string
           description: "Details of equivalency, if this qualification was awarded overseas"
+          maxLength: 255
     Reference:
       type: object
       additionalProperties: false
@@ -460,6 +463,7 @@ components:
         reference_type:
           type: string
           description: The type of the reference
+          maxLength: 255
           enum:
             - academic
             - professional
@@ -469,17 +473,21 @@ components:
         reason_for_character_reference:
           type: string
           description: "If this is a character reference, this field will contain the reason the candidate gave for not providing one of the other types"
+          maxLength: 255
         email:
           type: string
           description: The referee’s email
+          maxLength: 100
           example: julia@example.com
         name:
           type: string
           description: The referee’s name
+          maxLength: 255
           example: Julia Wild
         relationship:
           type: string
           description: The referee’s relationship to the candidate
+          maxLength: 255
           example: Julia was my mentor at Cheadle Hulme High
         content:
           type: string
@@ -495,6 +503,7 @@ components:
         reason:
           type: string
           description: The reason for rejection
+          maxLength: 255
           example: Does not meet minimum GCSE requirements
         date:
           type: string
@@ -511,6 +520,7 @@ components:
         reason:
           type: string
           description: Optional. The candidate’s reason for withdrawing
+          maxLength: 255
           example: Candidate is unwell
         date:
           type: string
@@ -530,6 +540,7 @@ components:
         organisation_name:
           type: string
           description: The name of the employer (company or individual)
+          maxLength: 255
           example: Cheadle Hulme High School
         start_date:
           type: string
@@ -544,10 +555,12 @@ components:
         role:
           type: string
           description: The position held by the candidate
+          maxLength: 255
           example: Whole School Literacy Specialist
         description:
           type: string
           description: A brief written description of the work involved
+          maxLength: 255
           example: "I lead, develop and enhance the literacy teaching practice of others..."
     HESAITTData:
       type: object
@@ -582,10 +595,12 @@ components:
         error:
           type: string
           description: Name of the current error
+          maxLength: 255
           example: "Unauthorized"
         message:
           type: string
           description: Description of the current error
+          maxLength: 255
           example: Please provide a valid authentication token
       required:
         - error
