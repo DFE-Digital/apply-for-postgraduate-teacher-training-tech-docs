@@ -2,6 +2,10 @@ openapi: 3.0.0
 info:
   version: 0.0.4
   title: Apply API
+  contact:
+    name: DfE
+    email: becomingateacher@digital.education.gov.uk
+  description: API for DfE's Apply for postgraduate teacher training service
 servers:
   - url: "https://example.com/vendor-api/v1"
     description: Example server
