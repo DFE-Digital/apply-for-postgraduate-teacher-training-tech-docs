@@ -166,8 +166,8 @@ components:
                 items:
                   $ref: "#/components/schemas/Error"
                 example:
-                  error: NotFound
-                  message: Unable to find Application(s)
+                  - error: NotFound
+                    message: Unable to find Application(s)
 
     Unauthorized:
       description: Unauthorized
@@ -181,8 +181,8 @@ components:
                 items:
                   $ref: "#/components/schemas/Error"
                 example:
-                  error: Unauthorized
-                  message: Please provide a valid authentication token
+                  - error: Unauthorized
+                    message: Please provide a valid authentication token
   schemas:
     Application:
       type: object
