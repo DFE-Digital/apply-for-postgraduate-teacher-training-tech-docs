@@ -10,25 +10,6 @@ servers:
   - url: "https://example.com/vendor-api/v1"
     description: Example server
 paths:
-  "/applications/{application_id}":
-    get:
-      summary: Retrieve an application
-      parameters:
-        - $ref: "#/components/parameters/application_id"
-      responses:
-        "200":
-          description: An application
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
-        "401":
-          $ref: "#/components/responses/Unauthorized"
-        "404":
-          $ref: "#/components/responses/NotFound"
   /applications:
     get:
       summary: Retrieve many applications. Applications are returned in the order they were changed or created.
@@ -67,6 +48,25 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Application"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  "/applications/{application_id}":
+    get:
+      summary: Retrieve an application
+      parameters:
+        - $ref: "#/components/parameters/application_id"
+      responses:
+        "200":
+          description: An application
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Application"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "404":
