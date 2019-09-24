@@ -24,13 +24,14 @@ Changes to the data:
 Changes to functionality:
 
 - Change the successful response for all endpoints to be within a `data` object
-- Change the successful response for [making an offer](/reference/#post-applications-application-id-offer),
-  [confirming candidate enrolment](/reference/#post-applications-application-id-confirm-enrolment),
-  [confirming offer conditions are met](/reference/#post-applications-application-id-confirm-conditions-met)
-  and [rejecting an application](/reference/#post-applications-application-id-reject) endpoints to:
-  - return the application
-  - return a HTTP `200` response code
-- Support an `order` and a `provider_code` parameter when [retrieving many applications](/reference#get-applications)
+- Change the successful response for making an offer, confirming candidate
+  enrolment, confirming offer conditions are met and rejecting an application
+  endpoints to be the application
+- Change the HTTP response code for making an offer, confirming candidate enrolment,
+  confirming offer conditions are met and rejecting an application endpoints to `200`
+- Support an `order` parameter when [retrieving many applications](/retrieve-many-applications)
+- Support a `provider_code` parameter when [retrieving many applications](/retrieve-many-applications)
+- Require a `meta` key in POST request bodies, holding `attribution` and `timestamp` metadata
 
 Additional changes:
 

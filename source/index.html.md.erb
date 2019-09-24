@@ -69,8 +69,6 @@ they know to come back and generate a new one. To prevent a hard
 cut-over between keys, once a new key is created the old key will
 continue to work until it expires.
 
-_Last updated: <%= Date.today.strftime("%-d %B %Y") %>_
-
 ### Versioning
 
 The version of the API is specified in the URL `/api/v{n}/`. For example: `/api/v1/`, `/api/v2/`, `/api/v3/`, ...
@@ -86,4 +84,6 @@ When non-breaking changes are made to the API, this will not result in a version
 Information about deprecations (for instance attributes/endpoints that will be modified/removed) will be included in the API
 response through a "Warning" header.
 
-We will update our [release notes](/release-notes) containing all breaking and non-breaking changes.
+We will update our [release notes](/release-notes) with all breaking and non-breaking changes.
+
+_Last updated: <%= Date.today.strftime("%-d %B %Y") %>_
