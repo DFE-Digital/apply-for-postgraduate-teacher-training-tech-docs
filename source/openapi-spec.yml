@@ -50,8 +50,6 @@ paths:
                       $ref: "#/components/schemas/Application"
         "401":
           $ref: "#/components/responses/Unauthorized"
-        "404":
-          $ref: "#/components/responses/NotFound"
   "/applications/{application_id}":
     get:
       summary: Retrieve an application
