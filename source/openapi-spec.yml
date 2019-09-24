@@ -85,7 +85,7 @@ paths:
                 data:
                   $ref: "#/components/schemas/Offer"
       responses:
-        "201":
+        "200":
           description: An application
           content:
             application/json:
