@@ -671,6 +671,7 @@ components:
           type: string
           description: The time this update was made, formatted as an ISO 8601 timestamp with time zone
           format: date-time
+          example: "2019-03-01T15:33:49.216Z"
     Error:
       type: object
       additionalProperties: false
