@@ -107,7 +107,7 @@ paths:
   "/applications/{application_id}/confirm-enrolment":
     post:
       summary: Confirm enrolment
-      description: Confirm that the candidate has enroled
+      description: Confirm that the candidate has enrolled
       parameters:
         - $ref: '#/components/parameters/application_id'
       requestBody:
@@ -671,6 +671,7 @@ components:
           type: string
           description: The time this update was made, formatted as an ISO 8601 timestamp with time zone
           format: date-time
+          example: "2019-03-01T15:33:49.216Z"
     Error:
       type: object
       additionalProperties: false
