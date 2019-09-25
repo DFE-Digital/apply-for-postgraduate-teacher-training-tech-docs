@@ -46,6 +46,7 @@ Additional changes:
   [confirming candidate enrolment](/reference/#post-applications-application-id-confirm-enrolment),
   [confirming offer conditions are met](/reference/#post-applications-application-id-confirm-conditions-met)
   and [rejecting an application](/reference/#post-applications-application-id-reject) endpoints in [usage scenarios](/usage-scenarios)
+- Clarify the steps between making an offer and confirming that offer conditions are met in [usage scenarios](/usage-scenarios)
 
 ### Release 0.3 - 16 September 2019
 
