@@ -34,12 +34,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/MultipleApplicationsResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "422":
@@ -55,10 +50,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/SingleApplicationResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "404":
@@ -89,10 +81,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/SingleApplicationResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "404":
@@ -117,10 +106,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/SingleApplicationResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "404":
@@ -145,10 +131,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/SingleApplicationResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "404":
@@ -234,6 +217,22 @@ components:
                   - error: ParameterMissing
                     message: "param is missing or the value is empty: parameter_name"
   schemas:
+    MultipleApplicationsResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Application"
+    SingleApplicationResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: "#/components/schemas/Application"
     Application:
       type: object
       additionalProperties: false
