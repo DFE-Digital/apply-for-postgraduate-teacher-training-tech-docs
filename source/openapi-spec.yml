@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 0.0.4
+  version: 0.4.0
   title: Apply API
   contact:
     name: DfE
