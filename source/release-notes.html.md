@@ -5,7 +5,7 @@ weight: 200
 
 # Release notes
 
-### Unreleased
+### Release 0.4.0 - 26 September 2019
 
 Changes to the data:
 
