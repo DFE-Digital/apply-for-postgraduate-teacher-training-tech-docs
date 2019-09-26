@@ -43,12 +43,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/ApplicationsResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
   "/applications/{application_id}":
@@ -202,15 +197,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              errors:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Error"
-                example:
-                  - error: NotFound
-                    message: Unable to find Application(s)
+            $ref: "#/components/schemas/ErrorResponse"
 
     Unauthorized:
       description: Unauthorized
@@ -227,6 +214,15 @@ components:
                   - error: Unauthorized
                     message: Please provide a valid authentication token
   schemas:
+    ApplicationsResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Application"
     Application:
       type: object
       additionalProperties: false
@@ -672,6 +668,19 @@ components:
           description: The time this update was made, formatted as an ISO 8601 timestamp with time zone
           format: date-time
           example: "2019-03-01T15:33:49.216Z"
+    ErrorResponse:
+      type: object
+      required:
+        - errors
+      additionalProperties: false
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: "#/components/schemas/Error"
+          example:
+            - error: NotFound
+              message: Unable to find Application(s)
     Error:
       type: object
       additionalProperties: false
