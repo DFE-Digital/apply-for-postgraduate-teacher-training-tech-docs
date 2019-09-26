@@ -29,8 +29,7 @@ Changes to functionality:
   endpoints to be the application
 - Change the HTTP response code for making an offer, confirming candidate enrolment,
   confirming offer conditions are met and rejecting an application endpoints to `200`
-- Support an `order` parameter when [retrieving many applications](/retrieve-many-applications)
-- Support a `provider_code` parameter when [retrieving many applications](/retrieve-many-applications)
+- Support a `provider_ucas_code` parameter when [retrieving many applications](/retrieve-many-applications)
 - Require a `meta` key in POST request bodies, holding `attribution` and `timestamp` metadata
 
 Additional changes:

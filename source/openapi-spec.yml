@@ -22,16 +22,7 @@ paths:
           schema:
             type: string
             format: date-time
-        - name: order
-          description: Specify how the returned applications are to be sorted. If missing, defaults to newest_first
-          in: query
-          schema:
-            type: string
-            default: newest_first
-            enum:
-              - newest_first
-              - oldest_first
-        - name: provider_code
+        - name: provider_ucas_code
           description: UCAS Provider Code to uniquely identify a provider
           in: query
           required: true
@@ -43,14 +34,11 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/MultipleApplicationsResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ParameterMissing"
   "/applications/{application_id}":
     get:
       summary: Get a single application
@@ -62,10 +50,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/SingleApplicationResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "404":
@@ -96,10 +81,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/SingleApplicationResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "404":
@@ -124,10 +106,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/SingleApplicationResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "404":
@@ -152,10 +131,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: "#/components/schemas/Application"
+                $ref: "#/components/schemas/SingleApplicationResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "404":
@@ -226,7 +202,37 @@ components:
                 example:
                   - error: Unauthorized
                     message: Please provide a valid authentication token
+    ParameterMissing:
+      description: A required URL parameter was empty or missing
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Error"
+                example:
+                  - error: ParameterMissing
+                    message: "param is missing or the value is empty: parameter_name"
   schemas:
+    MultipleApplicationsResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Application"
+    SingleApplicationResponse:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: "#/components/schemas/Application"
     Application:
       type: object
       additionalProperties: false
