@@ -31,7 +31,7 @@ paths:
             enum:
               - newest_first
               - oldest_first
-        - name: provider_code
+        - name: provider_ucas_code
           description: UCAS Provider Code to uniquely identify a provider
           in: query
           required: true
