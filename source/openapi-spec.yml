@@ -42,6 +42,8 @@ paths:
                       $ref: "#/components/schemas/Application"
         "401":
           $ref: "#/components/responses/Unauthorized"
+        "422":
+          $ref: "#/components/responses/ParameterMissing"
   "/applications/{application_id}":
     get:
       summary: Get a single application
@@ -217,6 +219,20 @@ components:
                 example:
                   - error: Unauthorized
                     message: Please provide a valid authentication token
+    ParameterMissing:
+      description: A required URL parameter was empty or missing
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Error"
+                example:
+                  - error: ParameterMissing
+                    message: "param is missing or the value is empty: parameter_name"
   schemas:
     Application:
       type: object
