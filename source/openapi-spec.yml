@@ -22,15 +22,6 @@ paths:
           schema:
             type: string
             format: date-time
-        - name: order
-          description: Specify how the returned applications are to be sorted. If missing, defaults to newest_first
-          in: query
-          schema:
-            type: string
-            default: newest_first
-            enum:
-              - newest_first
-              - oldest_first
         - name: provider_ucas_code
           description: UCAS Provider Code to uniquely identify a provider
           in: query
