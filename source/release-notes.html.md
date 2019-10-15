@@ -5,6 +5,16 @@ weight: 200
 
 # Release notes
 
+### Unreleased Changes
+- Add Development, Test and Vendor Sandbox enviroment details to [api info](/reference/#api-info) page.
+- Add [/test-data/regenerate](/reference/#post-test-data-regenerate) endpoint.
+- Add [single application](/reference/#singleapplicationresponse) and [multiple applications](/reference/#multipleapplicationsresponse) response schemas.
+- Add `422` error response to `POST` endpoints including:
+    - [offer](/reference/#post-applications-application-id-offer)
+    - [confirm enrolment](/reference/#post-applications-application-id-confirm-enrolment)
+    - [confirm conditions met](/reference/#post-applications-application-id-confirm-conditions-met)
+    - [reject](/reference/#post-applications-application-id-reject)
+
 ### Release 0.4.0 - 26 September 2019
 
 Changes to the data:
