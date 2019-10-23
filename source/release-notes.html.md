@@ -6,6 +6,7 @@ weight: 200
 # Release notes
 
 ### Unreleased Changes
+- Add [limits](/reference/#rate-limits) section to give details around api rate limiting.
 - Add Development, Test and Vendor Sandbox enviroment details to [api info](/reference/#api-info) page.
 - Add [/test-data/regenerate](/reference/#post-test-data-regenerate) endpoint.
 - Add [single application](/reference/#singleapplicationresponse) and [multiple applications](/reference/#multipleapplicationsresponse) response schemas.
