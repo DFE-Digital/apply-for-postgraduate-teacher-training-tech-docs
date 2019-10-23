@@ -17,4 +17,13 @@ Swagger Editor</a> to try it out.
 4. Enter the following URL: `apply-for-postgraduate-teacher-training-tech-docs.cloudapps.digital/openapi-spec.yml`
 5. Click on **OK**
 
+
+## Rate limits
+
+You are limited to 120 requests per minute. 
+
+This limit is calculated on a rolling basis, per API key. 
+If you exceed the limit, you will get a `429` error `RateLimitError`.
+
+
 <%= GovukTechDocs::ApiReference::Display.new('source/openapi-spec.yml').render %>
