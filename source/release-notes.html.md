@@ -42,6 +42,7 @@ Additional changes:
 
 - Add [limits](/reference/#rate-limits) section to give details around api rate limiting.
 - Add Development and Vendor Sandbox enviroment details to [api info](/reference/#api-info) page.
+- Add Authentication and Metadata sections to the API Reference
 
 ### Release 0.4.0 - 26 September 2019
 

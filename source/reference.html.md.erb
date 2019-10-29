@@ -17,7 +17,6 @@ Swagger Editor</a> to try it out.
 4. Enter the following URL: `apply-for-postgraduate-teacher-training-tech-docs.cloudapps.digital/openapi-spec.yml`
 5. Click on **OK**
 
-
 ## Rate limits
 
 You are limited to 120 requests per minute. 
@@ -25,5 +24,23 @@ You are limited to 120 requests per minute.
 This limit is calculated on a rolling basis, per API key. 
 If you exceed the limit, you will get a `429` error `RateLimitError`.
 
+## Authentication
+
+All requests must be accompanied by an `Authorization` header in the following format:
+
+```
+Authorization: Bearer {token}
+```
+
+Unauthenticated requests will receive an `UnauthorizedResponse` (see below)
+with a `401` status code.
+
+## Metadata
+
+Every API call on an unsafe HTTP method such as POST or PUT must include a
+`meta` key in the JSON body, containing the timestamp and some attribution
+metadata showing who performed the action. The schema for this metadata object
+can be found under `TimestampAndAttribution`, below. If this data is not
+present the API will return `422` with an appropriate error message.
 
 <%= GovukTechDocs::ApiReference::Display.new('source/openapi-spec.yml').render %>
