@@ -26,6 +26,9 @@ Changes to the data:
 - Change `WorkExperience` schema, adding `working_with_children` boolean and
   `commitment` (part/full time) and increasing the length of the `description`
   field
+- Change `Reference` schema, adding `confirms_safe_to_work_with_children` and
+  `phone_number`, renaming `content` to `reference` and removing
+  `reference_type` and `reason_for_character_reference`
 
 Changes to functionality:
 
