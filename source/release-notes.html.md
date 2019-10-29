@@ -5,9 +5,10 @@ weight: 200
 
 # Release notes
 
-### Unreleased Changes
+### Release 0.8.0 - 29 October 2019
 
 Changes to the data:
+
 - Application statuses: remove `declined` and add `unsubmitted`
 - Remove `provider_ucas_code` URL param on GET requests (only applications for
   the currently authenticated provider will be returned)
@@ -22,7 +23,7 @@ Changes to the data:
 - Add `english_main_language`, `english_language_qualifications`,
   `other_languages` and `disability_disclosure` to `Candidate` schema
 - Rename `location_ucas_code` to `site_ucas_code`
-- Update `WorkExperience` schema, adding `working_with_children` boolean and
+- Change `WorkExperience` schema, adding `working_with_children` boolean and
   `commitment` (part/full time) and increasing the length of the `description`
   field
 
