@@ -6,15 +6,41 @@ weight: 200
 # Release notes
 
 ### Unreleased Changes
-- Add [limits](/reference/#rate-limits) section to give details around api rate limiting.
-- Add Development, Test and Vendor Sandbox enviroment details to [api info](/reference/#api-info) page.
+
+Changes to the data:
+- Application statuses: remove `declined` and add `unsubmitted`
+- Remove `provider_ucas_code` URL param on GET requests (only applications for
+  the currently authenticated provider will be returned)
+- Add `futher_information` key to `ApplicationAttributes`
+- Rename `work_experiences` array to `work_experience` object in
+  `ApplicationAttributes` and add properties `jobs` and `volunteering`
+- Change `qualifications` key to an object with with properties `gcses`,
+  `degrees` and `other`
+- Change `Qualification` schema, grouping `place_of_study`,
+  `awarding_body_country` and `awarding_body_name` in a single string
+  `institution_details`.
+- Add `english_main_language`, `english_language_qualifications`,
+  `other_languages` and `disability_disclosure` to `Candidate` schema
+- Rename `location_ucas_code` to `site_ucas_code`
+- Update `WorkExperience` schema, adding `working_with_children` boolean and
+  `commitment` (part/full time) and increasing the length of the `description`
+  field
+
+Changes to functionality:
+
 - Add [/test-data/regenerate](/reference/#post-test-data-regenerate) endpoint.
-- Add [single application](/reference/#singleapplicationresponse) and [multiple applications](/reference/#multipleapplicationsresponse) response schemas.
+- Add [single application](/reference/#singleapplicationresponse) and [multiple
+  applications](/reference/#multipleapplicationsresponse) response schemas.
 - Add `422` error response to `POST` endpoints including:
     - [offer](/reference/#post-applications-application-id-offer)
     - [confirm enrolment](/reference/#post-applications-application-id-confirm-enrolment)
     - [confirm conditions met](/reference/#post-applications-application-id-confirm-conditions-met)
     - [reject](/reference/#post-applications-application-id-reject)
+
+Additional changes:
+
+- Add [limits](/reference/#rate-limits) section to give details around api rate limiting.
+- Add Development and Vendor Sandbox enviroment details to [api info](/reference/#api-info) page.
 
 ### Release 0.4.0 - 26 September 2019
 
