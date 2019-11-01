@@ -10,6 +10,7 @@ module GovukTechDocs
         @template_operation = get_renderer('operation.html.erb')
         @template_parameters = get_renderer('parameters.html.erb')
         @template_responses = get_renderer('responses.html.erb')
+        @template_arguments = get_renderer('arguments.html.erb')
       end
 
       def render_api_reference
@@ -33,6 +34,24 @@ module GovukTechDocs
         end
 
         @template_schema.result(binding)
+      end
+
+      def render_argument_block(schema_name, schema)
+        properties = []
+
+        if schema["allOf"]
+          schema["allOf"].each do |schema_nested|
+            schema_nested.properties.each do |property|
+              properties << property
+            end
+          end
+        end
+
+        schema.properties.each do |property|
+          properties << property
+        end
+
+        @template_arguments.result(binding)
       end
 
       # This method is called by the templates via `binding`
