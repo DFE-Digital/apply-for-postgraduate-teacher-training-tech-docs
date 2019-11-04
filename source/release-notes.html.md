@@ -7,7 +7,10 @@ weight: 200
 
 ### Unreleased
 
-- Update tech docs to display request body schema details. 
+- Update tech docs to display request body schema details.
+
+Changes to data:
+- Remove date from Rejection schema
 
 ### Release 0.8.0 - 29 October 2019
 
