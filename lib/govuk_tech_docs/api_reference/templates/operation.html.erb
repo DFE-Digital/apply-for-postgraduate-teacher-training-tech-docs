@@ -21,13 +21,10 @@
 
   <pre><code><%= example %></code></pre>
 
-### Arguments
+### Request body schema
  <% operation.request_body.content['application/json'].schema.properties.each do |prop_name, prop| %>
         <%= render_argument_block(prop_name, prop) %>
-        <% puts "Argument name: #{prop_name}" %>
         <% prop.properties.each do |property_name, property| %>
-          <% puts "Property name: #{property_name}" %>
-          <% puts property.properties if  prop_name == 'meta' %>
           <%= render_argument_block(property_name, property) %>
         <% end %>
       <% end %>
