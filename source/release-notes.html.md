@@ -5,6 +5,10 @@ weight: 200
 
 # Release notes
 
+### Unreleased
+
+- Update tech docs to display request body schema details. 
+
 ### Release 0.8.0 - 29 October 2019
 
 Changes to the data:

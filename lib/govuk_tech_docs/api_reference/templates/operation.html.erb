@@ -18,7 +18,16 @@
      example = render_schema_example_as_json_block(operation.request_body.content['application/json'].schema)
    end
  end %>
- <pre><code><%= example %></code></pre>
+
+  <pre><code><%= example %></code></pre>
+
+### Request body schema
+ <% operation.request_body.content['application/json'].schema.properties.each do |prop_name, prop| %>
+        <%= render_argument_block(prop_name, prop) %>
+        <% prop.properties.each do |property_name, property| %>
+          <%= render_argument_block(property_name, property) %>
+        <% end %>
+      <% end %>
 <% end %>
 
 <%= responses_html %>
