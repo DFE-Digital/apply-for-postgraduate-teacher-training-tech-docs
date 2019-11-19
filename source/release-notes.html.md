@@ -11,6 +11,14 @@ weight: 200
 
 Changes to data:
 - Remove date from Rejection schema
+- Add `declined` status for application
+- Add `offer` status for application
+- Remove `conditional_offer` and `unconditional_offer` statuses from application
+- Add `awaiting_provider_decision` status for application
+- Add `pending_conditions` status for application
+- Remove `meeting_conditions` status from application
+- Add `withdrawn` status to application
+- Remove `unsubmitted` and `application_complete` statuses from application
 
 ### Release 0.8.0 - 29 October 2019
 
