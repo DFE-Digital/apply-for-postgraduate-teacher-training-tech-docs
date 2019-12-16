@@ -1,9 +1,4 @@
 language: ruby
-cache: bundler
-before_install:
-  - gem install bundler
-script:
-  - bundle exec rspec && bundle exec middleman build --verbose
 deploy:
   provider: cloudfoundry
   api: https://api.cloud.service.gov.uk
