@@ -1,4 +1,6 @@
 language: ruby
+script:
+  - echo "skipping tests! we don't have any anymore"
 deploy:
   provider: cloudfoundry
   api: https://api.cloud.service.gov.uk
