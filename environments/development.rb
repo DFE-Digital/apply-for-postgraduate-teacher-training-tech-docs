@@ -1,1 +1,0 @@
-GovukTechDocs.configure(self)

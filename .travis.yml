@@ -1,9 +1,6 @@
 language: ruby
-cache: bundler
-before_install:
-  - gem install bundler
 script:
-  - bundle exec rspec && bundle exec middleman build --verbose
+  - echo "skipping tests! we don't have any anymore"
 deploy:
   provider: cloudfoundry
   api: https://api.cloud.service.gov.uk
