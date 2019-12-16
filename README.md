@@ -1,70 +1,6 @@
-# Technical Documentation for the ’Apply for postgraduate teacher training’ service
+# [ARCHIVED] Apply for teacher training API docs
 
-This documentation uses the [Tech Docs Template][template], which is a [Middleman template][mmt] that you can use to build technical documentation using a GOV.UK style.
-
-## Making changes
-
-To make changes to the documentation, edit files in the `source` folder of this repository.
-
-You can add content by editing the `.html.md.erb` files. These files support content in:
-
-- Markdown
-- HTML
-- Ruby
-
-👉 You can use Markdown and HTML to [generate different content types][example-content] and [Ruby partials to manage content][partials].
-
-👉 Learn more about [producing more complex page structures][multipage] for your website.
-
-## Preview your changes locally
-
-To preview your new website locally, navigate to your project folder and run:
-
-```sh
-bundle exec middleman server
-```
-
-👉 See the generated website on `http://localhost:4567` in your browser. Any content changes you make to your website will be updated in real time.
-
-To shut down the Middleman instance running on your machine, use `ctrl+C`.
-
-If you make changes to the `config/tech-docs.yml` configuration file, you need to restart Middleman to see the changes.
-
-## Build
-
-To build the HTML pages from content in your `source` folder, run:
-
-```
-bundle exec middleman build
-```
-
-Every time you run this command, the `build` folder gets generated from scratch. This means any changes to the `build` folder that are not part of the build command will get overwritten.
-
-## Deploy
-
-To deploy, create a Pull Request to merge new commits from `master` into the `deploy-to-production` branch. You can [use this compare link to create the PR](https://github.com/DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs/compare/deploy-to-production...master).
-
-Once your PR is merged Travis will automatically deploy the changes.
-
-### Release notes
-
-Each deploy should be accompanied by an update to the release notes.
-
-We only add:
-
-- Functionality changes like https://github.com/DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs/pull/31 and https://github.com/DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs/pull/23. These are most important and should always be on the top.
-- Clarifications that might impact assumptions of vendors like https://github.com/DFE-Digital/apply-for-postgraduate-teacher-training-tech-docs/pull/27. These are less important and go into a "Additional changes" section.
-
-We don't include the following in the release notes:
-
-- Typo fixes, unless the typo is significant and could cause confusion or misunderstanding
-- Internal work like gem upgrades
-
-## Troubleshooting
-
-Run `bundle update` to make sure you're using the most recent Ruby gem versions.
-
-Run `bundle exec middleman build --verbose` to get detailed error messages to help with finding the problem.
+This repo used to contain the API docs for the [Apply for teacher training service](https://github.com/DFE-Digital/apply-for-postgraduate-teacher-training). The docs have now been [integrated into the main repo](https://www.apply-for-teacher-training.education.gov.uk/api-docs).
 
 ## Licence
 
@@ -76,14 +12,3 @@ The documentation is [© Crown copyright][copyright] and available under the ter
 [mit]: LICENCE
 [copyright]: http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/
 [ogl]: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
-[mmt]: https://middlemanapp.com/advanced/project_templates/
-[tdt-docs]: https://tdt-documentation.london.cloudapps.digital
-[config]: https://tdt-documentation.london.cloudapps.digital/configuration-options.html#configuration-options
-[frontmatter]: https://tdt-documentation.london.cloudapps.digital/frontmatter.html#frontmatter
-[multipage]: https://tdt-documentation.london.cloudapps.digital/multipage.html#build-a-multipage-site
-[example-content]: https://tdt-documentation.london.cloudapps.digital/content.html#content-examples
-[partials]: https://tdt-documentation.london.cloudapps.digital/single_page.html#add-partial-lines
-[install-ruby]: https://tdt-documentation.london.cloudapps.digital/install_macs.html#install-ruby
-[install-middleman]: https://tdt-documentation.london.cloudapps.digital/install_macs.html#install-middleman
-[gem]: https://github.com/alphagov/tech-docs-gem
-[template]: https://github.com/alphagov/tech-docs-template

@@ -1,7 +1,7 @@
 ---
 applications:
 - name: apply-for-postgraduate-teacher-training-tech-docs
-  memory: 64M
-  instances: 2
+  memory: 32M
+  instances: 1
   path: ./build
   buildpack: staticfile_buildpack
