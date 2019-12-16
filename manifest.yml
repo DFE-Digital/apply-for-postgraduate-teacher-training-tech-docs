@@ -4,4 +4,4 @@ applications:
   memory: 32M
   instances: 1
   path: ./build
-  buildpacks: staticfile_buildpack
+  buildpack: staticfile_buildpack
